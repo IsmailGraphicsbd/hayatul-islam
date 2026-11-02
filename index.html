@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -6,6 +7,7 @@
 <meta name="theme-color" content="#063b2e">
 <meta name="description" content="হায়াতুল ইসলাম — প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।">
 <title>হায়াতুল ইসলাম | প্রতিদিনের দ্বীনি জীবন</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
@@ -229,6 +231,7 @@ transition:.25s;animation:fadeUp .6s both
 .grid{display:grid;gap:16px}
 .two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
 .three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+
 .date-card{
 display:flex;align-items:center;justify-content:space-between;
 flex-wrap:wrap;gap:18px;
@@ -236,33 +239,97 @@ background:linear-gradient(120deg,var(--surface),var(--surface2))
 }
 .date-card h3{font-size:21px}
 .hijri{color:var(--green2);font-size:18px}
-.district-control{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-select{
-background:var(--surface);color:var(--text);
-border:1px solid var(--border);border-radius:10px;
-padding:10px 12px;max-width:100%
+
+/* PREMIUM PRAYER SECTION */
+.location-panel{
+display:flex;align-items:center;gap:12px;
+min-width:min(100%,290px);
+padding:12px 15px;
+border:1px solid var(--border);
+background:var(--surface);
+border-radius:15px
+}
+.location-mark{
+width:43px;height:43px;flex-shrink:0;
+display:grid;place-items:center;
+border-radius:13px;
+background:var(--surface2);color:var(--green2)
+}
+.location-copy{display:grid;gap:2px;min-width:0}
+.location-label{font-size:12px;color:var(--muted)}
+.location-copy strong{
+font-size:16px;color:var(--green2);
+overflow-wrap:anywhere
+}
+.location-copy small{font-size:11px;color:var(--muted)}
+.location-refresh{
+margin-left:auto;flex-shrink:0;
+width:38px;height:38px;border:0;
+border-radius:11px;background:var(--surface2);
+color:var(--green2);display:grid;place-items:center
+}
+.location-refresh svg{width:19px;height:19px}
+.prayer-livebar{
+display:flex;align-items:center;justify-content:center;
+gap:9px;flex-wrap:wrap;margin:16px 0;
+color:var(--muted);font-size:13px
+}
+.live-dot{
+width:8px;height:8px;border-radius:50%;
+background:#20ad75;box-shadow:0 0 0 5px #20ad7520
 }
 .prayer-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-.prayer-item{text-align:center;padding:18px 8px}
+.prayer-item{
+position:relative;text-align:center;padding:20px 8px;
+overflow:hidden
+}
 .prayer-icon{
 width:43px;height:43px;margin:0 auto 10px;
 display:grid;place-items:center;border-radius:14px;
 background:var(--surface2);color:var(--green2)
 }
+.prayer-item h3{font-size:17px}
 .prayer-time{
-font-size:22px;font-weight:700;
-color:var(--green2);margin-top:5px
+font-size:21px;font-weight:700;
+color:var(--green2);margin-top:7px
+}
+.prayer-item.active-prayer{
+background:linear-gradient(145deg,#063b2e,#087f5b);
+border-color:var(--gold);color:white;
+box-shadow:0 12px 30px #063b2e35
+}
+.prayer-item.active-prayer h3,
+.prayer-item.active-prayer .prayer-time{color:#fff}
+.prayer-item.active-prayer .prayer-icon{
+background:#ffffff20;color:#f1d68d
+}
+.prayer-item.active-prayer:after{
+content:"চলতি ওয়াক্ত";
+display:block;margin-top:8px;
+font-size:11px;color:#f1d68d
+}
+.prayer-status{
+text-align:center;margin-top:12px;
+color:var(--muted);font-size:13px
 }
 .next-card{
-background:linear-gradient(100deg,#063b2e,#0b7855);
-color:white;text-align:center;padding:25px
+position:relative;overflow:hidden;
+border:1px solid #d9b45b80;
+background:
+radial-gradient(circle at 10% 0%,#ffffff18,transparent 35%),
+linear-gradient(120deg,#052e24,#087653);
+color:#fff;text-align:center;padding:27px
 }
-.next-card h3{color:#f1d68d;font-size:22px}
+.next-card h3{color:#f1d68e;font-size:21px}
+.next-card #nextPrayerName{
+font-size:19px;font-weight:600;margin-top:8px
+}
 .countdown{
 font-size:clamp(30px,7vw,43px);
 font-weight:700;letter-spacing:2px;margin:8px
 }
 .next-card p{color:#d7e9dd}
+
 .info-card h3{
 display:flex;align-items:center;gap:9px;
 color:var(--green2);margin-bottom:12px
@@ -388,6 +455,7 @@ to{opacity:1;transform:translateY(0)}
 .three-col{grid-template-columns:repeat(2,minmax(0,1fr))}
 .two-col{grid-template-columns:1fr}
 .brand-name{font-size:19px}
+.location-panel{width:100%}
 }
 @media(max-width:390px){
 .hero-art{min-height:220px}
@@ -484,157 +552,66 @@ scroll-behavior:auto!important
 <span>দৈনিক আমল</span>
 </div>
 </div>
-
-
-</div>
 </div>
 </div>
 </section>
 
-
-
-
-  
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
+<!-- PREMIUM PRAYER SECTION -->
 <section class="section" id="prayer">
-
-
-  
 <div class="container">
+
 <div class="section-heading">
 <h2>নামাজের সময়সূচি</h2>
-<p>হানাফি মাজহাব অনুযায়ী আসরের সময়</p>
+<p>তোমার বর্তমান অবস্থান অনুযায়ী আজকের নামাজের সময়</p>
 </div>
 
-
-
-
-
-
-  
-<div class="grid prayer-grid" id="prayerGrid">
-<div class="card prayer-item"><h3>ফজর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>যোহর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>আসর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>মাগরিব</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>ইশা</h3><div class="prayer-time">--:--</div></div>
-
-<p class="muted small" id="apiStatus" style="text-align:center;margin-top:12px">নামাজের সময় লোড হচ্ছে...</p>
-
-
-  
-
-</div>
-
-</section>
-
-<section class="section">
-<div class="container">
 <div class="card date-card">
 <div>
 <h3 id="todayDate">আজকের তারিখ</h3>
 <div class="hijri" id="hijriDate">হিজরি তারিখ</div>
 <div class="muted small" id="englishDate"></div>
 </div>
-<div class="district-control">
-<svg style="color:var(--green2)"><use href="#i-location"/></svg>
-<label for="district">জেলা:</label>
-<select id="district">
-<option value="Dhaka">ঢাকা</option>
-<option value="Bagerhat">বাগেরহাট</option>
-<option value="Bandarban">বান্দরবান</option>
-<option value="Barguna">বরগুনা</option>
-<option value="Barishal">বরিশাল</option>
-<option value="Bhola">ভোলা</option>
-<option value="Bogura">বগুড়া</option>
-<option value="Brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
-<option value="Chandpur">চাঁদপুর</option>
-<option value="Chapainawabganj">চাঁপাইনবাবগঞ্জ</option>
-<option value="Chattogram">চট্টগ্রাম</option>
-<option value="Chuadanga">চুয়াডাঙ্গা</option>
-<option value="Cumilla">কুমিল্লা</option>
-<option value="Cox's Bazar">কক্সবাজার</option>
-<option value="Dinajpur">দিনাজপুর</option>
-<option value="Faridpur">ফরিদপুর</option>
-<option value="Feni">ফেনী</option>
-<option value="Gaibandha">গাইবান্ধা</option>
-<option value="Gazipur">গাজীপুর</option>
-<option value="Gopalganj">গোপালগঞ্জ</option>
-<option value="Habiganj">হবিগঞ্জ</option>
-<option value="Jamalpur">জামালপুর</option>
-<option value="Jashore">যশোর</option>
-<option value="Jhalokati">ঝালকাঠি</option>
-<option value="Jhenaidah">ঝিনাইদহ</option>
-<option value="Joypurhat">জয়পুরহাট</option>
-<option value="Khagrachhari">খাগড়াছড়ি</option>
-<option value="Khulna">খুলনা</option>
-<option value="Kishoreganj">কিশোরগঞ্জ</option>
-<option value="Kurigram">কুড়িগ্রাম</option>
-<option value="Kushtia">কুষ্টিয়া</option>
-<option value="Lakshmipur">লক্ষ্মীপুর</option>
-<option value="Lalmonirhat">লালমনিরহাট</option>
-<option value="Madaripur">মাদারীপুর</option>
-<option value="Magura">মাগুরা</option>
-<option value="Manikganj">মানিকগঞ্জ</option>
-<option value="Meherpur">মেহেরপুর</option>
-<option value="Moulvibazar">মৌলভীবাজার</option>
-<option value="Munshiganj">মুন্সীগঞ্জ</option>
-<option value="Mymensingh">ময়মনসিংহ</option>
-<option value="Naogaon">নওগাঁ</option>
-<option value="Narail">নড়াইল</option>
-<option value="Narayanganj">নারায়ণগঞ্জ</option>
-<option value="Narsingdi">নরসিংদী</option>
-<option value="Natore">নাটোর</option>
-<option value="Netrokona">নেত্রকোনা</option>
-<option value="Nilphamari">নীলফামারী</option>
-<option value="Noakhali">নোয়াখালী</option>
-<option value="Pabna">পাবনা</option>
-<option value="Panchagarh">পঞ্চগড়</option>
-<option value="Patuakhali">পটুয়াখালী</option>
-<option value="Pirojpur">পিরোজপুর</option>
-<option value="Rajbari">রাজবাড়ী</option>
-<option value="Rajshahi">রাজশাহী</option>
-<option value="Rangamati">রাঙামাটি</option>
-<option value="Rangpur">রংপুর</option>
-<option value="Satkhira">সাতক্ষীরা</option>
-<option value="Shariatpur">শরীয়তপুর</option>
-<option value="Sherpur">শেরপুর</option>
-<option value="Sirajganj">সিরাজগঞ্জ</option>
-<option value="Sunamganj">সুনামগঞ্জ</option>
-<option value="Sylhet">সিলেট</option>
-<option value="Tangail">টাঙ্গাইল</option>
-<option value="Thakurgaon">ঠাকুরগাঁও</option>
-</select>
+
+<div class="location-panel">
+<div class="location-mark">
+<svg><use href="#i-location"/></svg>
+</div>
+<div class="location-copy">
+<span class="location-label">তোমার বর্তমান অবস্থান</span>
+<strong id="locationName">অবস্থান শনাক্ত হচ্ছে...</strong>
+<small id="locationAccuracy">লোকেশন অনুমতির অপেক্ষায়</small>
+</div>
+<button class="location-refresh" id="refreshLocation" type="button" aria-label="লোকেশন আবার শনাক্ত করো">
+<svg><use href="#i-repeat"/></svg>
+</button>
 </div>
 </div>
-</div> 
 
+<div class="prayer-livebar">
+<span class="live-dot"></span>
+<span id="prayerLocationLabel">অবস্থান শনাক্ত হচ্ছে</span>
+<span id="prayerClock">--:--:--</span>
+</div>
 
-</section>
-  
+<div class="grid prayer-grid" id="prayerGrid">
+<div class="card prayer-item"><div class="prayer-icon"><svg><use href="#i-moon"/></svg></div><h3>ফজর</h3><div class="prayer-time">--:--</div></div>
+<div class="card prayer-item"><div class="prayer-icon"><svg><use href="#i-sun"/></svg></div><h3>যোহর</h3><div class="prayer-time">--:--</div></div>
+<div class="card prayer-item"><div class="prayer-icon"><svg><use href="#i-sun"/></svg></div><h3>আসর</h3><div class="prayer-time">--:--</div></div>
+<div class="card prayer-item"><div class="prayer-icon"><svg><use href="#i-sun"/></svg></div><h3>মাগরিব</h3><div class="prayer-time">--:--</div></div>
+<div class="card prayer-item"><div class="prayer-icon"><svg><use href="#i-moon"/></svg></div><h3>ইশা</h3><div class="prayer-time">--:--</div></div>
+</div>
 
+<p class="prayer-status" id="apiStatus">নামাজের সময় লোড হচ্ছে...</p>
 
-<div class="card next-card" style="margin-top:0px">
+<div class="card next-card" style="margin-top:18px">
 <h3>পরবর্তী নামাজ</h3>
 <div id="nextPrayerName">সময় নির্ধারণ হচ্ছে</div>
 <div class="countdown" id="countdown">--:--:--</div>
 <p>পরবর্তী নামাজের বাকি সময়</p>
 </div>
+
 </div>
-  
+</section>
 
 <section class="section" id="forbidden">
 <div class="container">
@@ -853,7 +830,6 @@ alt="মোঃ ইসমাইল হোসেনের ছবি">
 
 <script>
 // নিজের লোগো বদলাতে শুধু নিচের URL পরিবর্তন করো।
-// খালি রাখলে ডেমো মসজিদ আইকন থাকবে।
 const SITE_LOGO_URL = "";
 
 function applySiteLogo(){
@@ -872,6 +848,7 @@ applySiteLogo();
 const $=id=>document.getElementById(id);
 const banglaDigits=v=>String(v).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
 
+// Drawer
 const drawer=$("drawer");
 const backdrop=$("backdrop");
 const menuBtn=$("menuBtn");
@@ -903,7 +880,7 @@ document.addEventListener("keydown",e=>{
 if(e.key==="Escape")closeDrawer()
 });
 
-// Theme switch
+// Theme
 const savedTheme=localStorage.getItem("hayatulTheme");
 if(savedTheme==="dark")document.body.classList.add("dark");
 
@@ -923,7 +900,7 @@ document.body.classList.contains("dark")?"dark":"light"
 updateThemeIcon();
 });
 
-// Date display
+// Date
 function updateDates(){
 const n=new Date();
 
@@ -949,8 +926,11 @@ $("year").textContent=n.getFullYear();
 }
 updateDates();
 
-// Prayer time system
+// PREMIUM AUTOMATIC LOCATION PRAYER SYSTEM
 let prayerData=null;
+let currentCoordinates=null;
+let currentLocationName="ঢাকা";
+let locationRequestNumber=0;
 
 const prayerNames={
 Fajr:"ফজর",
@@ -963,7 +943,7 @@ Isha:"ইশা"
 function timeToMinutes(t){
 if(!t)return null;
 const m=String(t).match(/(\d{1,2}):(\d{2})/);
-return m?+m[1]*60 + +m[2]:null;
+return m?Number(m[1])*60+Number(m[2]):null;
 }
 
 function clockFromMinutes(n){
@@ -986,27 +966,77 @@ String(m).padStart(2,"0")
 )+(h<12?" পূর্বাহ্ণ":" অপরাহ্ণ");
 }
 
-function dhakaNowMinutes(){
-const p=new Intl.DateTimeFormat("en-GB",{
+// Bangladesh local clock
+function dhakaNowParts(){
+const parts=new Intl.DateTimeFormat("en-GB",{
 timeZone:"Asia/Dhaka",
 hour:"2-digit",
 minute:"2-digit",
+second:"2-digit",
 hourCycle:"h23"
 }).formatToParts(new Date());
 
-return +p.find(x=>x.type==="hour").value*60+
-+p.find(x=>x.type==="minute").value;
+const get=k=>Number(parts.find(p=>p.type===k).value);
+return {hour:get("hour"),minute:get("minute"),second:get("second")};
+}
+
+function dhakaNowMinutes(){
+const p=dhakaNowParts();
+return p.hour*60+p.minute;
+}
+
+function getDhakaDateString(){
+const p=new Intl.DateTimeFormat("en-GB",{
+timeZone:"Asia/Dhaka",
+day:"2-digit",month:"2-digit",year:"numeric"
+}).formatToParts(new Date());
+
+const get=k=>p.find(x=>x.type===k).value;
+return get("day")+"-"+get("month")+"-"+get("year");
+}
+
+function updatePrayerHighlight(){
+if(!prayerData)return;
+
+const now=dhakaNowMinutes();
+const order=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+let active=null;
+
+for(let i=0;i<order.length;i++){
+const current=timeToMinutes(prayerData[order[i]]);
+const next=i<order.length-1
+?timeToMinutes(prayerData[order[i+1]])
+:1440;
+
+if(current!==null && now>=current && now<next){
+active=order[i];
+}
+}
+
+// ইশার পর থেকে ফজর পর্যন্ত ইশা চলতি ওয়াক্ত হিসেবে থাকবে
+if(active===null){
+const fajr=timeToMinutes(prayerData.Fajr);
+if(fajr!==null && now<fajr)active="Isha";
+}
+
+document.querySelectorAll(".prayer-item").forEach(el=>{
+el.classList.toggle(
+"active-prayer",
+el.dataset.prayer===active
+);
+});
 }
 
 function renderPrayer(d){
 prayerData=d;
 
 const keys=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+const icons=["#i-moon","#i-sun","#i-sun","#i-sun","#i-moon"];
 
 $("prayerGrid").innerHTML=keys.map((k,i)=>`
-<div class="card prayer-item">
+<div class="card prayer-item" data-prayer="${k}">
 <div class="prayer-icon">
-<svg><use href="${["#i-moon","#i-sun","#i-sun","#i-sun","#i-moon"][i]}"/></svg>
+<svg><use href="${icons[i]}"/></svg>
 </div>
 <h3>${prayerNames[k]}</h3>
 <div class="prayer-time">${displayTime(d[k])}</div>
@@ -1019,31 +1049,42 @@ const dhuhr=timeToMinutes(d.Dhuhr);
 const maghrib=timeToMinutes(d.Maghrib);
 const fajr=timeToMinutes(d.Fajr);
 
+if(sunrise!==null){
 $("sunriseTime").textContent=
 displayTime(d.Sunrise)+" – "+
 displayTime(clockFromMinutes(sunrise+15));
-
-$("zawalTime").textContent=
-displayTime(clockFromMinutes(dhuhr-5))+" – "+
-displayTime(clockFromMinutes(dhuhr+5));
-
-$("sunsetTime").textContent=
-displayTime(clockFromMinutes(sunset-20))+" – "+
-displayTime(d.Sunset);
 
 $("ishraqTime").textContent=
 displayTime(clockFromMinutes(sunrise+15))+" – "+
 displayTime(clockFromMinutes(sunrise+30));
 
+if(dhuhr!==null){
 $("duhaTime").textContent=
 displayTime(clockFromMinutes(sunrise+20))+" – "+
 displayTime(clockFromMinutes(dhuhr-10));
+}
+}
 
-let night=(fajr+1440-maghrib);
-let third=(maghrib+Math.floor(night*2/3))%1440;
+if(dhuhr!==null){
+$("zawalTime").textContent=
+displayTime(clockFromMinutes(dhuhr-5))+" – "+
+displayTime(clockFromMinutes(dhuhr+5));
+}
+
+if(sunset!==null){
+$("sunsetTime").textContent=
+displayTime(clockFromMinutes(sunset-20))+" – "+
+displayTime(d.Sunset);
+}
+
+if(fajr!==null && maghrib!==null){
+const night=fajr+1440-maghrib;
+const third=(maghrib+Math.floor(night*2/3))%1440;
 
 $("tahajjudTime").textContent=
-displayTime(clockFromMinutes(third))+" – "+displayTime(d.Fajr);
+displayTime(clockFromMinutes(third))+" – "+
+displayTime(d.Fajr);
+}
 
 $("awwabinTime").textContent=
 displayTime(d.Maghrib)+" এর পর – "+displayTime(d.Isha);
@@ -1052,40 +1093,167 @@ $("apiStatus").textContent=
 "সময়সূচি লোড হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নাও।";
 
 updateCountdown();
+updatePrayerHighlight();
 }
 
-async function loadPrayerTimes(){
-const city=$("district").value;
-$("apiStatus").textContent="নামাজের সময় লোড হচ্ছে...";
+async function fetchPrayerByCoordinates(lat,lon){
+const date=getDhakaDateString();
 
+const url="https://api.aladhan.com/v1/timings/"+
+date+"?latitude="+encodeURIComponent(lat)+
+"&longitude="+encodeURIComponent(lon)+
+"&method=1&school=1";
+
+const response=await fetch(url);
+if(!response.ok)throw Error("Prayer API failed");
+
+const json=await response.json();
+if(json.code!==200||!json.data||!json.data.timings){
+throw Error("Prayer data unavailable");
+}
+
+renderPrayer(json.data.timings);
+}
+
+async function getLocationName(lat,lon){
 try{
-const u="https://api.aladhan.com/v1/timingsByCity?city="+
-encodeURIComponent(city)+"&country=Bangladesh&method=1&school=1";
+const url="https://api.bigdatacloud.net/data/reverse-geocode-client?latitude="+
+encodeURIComponent(lat)+"&longitude="+
+encodeURIComponent(lon)+"&localityLanguage=bn";
 
-const r=await fetch(u);
-if(!r.ok)throw Error();
+const response=await fetch(url);
+if(!response.ok)throw Error("Location name unavailable");
 
-const j=await r.json();
-if(j.code!==200||!j.data)throw Error();
+const data=await response.json();
 
-renderPrayer(j.data.timings);
+return data.city||
+data.locality||
+data.principalSubdivision||
+data.countryName||
+"শনাক্ত করা অবস্থান";
 
 }catch(e){
-$("apiStatus").textContent=
-"সময় লোড করা যায়নি। ইন্টারনেট সংযোগ বা নির্বাচিত জেলার নাম যাচাই করো।";
+return "শনাক্ত করা অবস্থান";
 }
 }
 
-$("district").addEventListener("change",loadPrayerTimes);
-loadPrayerTimes();
+async function useCoordinates(lat,lon,source,requestId){
+currentCoordinates={lat,lon};
+
+$("locationAccuracy").textContent=source;
+$("locationName").textContent="অবস্থান শনাক্ত হয়েছে";
+$("prayerLocationLabel").textContent="অবস্থান অনুযায়ী নামাজের সময়";
+
+const name=await getLocationName(lat,lon);
+if(requestId!==locationRequestNumber)return;
+
+currentLocationName=name;
+$("locationName").textContent=name;
+$("prayerLocationLabel").textContent=name;
+
+try{
+await fetchPrayerByCoordinates(lat,lon);
+if(requestId!==locationRequestNumber)return;
+}catch(e){
+$("apiStatus").textContent=
+"নামাজের সময় আনা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";
+}
+}
+
+async function useIPLocation(requestId){
+$("locationAccuracy").textContent="আনুমানিক অবস্থান খোঁজা হচ্ছে...";
+
+try{
+const response=await fetch("https://ipwho.is/");
+if(!response.ok)throw Error("IP location unavailable");
+
+const data=await response.json();
+if(!data.success||!Number.isFinite(Number(data.latitude))||
+!Number.isFinite(Number(data.longitude))){
+throw Error("IP location failed");
+}
+
+if(requestId!==locationRequestNumber)return;
+
+const name=data.city||data.region||"আনুমানিক অবস্থান";
+currentLocationName=name;
+
+$("locationName").textContent=name;
+$("locationAccuracy").textContent="IP থেকে আনুমানিক অবস্থান";
+$("prayerLocationLabel").textContent=name+" (আনুমানিক)";
+
+await fetchPrayerByCoordinates(
+Number(data.latitude),Number(data.longitude)
+);
+
+}catch(e){
+if(requestId!==locationRequestNumber)return;
+
+$("locationName").textContent="ঢাকা (ডিফল্ট)";
+$("locationAccuracy").textContent="অবস্থান পাওয়া যায়নি";
+$("prayerLocationLabel").textContent="ঢাকা (ডিফল্ট)";
+
+currentLocationName="ঢাকা";
+currentCoordinates={lat:23.8103,lon:90.4125};
+
+try{
+await fetchPrayerByCoordinates(23.8103,90.4125);
+}catch(error){
+$("apiStatus").textContent=
+"নামাজের সময় লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";
+}
+}
+}
+
+function detectLocation(){
+const requestId=++locationRequestNumber;
+
+$("apiStatus").textContent="তোমার অবস্থান শনাক্ত করা হচ্ছে...";
+$("locationName").textContent="অবস্থান শনাক্ত হচ্ছে...";
+$("locationAccuracy").textContent="অনুমতির অপেক্ষায়";
+
+if(!navigator.geolocation){
+useIPLocation(requestId);
+return;
+}
+
+navigator.geolocation.getCurrentPosition(
+position=>{
+if(requestId!==locationRequestNumber)return;
+
+useCoordinates(
+position.coords.latitude,
+position.coords.longitude,
+"GPS লোকেশন",
+requestId
+);
+},
+()=>{
+if(requestId!==locationRequestNumber)return;
+useIPLocation(requestId);
+},
+{
+enableHighAccuracy:true,
+timeout:12000,
+maximumAge:300000
+}
+);
+}
+
+$("refreshLocation").addEventListener("click",detectLocation);
 
 function updateCountdown(){
 if(!prayerData)return;
 
 const now=dhakaNowMinutes();
+const nowParts=dhakaNowParts();
 const order=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
 
-let next=order.find(k=>timeToMinutes(prayerData[k])>now);
+let next=order.find(k=>{
+const t=timeToMinutes(prayerData[k]);
+return t!==null&&t>now;
+});
+
 let target;
 
 if(next){
@@ -1095,25 +1263,62 @@ next="Fajr";
 target=timeToMinutes(prayerData.Fajr)+1440;
 }
 
-let s=target*60-(now*60+new Date().getSeconds());
-if(s<0)s+=86400;
+let seconds=target*60-
+(now*60+nowParts.second);
 
-const h=Math.floor(s/3600);
-const m=Math.floor(s%3600/60);
-const sec=s%60;
+if(seconds<0)seconds+=86400;
+
+const h=Math.floor(seconds/3600);
+const m=Math.floor(seconds%3600/60);
+const s=seconds%60;
 
 $("nextPrayerName").textContent=prayerNames[next];
-$("countdown").textContent=[h,m,sec].map(v=>
+$("countdown").textContent=[h,m,s].map(v=>
 banglaDigits(String(v).padStart(2,"0"))
 ).join(":");
+
+updatePrayerHighlight();
 }
 
+function updatePrayerClock(){
+const now=new Date();
+
+$("prayerClock").textContent=
+new Intl.DateTimeFormat("bn-BD",{
+timeZone:"Asia/Dhaka",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit",
+hour12:true
+}).format(now);
+}
+
+updatePrayerClock();
+setInterval(updatePrayerClock,1000);
 setInterval(updateCountdown,1000);
 
+detectLocation();
+
+// নতুন দিন শুরু হলে তারিখ ও নামাজের সময় রিফ্রেশ
+let lastPrayerDate=getDhakaDateString();
+
 setInterval(()=>{
-const n=new Date();
-if(n.getHours()===0&&n.getMinutes()===1)loadPrayerTimes();
-},60000);
+const currentDate=getDhakaDateString();
+
+if(currentDate!==lastPrayerDate){
+lastPrayerDate=currentDate;
+updateDates();
+
+if(currentCoordinates){
+fetchPrayerByCoordinates(
+currentCoordinates.lat,
+currentCoordinates.lon
+).catch(()=>{
+$("apiStatus").textContent="নতুন দিনের সময়সূচি লোড করা যায়নি।";
+});
+}
+}
+},30000);
 
 // Monthly calendar
 let calendarDate=new Date();
