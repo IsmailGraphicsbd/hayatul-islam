@@ -6,114 +6,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#063b2e">
 <title>হায়াতুল ইসলাম | حَيَاةُ الْإِسْلَامِ</title>
+<meta name="description" content="হায়াতুল ইসলাম - নামাজের সময়সূচি, কুরআন, দোয়া, যিকির ও দৈনন্দিন ইসলামিক জীবন।">
+
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
- --green:#063b2e;--green2:#087f5b;--gold:#d9b45b;
- --bg:#f4f7f3;--card:#fff;--text:#17352b;--muted:#718078;
- --line:#e2eae4;--shadow:0 12px 35px #062e2010;
+ --green:#063b2e;
+ --green2:#087f5b;
+ --gold:#d9b45b;
+ --bg:#f3f7f3;
+ --card:#ffffff;
+ --text:#18372c;
+ --muted:#75847b;
+ --line:#e1eae3;
+ --shadow:0 8px 30px rgba(0,40,25,.08);
 }
 body.dark{
- --bg:#101c18;--card:#192923;--text:#edf5ef;
- --muted:#a7b8ae;--line:#2b4037;--shadow:0 12px 35px #0003;
+ --bg:#101b17;
+ --card:#192923;
+ --text:#edf5ef;
+ --muted:#a8b8ae;
+ --line:#304239;
+ --shadow:0 8px 30px #0003;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
- font-family:'Hind Siliguri',sans-serif;transition:.25s}
-a{text-decoration:none;color:inherit}
-button,select{font:inherit}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:'Hind Siliguri',sans-serif;
+ transition:background .25s,color .25s;
+}
+button,select{font-family:inherit}
+a{color:inherit;text-decoration:none}
 header{
+ position:sticky;top:0;z-index:100;
  background:linear-gradient(120deg,#052e25,#087653);
- color:white;position:sticky;top:0;z-index:50;
- box-shadow:0 5px 22px #001c1430
+ color:white;box-shadow:0 5px 22px #001c1430;
 }
-.topbar{max-width:1150px;margin:auto;padding:12px 18px;
- display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar{
+ max-width:1150px;margin:auto;padding:10px 16px;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
 .brand{display:flex;align-items:center;gap:10px}
-.logo{width:54px;height:54px;flex-shrink:0}
+.logo{width:58px;height:58px;flex-shrink:0}
 .brand-name{font-size:23px;font-weight:700;line-height:1.2}
-.brand-ar{font-family:Amiri,serif;color:#f4d88e;font-size:19px}
+.brand-ar{font:20px Amiri;color:#f4d88e}
 .actions{display:flex;gap:8px}
-.icon-btn{border:1px solid #ffffff55;background:#ffffff16;color:white;
- border-radius:12px;padding:8px 12px;cursor:pointer;font-size:19px}
-nav{border-top:1px solid #ffffff20}
-.nav-inner{max-width:1150px;margin:auto;padding:0 16px;
- display:flex;gap:22px;overflow-x:auto;white-space:nowrap}
-nav a{padding:12px 2px;font-size:15px;color:#edf8f0}
-nav a:hover{color:#f5d98e}
+.icon-btn{
+ background:#ffffff17;border:1px solid #ffffff55;
+ color:white;border-radius:12px;padding:8px 12px;
+ cursor:pointer;font-size:20px;
+}
+nav{border-top:1px solid #ffffff22}
+.nav-inner{
+ max-width:1150px;margin:auto;padding:0 15px;
+ display:flex;gap:23px;overflow-x:auto;white-space:nowrap;
+ scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+nav a{padding:11px 0;display:block;font-size:15px}
+nav a:hover{color:#f4d88e}
 .hero{
- background:linear-gradient(125deg,#063b2e,#087f5b);
- color:white;text-align:center;padding:48px 18px 55px;
- position:relative;overflow:hidden
+ background:linear-gradient(125deg,#052e25,#087f5b);
+ color:white;text-align:center;padding:45px 16px 58px;
+ position:relative;overflow:hidden;
 }
-.hero:before,.hero:after{content:"۞";position:absolute;
- color:#ffffff0c;font-size:170px}
-.hero:before{left:2%;top:-35px}.hero:after{right:2%;bottom:-70px}
-.hero h1{font-size:clamp(28px,5vw,45px);margin:0 0 8px}
-.hero .arabic{font:30px Amiri;color:#f4d88e}
-.hero p{color:#e1eee6;margin:8px 0 0}
+.hero:before,.hero:after{
+ content:"۞";position:absolute;color:#ffffff0c;font-size:180px;
+}
+.hero:before{left:3%;top:-45px}
+.hero:after{right:3%;bottom:-80px}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:clamp(30px,5vw,46px);margin:0}
+.hero .arabic{font:34px Amiri;color:#f4d88e}
+.hero p{margin:7px 0;color:#e3f1e8}
 .container{max-width:1100px;margin:28px auto;padding:0 16px}
-.section-title{font-size:24px;margin:0 0 16px}
-.date-card,.prayer-card,.feature,.info-card{
+.section{margin-top:35px}
+.section-title{font-size:24px;margin:0 0 15px}
+.date-card,.info-card,.feature,.prayer-item{
  background:var(--card);border:1px solid var(--line);
- border-radius:18px;box-shadow:var(--shadow);padding:18px
+ border-radius:17px;box-shadow:var(--shadow);
 }
-.date-card{display:flex;justify-content:space-between;gap:12px;
- flex-wrap:wrap;align-items:center;margin-top:-24px;position:relative}
-.date-main{font-size:19px;font-weight:600}
+.date-card{
+ display:flex;justify-content:space-between;align-items:center;
+ flex-wrap:wrap;gap:14px;padding:18px;
+ margin-top:-25px;position:relative;z-index:2;
+}
+.date-main{font-size:20px;font-weight:600}
 .muted{color:var(--muted);font-size:14px}
-.location{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-select{background:var(--card);color:var(--text);border:1px solid var(--line);
- padding:9px 12px;border-radius:10px;max-width:100%}
-.prayer-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.prayer-item{background:var(--card);border:1px solid var(--line);
- border-radius:15px;padding:17px 8px;text-align:center}
-.prayer-item.active{background:#087653;color:white;border-color:#087653}
-.prayer-item .pname{font-size:15px}
-.prayer-item .ptime{font-size:20px;font-weight:700;margin-top:7px}
-.countdown{margin-top:16px;background:linear-gradient(120deg,#073d30,#0b7656);
- color:white;border-radius:17px;padding:20px;text-align:center}
-.countdown strong{font-size:26px;color:#f6d98d;display:block;margin-top:5px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.feature{min-height:125px;display:flex;flex-direction:column;gap:8px;
- transition:.2s}
-.feature:hover{transform:translateY(-3px);border-color:var(--gold)}
+.location{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+select{
+ padding:10px 12px;border:1px solid var(--line);
+ border-radius:10px;background:var(--card);color:var(--text);
+ max-width:100%;
+}
+.prayer-grid{
+ display:grid;grid-template-columns:repeat(6,1fr);gap:11px;
+}
+.prayer-item{text-align:center;padding:16px 5px}
+.prayer-item.active{
+ background:linear-gradient(140deg,#087f5b,#064532);
+ color:white;border-color:#087f5b;
+}
+.pname{font-size:15px}
+.ptime{font-size:20px;font-weight:700;margin-top:7px}
+.countdown{
+ margin-top:15px;padding:19px;border-radius:16px;
+ background:linear-gradient(120deg,#063b2e,#087f5b);
+ color:white;text-align:center;
+}
+.countdown strong{
+ display:block;font-size:30px;color:#f5d98d;margin-top:5px;
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.feature{padding:17px;display:flex;flex-direction:column;gap:7px}
 .feature .emoji{font-size:27px}
 .feature strong{font-size:18px}
-.feature span:last-child{font-size:13px;color:var(--muted)}
-.notice{padding:14px;border-radius:12px;background:#d9b45b18;
- border:1px solid #d9b45b55;color:var(--text);font-size:14px}
-footer{background:#052e25;color:#e6f1e9;text-align:center;padding:30px 15px;
- margin-top:45px}
-footer .ar{font:25px Amiri;color:#f4d88e}
-#status{font-size:13px;color:var(--muted);margin-top:10px}
+.feature span:last-child{font-size:14px;color:var(--muted)}
+.info-card{padding:18px}
+.notice{
+ padding:13px 15px;border-radius:12px;
+ background:#d9b45b18;border:1px solid #d9b45b66;
+ color:var(--text);font-size:14px;line-height:1.7;
+}
+.status{font-size:13px;color:var(--muted);margin-top:10px}
+.status.error{color:#d65b46}
+.status.ok{color:#16875d}
+.action-button{
+ padding:10px 17px;border:0;border-radius:10px;
+ background:var(--green2);color:white;cursor:pointer;
+}
+.counter{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.counter strong{font-size:32px;min-width:60px;text-align:center}
+.counter button{padding:9px 15px;border:0;border-radius:10px;cursor:pointer}
+footer{
+ background:#052e25;color:#e9f3eb;text-align:center;
+ padding:30px 15px;margin-top:45px;
+}
+footer .ar{font:28px Amiri;color:#f4d88e}
+footer p{font-size:14px}
 @media(max-width:760px){
  .prayer-grid{grid-template-columns:repeat(3,1fr)}
  .grid{grid-template-columns:repeat(2,1fr)}
- .hero{padding:38px 14px 48px}
+ .hero{padding:36px 14px 48px}
  .brand-name{font-size:20px}
+ .logo{width:50px;height:50px}
 }
 @media(max-width:390px){
  .grid{grid-template-columns:1fr 1fr}
- .prayer-item .ptime{font-size:17px}
+ .ptime{font-size:17px}
+ .section-title{font-size:21px}
 }
 </style>
 </head>
 
 <body>
+
 <header>
  <div class="topbar">
-  <a class="brand" href="#">
-   <svg class="logo" viewBox="0 0 100 100" aria-label="হায়াতুল ইসলাম লোগো">
-    <path d="M50 5 C37 22 13 28 13 52 C13 76 29 91 50 95 C71 91 87 76 87 52 C87 28 63 22 50 5Z"
-     fill="none" stroke="#e7c36e" stroke-width="4"/>
-    <path d="M50 17 C39 31 25 36 25 53 C25 70 36 82 50 86 C64 82 75 70 75 53 C75 36 61 31 50 17Z"
-     fill="#087f5b" stroke="#f3d98d" stroke-width="2"/>
-    <path d="M50 27 A16 16 0 1 0 65 49 A13 13 0 1 1 50 27Z" fill="#f3d98d"/>
-    <path d="M31 63 L50 52 L69 63 L69 68 L31 68Z" fill="#f3d98d"/>
-    <path d="M35 63 V76 M65 63 V76 M50 53 V76" stroke="#f3d98d" stroke-width="2"/>
-    <path d="M28 77 Q50 68 72 77" fill="none" stroke="#f3d98d" stroke-width="2"/>
+  <a href="#" class="brand">
+   <!-- নিজস্ব SVG ইসলামিক লোগো -->
+   <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="হায়াতুল ইসলাম প্রতীক">
+    <path d="M50 4C37 21 12 29 12 53C12 77 29 93 50 96C71 93 88 77 88 53C88 29 63 21 50 4Z"
+     fill="none" stroke="#e9c779" stroke-width="4"/>
+    <path d="M50 16C38 31 24 37 24 54C24 71 37 84 50 87C63 84 76 71 76 54C76 37 62 31 50 16Z"
+     fill="#087f5b" stroke="#f4d88e" stroke-width="2"/>
+    <path d="M49 24A16 16 0 1 0 66 49A13 13 0 1 1 49 24Z" fill="#f4d88e"/>
+    <path d="M29 65L50 53L71 65V70H29Z" fill="#f4d88e"/>
+    <path d="M34 65V78M50 55V78M66 65V78" stroke="#f4d88e" stroke-width="2"/>
+    <path d="M27 80Q50 69 73 80" fill="none" stroke="#f4d88e" stroke-width="2"/>
    </svg>
    <div>
     <div class="brand-name">হায়াতুল ইসলাম</div>
@@ -122,24 +184,32 @@ footer .ar{font:25px Amiri;color:#f4d88e}
   </a>
   <div class="actions">
    <button class="icon-btn" id="themeBtn" aria-label="থিম পরিবর্তন">☾</button>
-   <button class="icon-btn" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="উপরে">⌃</button>
   </div>
  </div>
- <nav><div class="nav-inner">
-  <a href="#">হোম</a><a href="#prayer">নামাজের সময়</a>
-  <a href="#calendar">ক্যালেন্ডার</a><a href="#quran">আল-কুরআন</a>
-  <a href="#amal">দৈনিক আমল</a><a href="#dua">দোয়া</a>
-  <a href="#about">পরিচিতি</a>
- </div></nav>
+ <nav>
+  <div class="nav-inner">
+   <a href="#">হোম</a>
+   <a href="#prayer">নামাজের সময়</a>
+   <a href="#forbidden">নিষিদ্ধ সময়</a>
+   <a href="#nafl">নফল নামাজ</a>
+   <a href="#calendar">ক্যালেন্ডার</a>
+   <a href="#quran">আল-কুরআন</a>
+   <a href="#amal">দৈনিক আমল</a>
+   <a href="#about">পরিচিতি</a>
+  </div>
+ </nav>
 </header>
 
 <section class="hero">
- <h1>হায়াতুল ইসলাম</h1>
- <div class="arabic">حَيَاةُ الْإِسْلَامِ</div>
- <p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
+ <div class="hero-content">
+  <h1>হায়াতুল ইসলাম</h1>
+  <div class="arabic">حَيَاةُ الْإِسْلَامِ</div>
+  <p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
+ </div>
 </section>
 
 <main class="container">
+
  <div class="date-card">
   <div>
    <div class="date-main" id="todayBn">আজকের তারিখ</div>
@@ -147,44 +217,77 @@ footer .ar{font:25px Amiri;color:#f4d88e}
    <div class="muted" id="todayHijri"></div>
   </div>
   <div class="location">
-   <label for="district">জেলা নির্বাচন:</label>
+   <label for="district">তোমার জেলা:</label>
    <select id="district">
-    <option value="Dhaka">ঢাকা</option>
-    <option value="Barguna">বরগুনা</option><option value="Barishal">বরিশাল</option>
-    <option value="Bhola">ভোলা</option><option value="Jhalokati">ঝালকাঠি</option>
-    <option value="Patuakhali">পটুয়াখালী</option><option value="Pirojpur">পিরোজপুর</option>
-    <option value="Bandarban">বান্দরবান</option><option value="Brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
-    <option value="Chandpur">চাঁদপুর</option><option value="Chattogram">চট্টগ্রাম</option>
-    <option value="Cumilla">কুমিল্লা</option><option value="Cox's Bazar">কক্সবাজার</option>
-    <option value="Feni">ফেনী</option><option value="Khagrachhari">খাগড়াছড়ি</option>
-    <option value="Lakshmipur">লক্ষ্মীপুর</option><option value="Noakhali">নোয়াখালী</option>
+    <option value="Bagerhat">বাগেরহাট</option>
+    <option value="Bandarban">বান্দরবান</option>
+    <option value="Barguna">বরগুনা</option>
+    <option value="Barishal">বরিশাল</option>
+    <option value="Bhola">ভোলা</option>
+    <option value="Bogura">বগুড়া</option>
+    <option value="Brahmanbaria">ব্রাহ্মণবাড়িয়া</option>
+    <option value="Chandpur">চাঁদপুর</option>
+    <option value="Chapainawabganj">চাঁপাইনবাবগঞ্জ</option>
+    <option value="Chattogram">চট্টগ্রাম</option>
+    <option value="Chuadanga">চুয়াডাঙ্গা</option>
+    <option value="Cumilla">কুমিল্লা</option>
+    <option value="Cox's Bazar">কক্সবাজার</option>
+    <option value="Dhaka" selected>ঢাকা</option>
+    <option value="Dinajpur">দিনাজপুর</option>
+    <option value="Faridpur">ফরিদপুর</option>
+    <option value="Feni">ফেনী</option>
+    <option value="Gaibandha">গাইবান্ধা</option>
+    <option value="Gazipur">গাজীপুর</option>
+    <option value="Gopalganj">গোপালগঞ্জ</option>
+    <option value="Habiganj">হবিগঞ্জ</option>
+    <option value="Jamalpur">জামালপুর</option>
+    <option value="Jashore">যশোর</option>
+    <option value="Jhalokati">ঝালকাঠি</option>
+    <option value="Jhenaidah">ঝিনাইদহ</option>
+    <option value="Joypurhat">জয়পুরহাট</option>
+    <option value="Khagrachhari">খাগড়াছড়ি</option>
+    <option value="Khulna">খুলনা</option>
+    <option value="Kishoreganj">কিশোরগঞ্জ</option>
+    <option value="Kurigram">কুড়িগ্রাম</option>
+    <option value="Kushtia">কুষ্টিয়া</option>
+    <option value="Lakshmipur">লক্ষ্মীপুর</option>
+    <option value="Lalmonirhat">লালমনিরহাট</option>
+    <option value="Madaripur">মাদারীপুর</option>
+    <option value="Magura">মাগুরা</option>
+    <option value="Manikganj">মানিকগঞ্জ</option>
+    <option value="Meherpur">মেহেরপুর</option>
+    <option value="Moulvibazar">মৌলভীবাজার</option>
+    <option value="Munshiganj">মুন্সিগঞ্জ</option>
+    <option value="Mymensingh">ময়মনসিংহ</option>
+    <option value="Naogaon">নওগাঁ</option>
+    <option value="Narail">নড়াইল</option>
+    <option value="Narayanganj">নারায়ণগঞ্জ</option>
+    <option value="Narsingdi">নরসিংদী</option>
+    <option value="Natore">নাটোর</option>
+    <option value="Netrokona">নেত্রকোণা</option>
+    <option value="Nilphamari">নীলফামারী</option>
+    <option value="Noakhali">নোয়াখালী</option>
+    <option value="Pabna">পাবনা</option>
+    <option value="Panchagarh">পঞ্চগড়</option>
+    <option value="Patuakhali">পটুয়াখালী</option>
+    <option value="Pirojpur">পিরোজপুর</option>
+    <option value="Rajbari">রাজবাড়ী</option>
+    <option value="Rajshahi">রাজশাহী</option>
     <option value="Rangamati">রাঙামাটি</option>
-    <option value="Faridpur">ফরিদপুর</option><option value="Gazipur">গাজীপুর</option>
-    <option value="Gopalganj">গোপালগঞ্জ</option><option value="Kishoreganj">কিশোরগঞ্জ</option>
-    <option value="Madaripur">মাদারীপুর</option><option value="Manikganj">মানিকগঞ্জ</option>
-    <option value="Munshiganj">মুন্সিগঞ্জ</option><option value="Narayanganj">নারায়ণগঞ্জ</option>
-    <option value="Narsingdi">নরসিংদী</option><option value="Rajbari">রাজবাড়ী</option>
-    <option value="Shariatpur">শরীয়তপুর</option><option value="Tangail">টাঙ্গাইল</option>
-    <option value="Bagerhat">বাগেরহাট</option><option value="Chuadanga">চুয়াডাঙ্গা</option>
-    <option value="Jashore">যশোর</option><option value="Jhenaidah">ঝিনাইদহ</option>
-    <option value="Khulna">খুলনা</option><option value="Kushtia">কুষ্টিয়া</option>
-    <option value="Magura">মাগুরা</option><option value="Meherpur">মেহেরপুর</option>
-    <option value="Narail">নড়াইল</option><option value="Satkhira">সাতক্ষীরা</option>
-    <option value="Bogura">বগুড়া</option><option value="Joypurhat">জয়পুরহাট</option>
-    <option value="Naogaon">নওগাঁ</option><option value="Natore">নাটোর</option>
-    <option value="Chapainawabganj">চাঁপাইনবাবগঞ্জ</option><option value="Pabna">পাবনা</option>
-    <option value="Rajshahi">রাজশাহী</option><option value="Sirajganj">সিরাজগঞ্জ</option>
-    <option value="Dinajpur">দিনাজপুর</option><option value="Gaibandha">গাইবান্ধা</option>
-    <option value="Kurigram">কুড়িগ্রাম</option><option value="Lalmonirhat">লালমনিরহাট</option>
-    <option value="Nilphamari">নীলফামারী</option><option value="Panchagarh">পঞ্চগড়</option>
-    <option value="Rangpur">রংপুর</option><option value="Thakurgaon">ঠাকুরগাঁও</option>
-    <option value="Habiganj">হবিগঞ্জ</option><option value="Moulvibazar">মৌলভীবাজার</option>
-    <option value="Sunamganj">সুনামগঞ্জ</option><option value="Sylhet">সিলেট</option>
+    <option value="Rangpur">রংপুর</option>
+    <option value="Satkhira">সাতক্ষীরা</option>
+    <option value="Shariatpur">শরীয়তপুর</option>
+    <option value="Sherpur">শেরপুর</option>
+    <option value="Sirajganj">সিরাজগঞ্জ</option>
+    <option value="Sunamganj">সুনামগঞ্জ</option>
+    <option value="Sylhet">সিলেট</option>
+    <option value="Tangail">টাঙ্গাইল</option>
+    <option value="Thakurgaon">ঠাকুরগাঁও</option>
    </select>
   </div>
  </div>
 
- <section id="prayer" style="margin-top:32px">
+ <section class="section" id="prayer">
   <h2 class="section-title">🕌 আজকের নামাজের সময়সূচি</h2>
   <div class="prayer-grid" id="prayerGrid">
    <div class="prayer-item"><div class="pname">ফজর</div><div class="ptime">--:--</div></div>
@@ -198,150 +301,338 @@ footer .ar{font:25px Amiri;color:#f4d88e}
    <div id="nextPrayer">পরবর্তী নামাজ নির্ধারণ হচ্ছে...</div>
    <strong id="timer">--:--:--</strong>
   </div>
-  <div id="status">নামাজের সময়সূচি লোড হচ্ছে...</div>
-  <p class="notice" style="margin-top:14px">
-   সময়সূচি নির্বাচিত জেলার শহর-ভিত্তিক API ফলাফলের ওপর নির্ভরশীল।
-   স্থানীয় মসজিদ বা ইসলামিক কর্তৃপক্ষের সময়ের সঙ্গে মিলিয়ে নেবে।
+  <div class="status" id="status">সময়সূচি লোড হচ্ছে...</div>
+  <p class="notice">
+   আসরের সময় হানাফি পদ্ধতিতে নির্ধারিত। ফজর ও ইশার সময় Karachi হিসাব পদ্ধতি ব্যবহার করা হয়েছে। স্থানীয় মসজিদের সময়সূচির সঙ্গে মিলিয়ে নেবে।
   </p>
  </section>
 
- <section id="calendar" style="margin-top:38px">
-  <h2 class="section-title">📅 ক্যালেন্ডার</h2>
+ <section class="section" id="forbidden">
+  <h2 class="section-title">⛔ নামাজের নিষিদ্ধ সময়</h2>
+  <div class="grid">
+   <div class="feature">
+    <span class="emoji">🌅</span>
+    <strong>সূর্যোদয়ের সময়</strong>
+    <span id="forbidSunrise">হিসাব হচ্ছে...</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">☀️</span>
+    <strong>জাওয়ালের সময়</strong>
+    <span id="forbidZawal">হিসাব হচ্ছে...</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">🌇</span>
+    <strong>সূর্যাস্তের সময়</strong>
+    <span id="forbidSunset">হিসাব হচ্ছে...</span>
+   </div>
+  </div>
+  <p class="notice" style="margin-top:14px">
+   এগুলো আনুমানিক সতর্কতামূলক সময়। সূর্যোদয় ও সূর্যাস্তের নিষেধাজ্ঞার প্রকৃত সীমা এবং জাওয়ালের সময় স্থানীয় সূর্যগত অবস্থার ওপর নির্ভরশীল। ফজরের পর ও আসরের পর নফল নামাজের নিষেধাজ্ঞাও প্রযোজ্য।
+  </p>
+ </section>
+
+ <section class="section" id="nafl">
+  <h2 class="section-title">🌙 নফল নামাজের সময়সূচি</h2>
+  <div class="grid">
+   <div class="feature">
+    <span class="emoji">🌄</span>
+    <strong>ইশরাক</strong>
+    <span id="ishraqTime">হিসাব হচ্ছে...</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">☀️</span>
+    <strong>চাশত / দুহা</strong>
+    <span id="duhaTime">হিসাব হচ্ছে...</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">🌆</span>
+    <strong>আওয়াবিন</strong>
+    <span id="awwabinTime">হিসাব হচ্ছে...</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">🌌</span>
+    <strong>তাহাজ্জুদ</strong>
+    <span id="tahajjudTime">হিসাব হচ্ছে...</span>
+   </div>
+  </div>
+  <p class="notice" style="margin-top:14px">
+   ইশরাক ও চাশতের সময় সূর্যোদয়ের পর শুরু হয়। আওয়াবিন মাগরিবের পর আদায় করা হয়। তাহাজ্জুদের সময় রাতের শেষ এক-তৃতীয়াংশকে বিশেষ গুরুত্ব দিয়ে দেখানো হয়েছে। এগুলো আনুমানিক সময়সীমা; স্থানীয় আলেমের নির্দেশনা অনুসরণ করবে।
+  </p>
+ </section>
+
+ <section class="section" id="calendar">
+  <h2 class="section-title">📅 ইসলামিক ক্যালেন্ডার</h2>
   <div class="info-card">
-   <strong>বাংলা, ইংরেজি ও হিজরি তারিখ</strong>
-   <p class="muted">আজকের তারিখ উপরে দেখানো হচ্ছে। পূর্ণ মাসিক ক্যালেন্ডার পরবর্তী ধাপে যুক্ত হবে।</p>
+   <div id="calendarDate" style="font-size:19px;font-weight:600">আজকের তারিখ</div>
+   <p class="muted">বাংলা, ইংরেজি ও হিজরি তারিখ উপরের অংশে দেখানো হয়েছে। পূর্ণ মাসিক ক্যালেন্ডার পরবর্তী সংস্করণে যুক্ত হবে। হিজরি তারিখ স্থানীয় চাঁদ দেখার ঘোষণায় ভিন্ন হতে পারে।</p>
   </div>
  </section>
 
- <section id="quran" style="margin-top:38px">
+ <section class="section" id="quran">
   <h2 class="section-title">📖 আল-কুরআন</h2>
   <div class="grid">
-   <a class="feature" href="quran.html"><span class="emoji">📗</span>
-    <strong>কুরআন পড়ুন</strong><span>আরবি ও বাংলা অনুবাদ</span></a>
-   <a class="feature" href="quran.html"><span class="emoji">🎧</span>
-    <strong>কুরআন তিলাওয়াত</strong><span>অডিওসহ পড়ার ব্যবস্থা</span></a>
+   <a href="quran.html" class="feature">
+    <span class="emoji">📗</span>
+    <strong>কুরআন পড়ুন</strong>
+    <span>আরবি ও বাংলা অনুবাদ</span>
+   </a>
+   <a href="quran.html" class="feature">
+    <span class="emoji">🎧</span>
+    <strong>কুরআন তিলাওয়াত</strong>
+    <span>অডিওসহ পড়ার ব্যবস্থা</span>
+   </a>
   </div>
+  <p class="muted">কুরআন পৃষ্ঠা চালু করতে আলাদা quran.html ফাইল তৈরি করতে হবে।</p>
  </section>
 
- <section id="amal" style="margin-top:38px">
-  <h2 class="section-title">🌙 দৈনিক আমল</h2>
+ <section class="section" id="amal">
+  <h2 class="section-title">📿 দৈনিক আমল</h2>
   <div class="grid">
-   <div class="feature"><span class="emoji">📿</span><strong>ডিজিটাল তাসবিহ</strong><span>শিগগিরই যুক্ত হবে</span></div>
-   <div class="feature"><span class="emoji">✨</span><strong>দৈনিক আমল</strong><span>শিগগিরই যুক্ত হবে</span></div>
-   <div class="feature"><span class="emoji">🤲</span><strong>দোয়া ও যিকির</strong><span>শিগগিরই যুক্ত হবে</span></div>
+   <div class="feature">
+    <span class="emoji">📿</span>
+    <strong>ডিজিটাল তাসবিহ</strong>
+    <div class="counter">
+     <button onclick="changeTasbih(-1)">−</button>
+     <strong id="tasbihCount">০</strong>
+     <button onclick="changeTasbih(1)">+</button>
+     <button onclick="resetTasbih()">রিসেট</button>
+    </div>
+   </div>
+   <div class="feature">
+    <span class="emoji">✨</span>
+    <strong>দৈনিক আমল</strong>
+    <span>শিগগিরই আরও আমল যুক্ত হবে</span>
+   </div>
+   <div class="feature">
+    <span class="emoji">🤲</span>
+    <strong>দোয়া ও যিকির</strong>
+    <span>শিগগিরই যুক্ত হবে</span>
+   </div>
   </div>
  </section>
 
- <section id="dua" style="margin-top:38px">
-  <h2 class="section-title">🤲 দোয়া ও যিকির</h2>
-  <div class="info-card"><p class="muted">নির্ভরযোগ্য সূত্রসহ দোয়া ও যিকিরের বিভাগ তৈরি করা হবে।</p></div>
- </section>
-
- <section id="about" style="margin-top:38px">
-  <h2 class="section-title">ℹ️ ওয়েবসাইট পরিচিতি</h2>
+ <section class="section" id="about">
+  <h2 class="section-title">ℹ️ আমাদের পরিচিতি</h2>
   <div class="info-card">
-   <div style="font-size:23px;font-weight:700">হায়াতুল ইসলাম</div>
-   <div style="font:23px Amiri;color:var(--green2)">حَيَاةُ الْإِسْلَامِ</div>
+   <div style="font-size:24px;font-weight:700">হায়াতুল ইসলাম</div>
+   <div style="font:26px Amiri;color:var(--green2)">حَيَاةُ الْإِسْلَامِ</div>
    <p class="muted">প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
   </div>
  </section>
+
 </main>
 
 <footer>
  <div class="ar">حَيَاةُ الْإِسْلَامِ</div>
- <div style="font-size:20px;font-weight:700">হায়াতুল ইসলাম</div>
+ <div style="font-size:22px;font-weight:700">হায়াতুল ইসলাম</div>
  <p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
  <small>© <span id="year"></span> হায়াতুল ইসলাম</small>
 </footer>
 
 <script>
-const $=id=>document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 function showDates(){
- const now=new Date();
- $('todayBn').textContent=new Intl.DateTimeFormat('bn-BD',
-  {weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now);
- $('todayEn').textContent=new Intl.DateTimeFormat('en-GB',
-  {weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now);
+ const now = new Date();
+ $('todayBn').textContent =
+  new Intl.DateTimeFormat('bn-BD',{
+   weekday:'long',day:'numeric',month:'long',year:'numeric'
+  }).format(now);
+ $('todayEn').textContent =
+  new Intl.DateTimeFormat('en-GB',{
+   weekday:'long',day:'numeric',month:'long',year:'numeric'
+  }).format(now);
  try{
-  $('todayHijri').textContent='হিজরি: '+new Intl.DateTimeFormat(
-   'bn-BD-u-ca-islamic-umalqura',
-   {day:'numeric',month:'long',year:'numeric'}).format(now);
- }catch(e){$('todayHijri').textContent='হিজরি তারিখ প্রদর্শন করা যাচ্ছে না';}
+  $('todayHijri').textContent = 'হিজরি: ' +
+   new Intl.DateTimeFormat('bn-BD-u-ca-islamic-umalqura',{
+    day:'numeric',month:'long',year:'numeric'
+   }).format(now);
+ }catch(e){
+  $('todayHijri').textContent='হিজরি তারিখ পাওয়া যায়নি';
+ }
+ $('calendarDate').textContent=$('todayBn').textContent;
  $('year').textContent=now.getFullYear();
 }
 showDates();
 
 $('themeBtn').addEventListener('click',()=>{
  document.body.classList.toggle('dark');
- $('themeBtn').textContent=document.body.classList.contains('dark')?'☀':'☾';
+ $('themeBtn').textContent =
+  document.body.classList.contains('dark')?'☀':'☾';
 });
 
-let prayerTimes=null;
-let nextTimer=null;
-
 function toMinutes(t){
- const m=t.match(/(\d{1,2}):(\d{2})/);
- return m?Number(m[1])*60+Number(m[2]):null;
+ const match=String(t||'').match(/(\d{1,2}):(\d{2})/);
+ return match ? Number(match[1])*60+Number(match[2]) : null;
 }
 function toBnTime(t){
- return t.replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+ return String(t).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
 }
+function formatClock(minutes){
+ minutes=((minutes%1440)+1440)%1440;
+ const h=Math.floor(minutes/60);
+ const m=minutes%60;
+ const dt=new Date(2026,0,1,h,m);
+ return new Intl.DateTimeFormat('bn-BD',{
+  hour:'numeric',minute:'2-digit',hour12:true
+ }).format(dt);
+}
+
+let prayerTimes=null;
+let countdownInterval=null;
+
+function renderExtraTimes(data){
+ const sunrise=toMinutes(data.Sunrise);
+ const sunset=toMinutes(data.Sunset);
+ const fajr=toMinutes(data.Fajr);
+ const isha=toMinutes(data.Isha);
+ const maghrib=toMinutes(data.Maghrib);
+ const dhuhr=toMinutes(data.Dhuhr);
+
+ if([sunrise,sunset,fajr,isha,maghrib,dhuhr].some(x=>x===null)){
+  $('forbidSunrise').textContent='তথ্য পাওয়া যায়নি';
+  $('forbidZawal').textContent='তথ্য পাওয়া যায়নি';
+  $('forbidSunset').textContent='তথ্য পাওয়া যায়নি';
+  return;
+ }
+
+ // সূর্যোদয়ের পর ১৫ মিনিট সতর্কতামূলক ব্যবধান
+ const ishraqStart=sunrise+15;
+
+ // সূর্যাস্তের আগে ২০ মিনিট সতর্কতামূলক ব্যবধান
+ const sunsetStart=sunset-20;
+
+ // Dhuhr API সময়কে জাওয়ালের আনুমানিক কেন্দ্র হিসেবে ধরা হচ্ছে
+ const zawalStart=dhuhr-5;
+ const zawalEnd=dhuhr+5;
+
+ $('forbidSunrise').textContent=
+  formatClock(sunrise)+' – '+formatClock(ishraqStart);
+ $('forbidZawal').textContent=
+  formatClock(zawalStart)+' – '+formatClock(zawalEnd)+' (আনুমানিক)';
+ $('forbidSunset').textContent=
+  formatClock(sunsetStart)+' – '+formatClock(sunset);
+
+ $('ishraqTime').textContent=
+  formatClock(ishraqStart)+' – '+formatClock(sunrise+30);
+ $('duhaTime').textContent=
+  formatClock(ishraqStart)+' – '+formatClock(zawalStart);
+ $('awwabinTime').textContent=
+  formatClock(maghrib)+' – '+formatClock(isha);
+
+ // মাগরিব থেকে ফজর পর্যন্ত রাতের দৈর্ঘ্য
+ const nightLength=(fajr-maghrib+1440)%1440;
+ const third=nightLength/3;
+ const tahajjudStart=maghrib+2*third;
+
+ $('tahajjudTime').textContent=
+  formatClock(tahajjudStart)+' – '+formatClock(fajr);
+}
+
+function updateCountdown(){
+ if(!prayerTimes)return;
+
+ const now=new Date();
+ const current=now.getHours()*60+now.getMinutes();
+ let upcoming=prayerTimes.filter(p=>p.key!=='Sunrise')
+  .find(p=>p.minutes!==null&&p.minutes>current);
+
+ let extraDay=0;
+ if(!upcoming){
+  upcoming=prayerTimes.find(p=>p.key==='Fajr');
+  extraDay=1440;
+ }
+ if(!upcoming)return;
+
+ const diff=extraDay+upcoming.minutes-current;
+ const seconds=Math.max(0,diff*60-now.getSeconds());
+ const h=Math.floor(seconds/3600);
+ const m=Math.floor((seconds%3600)/60);
+ const s=seconds%60;
+
+ $('nextPrayer').textContent='পরবর্তী নামাজ: '+upcoming.name;
+ $('timer').textContent=
+  [h,m,s].map(n=>String(n).padStart(2,'0')).join(':');
+
+ document.querySelectorAll('.prayer-item').forEach(el=>{
+  el.classList.remove('active');
+ });
+}
+
 function renderPrayer(data){
  const keys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
  const names=['ফজর','সূর্যোদয়','যোহর','আসর','মাগরিব','ইশা'];
+
  prayerTimes=keys.map((key,i)=>({
-  key,name:names[i],time:data[key],minutes:toMinutes(data[key])
+  key:key,
+  name:names[i],
+  time:data[key],
+  minutes:toMinutes(data[key])
  }));
+
  $('prayerGrid').innerHTML=prayerTimes.map(p=>
-  `<div class="prayer-item"><div class="pname">${p.name}</div>
-   <div class="ptime">${toBnTime(p.time)}</div></div>`
+  `<div class="prayer-item">
+   <div class="pname">${p.name}</div>
+   <div class="ptime">${toBnTime(p.time)}</div>
+  </div>`
  ).join('');
+
+ renderExtraTimes(data);
  updateCountdown();
 }
-function updateCountdown(){
- if(!prayerTimes)return;
- const now=new Date();
- const current=now.getHours()*60+now.getMinutes();
- let upcoming=prayerTimes.filter(p=>p.key!=='Sunrise'&&p.minutes!==null)
-  .find(p=>p.minutes>current);
- let targetDate=new Date(now);
- if(!upcoming){
-  upcoming=prayerTimes.find(p=>p.key==='Fajr');
-  targetDate.setDate(targetDate.getDate()+1);
- }
- const target=toMinutes(upcoming.time);
- const diff=(targetDate.getDate()!==now.getDate()?1440:0)+target-current;
- const safeDiff=Math.max(0,diff*60-now.getSeconds());
- const h=Math.floor(safeDiff/3600);
- const m=Math.floor((safeDiff%3600)/60);
- const s=safeDiff%60;
- $('nextPrayer').textContent='পরবর্তী নামাজ: '+upcoming.name;
- $('timer').textContent=[h,m,s].map(n=>String(n).padStart(2,'0')).join(':');
- document.querySelectorAll('.prayer-item').forEach(el=>el.classList.remove('active'));
-}
+
 async function loadPrayer(){
  const city=$('district').value;
- $('status').textContent='সময়সূচি আনা হচ্ছে...';
- $('prayerGrid').innerHTML='<div class="prayer-item">লোড হচ্ছে...</div>';
+ $('status').textContent='নামাজের সময়সূচি লোড হচ্ছে...';
+ $('status').className='status';
+
  try{
-  const url='https://api.aladhan.com/v1/timingsByCity?city='+
-   encodeURIComponent(city)+'&country=Bangladesh&method=1&school=1';
+  const url=
+   'https://api.aladhan.com/v1/timingsByCity?city='+
+   encodeURIComponent(city)+
+   '&country=Bangladesh&method=1&school=1';
+
   const response=await fetch(url);
   if(!response.ok)throw new Error('Network error');
+
   const json=await response.json();
-  if(json.code!==200||!json.data?.timings)throw new Error('No timing data');
+  if(json.code!==200||!json.data||!json.data.timings){
+   throw new Error('No timing data');
+  }
+
   renderPrayer(json.data.timings);
-  $('status').textContent='নির্বাচিত জেলা: '+city+
-   ' | হিসাব পদ্ধতি: Karachi, আসর: Hanafi';
+
+  $('status').textContent=
+   'নির্বাচিত জেলা: '+$('district').selectedOptions[0].text+
+   ' | Karachi পদ্ধতি | আসর: Hanafi';
+  $('status').className='status ok';
+
  }catch(error){
-  $('status').textContent='সময়সূচি লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করো।';
-  $('prayerGrid').innerHTML='<div class="prayer-item">সময় পাওয়া যায়নি</div>';
+  $('status').textContent=
+   'সময়সূচি পাওয়া যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করো।';
+  $('status').className='status error';
  }
 }
+
 $('district').addEventListener('change',loadPrayer);
 loadPrayer();
-setInterval(()=>{if(prayerTimes)updateCountdown()},1000);
+countdownInterval=setInterval(updateCountdown,1000);
+
+let tasbih=0;
+function showTasbih(){
+ $('tasbihCount').textContent=
+  tasbih.toLocaleString('bn-BD');
+}
+function changeTasbih(n){
+ tasbih=Math.max(0,tasbih+n);
+ showTasbih();
+}
+function resetTasbih(){
+ tasbih=0;
+ showTasbih();
+}
+showTasbih();
 </script>
+
 </body>
 </html>
