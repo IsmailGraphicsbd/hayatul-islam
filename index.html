@@ -1088,7 +1088,7 @@ $("awwabinTime").textContent=
 displayTime(d.Maghrib)+" এর পর – "+displayTime(d.Isha);
 
 $("apiStatus").textContent=
-"সময়সূচি লোড হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নাও।";
+"সময়সূচি লোড হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নিন।";
 
 updateCountdown();
 updatePrayerHighlight();
@@ -1154,7 +1154,7 @@ await fetchPrayerByCoordinates(lat,lon);
 if(requestId!==locationRequestNumber)return;
 }catch(e){
 $("apiStatus").textContent=
-"নামাজের সময় আনা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";
+"নামাজের সময় আনা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করুন।";
 }
 }
 
@@ -1198,7 +1198,7 @@ try{
 await fetchPrayerByCoordinates(23.8103,90.4125);
 }catch(error){
 $("apiStatus").textContent=
-"নামাজের সময় লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";
+"নামাজের সময় লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করুন।";
 }
 }
 }
