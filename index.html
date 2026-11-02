@@ -20,7 +20,7 @@ svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .header{position:sticky;top:0;z-index:100;background:var(--green);color:white;box-shadow:0 5px 25px #001b1330}
 .header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand-logo{width:48px;height:48px;flex-shrink:0;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);animation:glow 3s infinite}
+.brand-logo{width:55px;height:55px;flex-shrink:0;border:0px solid var(--gold);border-radius:25%;display:grid;place-items:center;color:var(--gold);animation:glow 3s infinite}
 .brand-logo svg{width:30px;height:30px}
 .brand-name{font-size:22px;font-weight:700}
 .brand-arabic{font:16px Amiri;color:#f0d58e}
@@ -229,7 +229,7 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="container header-inner">
 <a href="#home" class="brand">
 <span class="brand-logo" data-site-logo><svg><use href="#i-mosque"/></svg></span>
-<span><span class="brand-name">হায়াতুল ইসলাম</span><br><span class="brand-arabic">حَيَاةُ الْإِسْلَامِ</span></span>
+<span><span class="brand-name">হায়াতুল ইসলাম</span><br><span class="brand-arabic">ইসলাময় জীবন</span></span>
 </a>
 <div class="header-actions">
 <button class="icon-btn" id="themeBtn" aria-label="থিম পরিবর্তন"></button>
@@ -259,7 +259,7 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="hero-content"><div class="hero-layout">
 <div class="hero-copy">
 <span class="hero-kicker">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
-<div class="arabic">حَيَاةُ الْإِسْلَامِ</div>
+
 <h1>হায়াতুল ইসলাম</h1><div class="hero-line"></div>
 <p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
 <div class="hero-actions">
@@ -270,9 +270,7 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 </div>
 <div class="hero-art">
 <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-<div class="hero-emblem" data-site-logo><svg><use href="#i-mosque"/></svg></div>
-<span class="art-star star-one">✦</span><span class="art-star star-two">✧</span>
-<span class="art-caption">حَيَاةُ الْإِسْلَامِ</span>
+
 </div>
 </div></div>
 </section>
@@ -282,7 +280,7 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div><h3 id="todayDate">আজকের তারিখ</h3><div class="hijri" id="hijriDate">হিজরি তারিখ</div><div class="muted small" id="englishDate"></div></div>
 <div class="location-panel">
 <div class="location-mark"><svg><use href="#i-location"/></svg></div>
-<div class="location-copy"><span class="location-label">তোমার বর্তমান অবস্থান</span><strong id="locationName">অবস্থান শনাক্ত করা হচ্ছে...</strong><small id="locationAccuracy">লোকেশন অনুমতির অপেক্ষায়</small></div>
+<div class="location-copy"><span class="location-label">আপনার বর্তমান অবস্থান</span><strong id="locationName">অবস্থান শনাক্ত করা হচ্ছে...</strong><small id="locationAccuracy">লোকেশন অনুমতির অপেক্ষায়</small></div>
 <button class="location-refresh" id="refreshLocation" type="button" aria-label="লোকেশন আবার শনাক্ত করো"><svg><use href="#i-repeat"/></svg></button>
 </div>
 </div></div></section>
@@ -302,7 +300,7 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 </div></section>
 
 <section class="section" id="forbidden"><div class="container">
-<div class="section-heading"><h2>নামাজের নিষিদ্ধ সময়</h2><p>সময়গুলো আনুমানিক; স্থানীয় আলেমের পরামর্শ নাও</p></div>
+<div class="section-heading"><h2>নামাজের নিষিদ্ধ সময়</h2><p>সময়গুলো আনুমানিক; স্থানীয় আলেমের পরামর্শ নিন।</p></div>
 <div class="grid three-col">
 <div class="card info-card"><h3><svg><use href="#i-sun"/></svg> সূর্যোদয়ের সময়</h3><p id="sunriseTime">--:--</p><p class="muted small">সূর্যোদয়ের পর আনুমানিক ১৫ মিনিট পর্যন্ত</p></div>
 <div class="card info-card"><h3><svg><use href="#i-sun"/></svg> দ্বিপ্রহর / জাওয়াল</h3><p id="zawalTime">--:--</p><p class="muted small">যোহরের কাছাকাছি সময়; সুনির্দিষ্ট সময় যাচাই করো</p></div>
@@ -319,7 +317,6 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="card info-card"><h3><svg><use href="#i-moon"/></svg> তাহাজ্জুদ</h3><p id="tahajjudTime">--:--</p><p class="muted small">রাতের শেষ এক-তৃতীয়াংশের আনুমানিক শুরু।</p></div>
 <div class="card info-card"><h3><svg><use href="#i-moon"/></svg> আওয়াবিন</h3><p id="awwabinTime">মাগরিবের পর</p><p class="muted small">মাগরিবের পর নফল ইবাদতের সময়।</p></div>
 </div>
-<p class="muted small" style="margin-top:12px">এগুলো আনুমানিক হিসাব; নির্দিষ্ট ইবাদতের ফিকহি সময় ও বিধান জানতে আলেমের পরামর্শ নাও।</p>
 </div></section>
 
 <section class="section" id="calendar"><div class="container">
