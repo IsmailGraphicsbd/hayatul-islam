@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#063b2e">
+<title>কিবলা কম্পাস | হায়াতুল ইসলাম</title>
+<meta name="description" content="হায়াতুল ইসলাম কিবলা কম্পাসের মাধ্যমে কাবা শরিফের দিক নির্ণয় করুন।">
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --green:#063b2e;
+ --green2:#087f5b;
+ --gold:#d9b45b;
+ --light:#f5f8f5;
+ --white:#fff;
+ --text:#173b30;
+ --muted:#71857c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:'Hind Siliguri',sans-serif;
+ background:var(--light);
+ color:var(--text);
+ min-height:100vh;
+}
+header{
+ background:linear-gradient(135deg,#063b2e,#087f5b);
+ color:white;
+ padding:18px 16px 35px;
+ text-align:center;
+ border-radius:0 0 25px 25px;
+}
+.top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ max-width:650px;
+ margin:auto;
+}
+.back{
+ color:white;
+ text-decoration:none;
+ display:flex;
+ align-items:center;
+ gap:7px;
+ font-size:15px;
+}
+.brand{
+ font-size:19px;
+ font-weight:700;
+}
+.arabic{
+ font-family:'Amiri',serif;
+ color:#f2d98a;
+ font-size:30px;
+ margin-top:17px;
+}
+header p{
+ color:#e1eee7;
+ font-size:14px;
+}
+main{
+ max-width:600px;
+ margin:-12px auto 30px;
+ padding:0 15px;
+}
+.card{
+ background:white;
+ border-radius:20px;
+ padding:22px 17px;
+ box-shadow:0 7px 25px #063b2e10;
+ margin-bottom:17px;
+}
+.heading{
+ text-align:center;
+ font-size:20px;
+ font-weight:700;
+ color:var(--green);
+}
+.sub{
+ text-align:center;
+ color:var(--muted);
+ font-size:13px;
+ margin-top:5px;
+}
+.compass-area{
+ display:flex;
+ justify-content:center;
+ margin:28px 0 24px;
+}
+.compass{
+ width:min(78vw,310px);
+ aspect-ratio:1;
+ border-radius:50%;
+ background:radial-gradient(circle,#fff 57%,#eaf2ed 58%,#dce9e1 70%,#fff 71%);
+ border:8px solid #e4eee7;
+ box-shadow:0 0 0 3px #d9b45b55,0 12px 35px #063b2e17;
+ position:relative;
+}
+.compass:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px dashed #a8bdb1;
+ border-radius:50%;
+}
+.direction{
+ position:absolute;
+ font-weight:700;
+ font-size:14px;
+ color:#42665a;
+}
+.north{top:13px;left:50%;transform:translateX(-50%);color:#bd493c}
+.south{bottom:13px;left:50%;transform:translateX(-50%)}
+.east{right:13px;top:50%;transform:translateY(-50%)}
+.west{left:13px;top:50%;transform:translateY(-50%)}
+.needle{
+ position:absolute;
+ width:100%;
+ height:100%;
+ inset:0;
+ transform:rotate(0deg);
+ transition:transform .15s linear;
+}
+.needle:before{
+ content:"";
+ position:absolute;
+ width:0;height:0;
+ border-left:11px solid transparent;
+ border-right:11px solid transparent;
+ border-bottom:105px solid var(--green2);
+ top:45px;
+ left:50%;
+ transform:translateX(-50%);
+ filter:drop-shadow(0 2px 3px #0003);
+}
+.needle:after{
+ content:"";
+ position:absolute;
+ width:0;height:0;
+ border-left:11px solid transparent;
+ border-right:11px solid transparent;
+ border-top:105px solid #d9b45b;
+ bottom:45px;
+ left:50%;
+ transform:translateX(-50%);
+}
+.center{
+ position:absolute;
+ width:25px;height:25px;
+ border-radius:50%;
+ background:var(--green);
+ border:4px solid var(--gold);
+ top:50%;left:50%;
+ transform:translate(-50%,-50%);
+ z-index:2;
+}
+.degree{
+ text-align:center;
+ margin-top:5px;
+}
+.degree strong{
+ font-size:36px;
+ color:var(--green);
+}
+.degree span{font-size:15px;color:var(--muted)}
+.info{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+ margin-top:20px;
+}
+.info-box{
+ background:#f1f7f3;
+ padding:13px 8px;
+ border-radius:13px;
+ text-align:center;
+}
+.info-box small{
+ display:block;
+ color:var(--muted);
+ font-size:12px;
+}
+.info-box b{
+ color:var(--green);
+ font-size:16px;
+}
+button{
+ border:0;
+ cursor:pointer;
+ font-family:inherit;
+}
+.primary{
+ width:100%;
+ background:linear-gradient(135deg,#087f5b,#063b2e);
+ color:white;
+ padding:15px;
+ border-radius:13px;
+ font-size:16px;
+ font-weight:600;
+ margin-top:20px;
+}
+.secondary{
+ width:100%;
+ background:#edf5ef;
+ color:var(--green);
+ padding:12px;
+ border-radius:12px;
+ font-size:14px;
+ margin-top:10px;
+}
+.status{
+ text-align:center;
+ font-size:13px;
+ color:var(--muted);
+ margin-top:13px;
+ line-height:1.8;
+}
+.status.error{color:#bd493c}
+.status.success{color:#087f5b}
+.instructions{
+ font-size:14px;
+ line-height:1.9;
+ color:#526b60;
+ margin-top:12px;
+}
+.instructions li{margin-left:20px;padding-left:3px}
+footer{
+ text-align:center;
+ padding:20px 10px;
+ color:#74877e;
+ font-size:12px;
+}
+@media(max-width:380px){
+ .compass{width:270px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="top">
+  <a class="back" href="index.html">← হোম পেজ</a>
+  <div class="brand">হায়াতুল ইসলাম</div>
+ </div>
+ <div class="arabic">القبلة</div>
+ <p>কিবলার দিক নির্ণয় করুন</p>
+</header>
+
+<main>
+
+ <section class="card">
+  <h2 class="heading">কিবলা কম্পাস</h2>
+  <p class="sub">কাবা শরিফের সঠিক দিক খুঁজে নিন</p>
+
+  <div class="compass-area">
+   <div class="compass">
+    <span class="direction north">উ</span>
+    <span class="direction south">দ</span>
+    <span class="direction east">পূ</span>
+    <span class="direction west">প</span>
+
+    <div class="needle" id="needle"></div>
+    <div class="center"></div>
+   </div>
+  </div>
+
+  <div class="degree">
+   <strong id="qiblaDegree">---°</strong>
+   <span>কিবলার দিক</span>
+  </div>
+
+  <div class="info">
+   <div class="info-box">
+    <small>আপনার অবস্থান</small>
+    <b id="locationText">অজানা</b>
+   </div>
+   <div class="info-box">
+    <small>মক্কা থেকে দূরত্ব</small>
+    <b id="distanceText">--- কিমি</b>
+   </div>
+   <div class="info-box">
+    <small>মোবাইলের দিক</small>
+    <b id="headingText">অপেক্ষমাণ</b>
+   </div>
+   <div class="info-box">
+    <small>কম্পাস অবস্থা</small>
+    <b id="sensorText">বন্ধ</b>
+   </div>
+  </div>
+
+  <button class="primary" id="startButton">
+   কিবলা নির্ণয় করুন
+  </button>
+
+  <button class="secondary" id="calibrateButton">
+   কম্পাস পুনরায় চালু করুন
+  </button>
+
+  <p class="status" id="status">
+   অবস্থান ও কম্পাস চালু করতে বাটনে ক্লিক করুন।
+  </p>
+ </section>
+
+ <section class="card">
+  <h3 class="heading">ব্যবহারের নিয়ম</h3>
+  <ol class="instructions">
+   <li>মোবাইলের Location চালু করুন।</li>
+   <li>কিবলা নির্ণয় করুন বাটনে চাপ দিন।</li>
+   <li>প্রয়োজনীয় অনুমতি প্রদান করুন।</li>
+   <li>মোবাইল সমতলভাবে ধরে কম্পাসের নির্দেশনা অনুসরণ করুন।</li>
+   <li>ধাতব বস্তু, চুম্বক ও ইলেকট্রনিক যন্ত্র থেকে দূরে থাকুন।</li>
+  </ol>
+ </section>
+
+</main>
+
+<footer>
+ হায়াতুল ইসলাম © ২০২৬
+ <br>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।
+</footer>
+
+<script>
+const KAABA_LAT = 21.4225;
+const KAABA_LON = 39.8262;
+
+let qiblaBearing = null;
+let currentHeading = null;
+let orientationStarted = false;
+
+const $ = id => document.getElementById(id);
+
+function normalize(deg){
+ return (deg + 360) % 360;
+}
+
+function calculateQibla(lat,lon){
+ const toRad = d => d * Math.PI / 180;
+
+ const p1 = toRad(lat);
+ const p2 = toRad(KAABA_LAT);
+ const dl = toRad(KAABA_LON-lon);
+
+ const y = Math.sin(dl);
+ const x = Math.cos(p1)*Math.tan(p2)
+          - Math.sin(p1)*Math.cos(dl);
+
+ return normalize(Math.atan2(y,x)*180/Math.PI);
+}
+
+function calculateDistance(lat,lon){
+ const R = 6371;
+ const rad = d => d*Math.PI/180;
+
+ const dLat = rad(KAABA_LAT-lat);
+ const dLon = rad(KAABA_LON-lon);
+
+ const a =
+  Math.sin(dLat/2)**2 +
+  Math.cos(rad(lat))*Math.cos(rad(KAABA_LAT))*
+  Math.sin(dLon/2)**2;
+
+ return 2*R*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+function updateCompass(){
+ if(qiblaBearing===null)return;
+
+ if(currentHeading===null){
+  $("needle").style.transform =
+   `rotate(${qiblaBearing}deg)`;
+  return;
+ }
+
+ const angle = normalize(qiblaBearing-currentHeading);
+
+ $("needle").style.transform = `rotate(${angle}deg)`;
+ $("headingText").textContent =
+  Math.round(currentHeading)+"°";
+ $("sensorText").textContent="সক্রিয়";
+ $("status").textContent="কম্পাস সক্রিয়। কিবলার নির্দেশনা অনুসরণ করুন।";
+ $("status").className="status success";
+}
+
+function handleOrientation(event){
+ let heading = null;
+
+ if(typeof event.webkitCompassHeading==="number"){
+  heading=event.webkitCompassHeading;
+ }
+ else if(event.absolute===true && event.alpha!==null){
+  heading=360-event.alpha;
+ }
+
+ if(heading!==null && Number.isFinite(heading)){
+  currentHeading=normalize(heading);
+  orientationStarted=true;
+  updateCompass();
+ }
+}
+
+async function startOrientation(){
+ if(!window.DeviceOrientationEvent){
+  $("sensorText").textContent="অসমর্থিত";
+  $("status").textContent=
+   "এই ডিভাইসে কম্পাস সেন্সর সমর্থিত নয়। ডিগ্রি দেখে কিবলার দিক নির্ণয় করুন।";
+  return;
+ }
+
+ try{
+  if(typeof DeviceOrientationEvent.requestPermission==="function"){
+   const permission =
+    await DeviceOrientationEvent.requestPermission();
+
+   if(permission!=="granted"){
+    throw new Error("কম্পাস সেন্সরের অনুমতি দেওয়া হয়নি।");
+   }
+  }
+
+  window.addEventListener(
+   "deviceorientationabsolute",
+   handleOrientation,
+   true
+  );
+
+  window.addEventListener(
+   "deviceorientation",
+   handleOrientation,
+   true
+  );
+
+  $("status").textContent=
+   "কম্পাস সেন্সরের তথ্যের জন্য অপেক্ষা করা হচ্ছে...";
+ }catch(error){
+  $("status").textContent=error.message;
+  $("status").className="status error";
+ }
+}
+
+function getLocation(){
+ if(!navigator.geolocation){
+  $("status").textContent="এই ব্রাউজারে GPS সমর্থিত নয়।";
+  $("status").className="status error";
+  return;
+ }
+
+ $("status").textContent="আপনার অবস্থান শনাক্ত করা হচ্ছে...";
+
+ navigator.geolocation.getCurrentPosition(
+  position=>{
+   const lat=position.coords.latitude;
+   const lon=position.coords.longitude;
+
+   qiblaBearing=calculateQibla(lat,lon);
+
+   const distance=calculateDistance(lat,lon);
+
+   $("qiblaDegree").textContent=
+    qiblaBearing.toFixed(1)+"°";
+
+   $("locationText").textContent=
+    lat.toFixed(3)+", "+lon.toFixed(3);
+
+   $("distanceText").textContent=
+    Math.round(distance).toLocaleString("bn-BD")+" কিমি";
+
+   updateCompass();
+
+   $("status").textContent=
+    "অবস্থান পাওয়া গেছে। কম্পাস চালু হচ্ছে...";
+
+   startOrientation();
+  },
+  error=>{
+   const messages={
+    1:"লোকেশন অনুমতি দেওয়া হয়নি। ব্রাউজার সেটিংস থেকে অনুমতি দিন।",
+    2:"আপনার অবস্থান পাওয়া যাচ্ছে না। GPS চালু করুন।",
+    3:"লোকেশন শনাক্ত করতে সময় শেষ হয়েছে। আবার চেষ্টা করুন।"
+   };
+
+   $("status").textContent=
+    messages[error.code] || "লোকেশন শনাক্ত করা যায়নি।";
+
+   $("status").className="status error";
+  },
+  {
+   enableHighAccuracy:true,
+   timeout:20000,
+   maximumAge:0
+  }
+ );
+}
+
+$("startButton").addEventListener("click",()=>{
+ if(!window.isSecureContext){
+  $("status").textContent=
+   "নিরাপদ HTTPS সংযোগে পেজটি খুলুন।";
+  $("status").className="status error";
+  return;
+ }
+
+ getLocation();
+});
+
+$("calibrateButton").addEventListener("click",()=>{
+ currentHeading=null;
+ $("headingText").textContent="অপেক্ষমাণ";
+ $("sensorText").textContent="পুনরায় চালু হচ্ছে";
+
+ if(qiblaBearing!==null){
+  updateCompass();
+  startOrientation();
+ }else{
+  $("status").textContent=
+   "প্রথমে কিবলা নির্ণয় করুন।";
+ }
+});
+</script>
+
+</body>
+</html>
