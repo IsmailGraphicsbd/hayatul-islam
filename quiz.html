@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#063b2e">
+<meta name="description" content="হায়াতুল ইসলাম ইসলামিক কুইজ ও অনলাইন পরীক্ষা। প্রতিদিন নতুন ইসলামিক জ্ঞান যাচাই করুন।">
+<title>ইসলামিক কুইজ ও পরীক্ষা | হায়াতুল ইসলাম</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --green:#063b2e;
+ --green2:#087f5b;
+ --gold:#d9b45b;
+ --bg:#f3f7f4;
+ --white:#fff;
+ --text:#183b30;
+ --muted:#71857c;
+ --border:#e4ece6;
+ --red:#c44949;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:'Hind Siliguri',sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+button{font-family:inherit;cursor:pointer}
+.header{
+ background:linear-gradient(135deg,#063b2e,#087f5b);
+ color:white;
+ padding:17px 16px 35px;
+ border-radius:0 0 25px 25px;
+}
+.top{
+ max-width:750px;
+ margin:auto;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+.back{
+ color:white;text-decoration:none;font-size:14px;
+}
+.brand{font-size:19px;font-weight:700}
+.hero{
+ text-align:center;
+ margin:23px auto 0;
+}
+.hero .arabic{
+ font-family:Amiri,serif;
+ color:#f2d98a;
+ font-size:32px;
+}
+.hero h1{font-size:25px;margin-top:5px}
+.hero p{font-size:13px;color:#e1eee7;margin-top:5px}
+.container{
+ max-width:750px;
+ margin:-12px auto 30px;
+ padding:0 14px;
+}
+.card{
+ background:white;
+ border-radius:17px;
+ padding:19px;
+ margin-bottom:15px;
+ box-shadow:0 5px 22px #063b2e0c;
+}
+.datebar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ flex-wrap:wrap;
+}
+.date{
+ font-size:14px;color:var(--muted);
+}
+.daily{
+ background:#e7f4ec;
+ color:#087f5b;
+ padding:6px 11px;
+ border-radius:20px;
+ font-size:12px;
+ font-weight:600;
+}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+ margin-top:17px;
+}
+.stat{
+ background:#f3f8f4;
+ padding:12px 5px;
+ border-radius:12px;
+ text-align:center;
+}
+.stat strong{
+ display:block;
+ font-size:19px;
+ color:var(--green);
+}
+.stat small{font-size:11px;color:var(--muted)}
+.section-title{
+ font-size:19px;
+ color:var(--green);
+ margin-bottom:13px;
+}
+.categories{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+}
+.category{
+ border:1px solid var(--border);
+ background:#fff;
+ border-radius:12px;
+ padding:11px 5px;
+ color:var(--text);
+ font-size:13px;
+}
+.category.active{
+ background:#e7f4ec;
+ border-color:var(--green2);
+ color:var(--green);
+ font-weight:700;
+}
+.primary{
+ width:100%;
+ border:0;
+ background:linear-gradient(135deg,#087f5b,#063b2e);
+ color:white;
+ padding:14px;
+ border-radius:12px;
+ font-size:16px;
+ font-weight:600;
+}
+.secondary{
+ border:1px solid var(--border);
+ background:#f5f8f5;
+ color:var(--green);
+ padding:10px 15px;
+ border-radius:10px;
+ font-size:14px;
+}
+.note{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.8;
+ margin-top:12px;
+}
+.hidden{display:none!important}
+.exam-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ margin-bottom:15px;
+}
+.timer{
+ background:#fff1e9;
+ color:#b54d2f;
+ padding:8px 12px;
+ border-radius:10px;
+ font-weight:700;
+ font-size:15px;
+}
+.progress-wrap{
+ height:7px;
+ background:#edf2ee;
+ border-radius:20px;
+ overflow:hidden;
+ margin:12px 0 19px;
+}
+.progress{
+ height:100%;
+ width:0;
+ background:var(--green2);
+ transition:width .3s;
+}
+.question-number{
+ font-size:13px;
+ color:var(--muted);
+ margin-bottom:9px;
+}
+.question{
+ font-size:19px;
+ line-height:1.65;
+ font-weight:600;
+ color:var(--green);
+ margin-bottom:17px;
+}
+.options{
+ display:grid;
+ gap:10px;
+}
+.option{
+ width:100%;
+ text-align:left;
+ padding:13px;
+ background:white;
+ border:1px solid var(--border);
+ border-radius:11px;
+ font-size:15px;
+ color:var(--text);
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.option .letter{
+ width:28px;height:28px;
+ display:grid;place-items:center;
+ background:#edf5ef;
+ color:var(--green);
+ border-radius:8px;
+ flex-shrink:0;
+}
+.option.selected{
+ border:2px solid var(--green2);
+ background:#edf7f0;
+}
+.exam-buttons{
+ display:flex;
+ gap:10px;
+ margin-top:22px;
+}
+.exam-buttons button{flex:1}
+.result-score{
+ text-align:center;
+ padding:12px;
+}
+.score-circle{
+ width:145px;height:145px;
+ margin:10px auto 18px;
+ border-radius:50%;
+ border:8px solid #dcece1;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ background:#f3f9f4;
+}
+.score-circle strong{
+ font-size:37px;
+ color:var(--green);
+}
+.score-circle small{color:var(--muted)}
+.result-message{
+ color:var(--green);
+ font-size:19px;
+ font-weight:700;
+}
+.review-item{
+ border:1px solid var(--border);
+ padding:14px;
+ border-radius:12px;
+ margin-top:12px;
+}
+.review-item p{line-height:1.7}
+.correct{color:#087f5b;font-weight:600}
+.wrong{color:#c44949;font-weight:600}
+.explanation{
+ color:var(--muted);
+ font-size:13px;
+ margin-top:7px;
+ line-height:1.8;
+}
+footer{
+ text-align:center;
+ padding:20px;
+ color:var(--muted);
+ font-size:12px;
+}
+@media(max-width:390px){
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .question{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+ <div class="top">
+  <a class="back" href="index.html">← হোম পেজ</a>
+  <div class="brand">হায়াতুল ইসলাম</div>
+ </div>
+ <div class="hero">
+  <div class="arabic">الاختبار الإسلامي</div>
+  <h1>ইসলামিক কুইজ ও পরীক্ষা</h1>
+  <p>জ্ঞান অর্জন করুন, নিজেকে যাচাই করুন</p>
+ </div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="home">
+
+ <div class="card">
+  <div class="datebar">
+   <div class="date" id="todayDate">আজকের তারিখ</div>
+   <span class="daily">দৈনিক নতুন কুইজ</span>
+  </div>
+
+  <div class="stats">
+   <div class="stat">
+    <strong id="totalQuestions">১০</strong>
+    <small>মোট প্রশ্ন</small>
+   </div>
+   <div class="stat">
+    <strong>১০</strong>
+    <small>পূর্ণমান</small>
+   </div>
+   <div class="stat">
+    <strong>১০ মিনিট</strong>
+    <small>সময়</small>
+   </div>
+  </div>
+ </div>
+
+ <div class="card">
+  <h2 class="section-title">বিষয় নির্বাচন করুন</h2>
+  <div class="categories">
+   <button class="category active" data-category="all">সকল বিষয়</button>
+   <button class="category" data-category="quran">আল-কুরআন</button>
+   <button class="category" data-category="hadith">হাদিস</button>
+   <button class="category" data-category="fiqh">ফিকহ</button>
+   <button class="category" data-category="aqidah">আকাইদ</button>
+   <button class="category" data-category="seerah">সীরাত</button>
+  </div>
+ </div>
+
+ <div class="card">
+  <h2 class="section-title">আজকের ইসলামিক পরীক্ষা</h2>
+  <p style="font-size:14px;line-height:1.9;color:#71857c;margin-bottom:17px">
+   প্রতিদিনের নির্বাচিত প্রশ্নের মাধ্যমে তোমার ইসলামিক জ্ঞান যাচাই করো। প্রতিটি সঠিক উত্তরের জন্য ১ নম্বর।
+  </p>
+  <button class="primary" id="startExam">পরীক্ষা শুরু করুন →</button>
+  <p class="note">
+   নির্দেশনা: প্রতিটি প্রশ্নের একটি সঠিক উত্তর নির্বাচন করতে হবে। সময় শেষ হলে পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হবে।
+  </p>
+ </div>
+
+ <div class="card">
+  <h2 class="section-title">আজকের ফলাফল</h2>
+  <div id="dailyResult">
+   <p style="color:#71857c;font-size:14px">আজ এখনো কোনো পরীক্ষা সম্পন্ন করা হয়নি।</p>
+  </div>
+ </div>
+
+</section>
+
+<!-- EXAM -->
+<section id="exam" class="hidden">
+ <div class="card">
+  <div class="exam-top">
+   <strong style="color:var(--green)">ইসলামিক পরীক্ষা</strong>
+   <div class="timer" id="timer">১০:০০</div>
+  </div>
+
+  <div class="progress-wrap">
+   <div class="progress" id="progress"></div>
+  </div>
+
+  <div class="question-number" id="questionNumber"></div>
+  <div class="question" id="questionText"></div>
+  <div class="options" id="options"></div>
+
+  <div class="exam-buttons">
+   <button class="secondary" id="previousButton">← পূর্ববর্তী</button>
+   <button class="primary" id="nextButton">পরবর্তী →</button>
+  </div>
+ </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="hidden">
+ <div class="card">
+  <h2 class="section-title" style="text-align:center">পরীক্ষার ফলাফল</h2>
+  <div class="result-score">
+   <div class="score-circle">
+    <strong id="scoreText">০/১০</strong>
+    <small>প্রাপ্ত নম্বর</small>
+   </div>
+   <div class="result-message" id="resultMessage"></div>
+   <p style="color:#71857c;margin-top:8px" id="percentage"></p>
+  </div>
+
+  <div class="stats">
+   <div class="stat">
+    <strong id="correctCount">০</strong>
+    <small>সঠিক উত্তর</small>
+   </div>
+   <div class="stat">
+    <strong id="wrongCount">০</strong>
+    <small>ভুল উত্তর</small>
+   </div>
+   <div class="stat">
+    <strong id="unansweredCount">০</strong>
+    <small>উত্তরহীন</small>
+   </div>
+  </div>
+
+  <button class="primary" id="homeButton" style="margin-top:20px">হোমে ফিরে যান</button>
+ </div>
+
+ <div class="card">
+  <h2 class="section-title">উত্তর ও ব্যাখ্যা</h2>
+  <div id="review"></div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ হায়াতুল ইসলাম © ২০২৬
+ <br>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।
+</footer>
+
+<script>
+// =====================================
+// প্রশ্নভান্ডার
+// প্রতিদিন তারিখ অনুযায়ী প্রশ্ন নির্বাচন
+// =====================================
+
+const questionBank = [
+
+{
+ id:1,cat:"quran",
+ q:"পবিত্র কুরআনে মোট কতটি সূরা রয়েছে?",
+ o:["১১০টি","১১৪টি","১১৬টি","১২০টি"],
+ a:1,
+ e:"পবিত্র কুরআনে মোট ১১৪টি সূরা রয়েছে।"
+},
+{
+ id:2,cat:"quran",
+ q:"পবিত্র কুরআনের প্রথম সূরার নাম কী?",
+ o:["সূরা বাকারা","সূরা ইখলাস","সূরা ফাতিহা","সূরা নাস"],
+ a:2,
+ e:"সূরা আল-ফাতিহা পবিত্র কুরআনের প্রথম সূরা।"
+},
+{
+ id:3,cat:"quran",
+ q:"কুরআনের সবচেয়ে বড় সূরা কোনটি?",
+ o:["সূরা আলে ইমরান","সূরা বাকারা","সূরা নিসা","সূরা মায়িদা"],
+ a:1,
+ e:"সূরা আল-বাকারা কুরআনের সবচেয়ে বড় সূরা।"
+},
+{
+ id:4,cat:"quran",
+ q:"কুরআনের সবচেয়ে ছোট সূরা কোনটি?",
+ o:["সূরা কাওসার","সূরা আসর","সূরা ইখলাস","সূরা নাসর"],
+ a:0,
+ e:"সূরা আল-কাওসার আয়াতের সংখ্যার দিক থেকে সবচেয়ে ছোট সূরা।"
+},
+{
+ id:5,cat:"quran",
+ q:"কুরআন কোন ভাষায় নাজিল হয়েছে?",
+ o:["ফারসি","আরবি","উর্দু","হিব্রু"],
+ a:1,
+ e:"পবিত্র কুরআন আরবি ভাষায় নাজিল হয়েছে।"
+},
+{
+ id:6,cat:"quran",
+ q:"কোন সূরাকে উম্মুল কিতাব বলা হয়?",
+ o:["সূরা ইয়াসিন","সূরা ফাতিহা","সূরা বাকারা","সূরা রহমান"],
+ a:1,
+ e:"সূরা আল-ফাতিহাকে উম্মুল কিতাব বলা হয়।"
+},
+{
+ id:7,cat:"hadith",
+ q:"ইসলামের দ্বিতীয় প্রধান উৎস হিসেবে সাধারণত কোনটি পরিচিত?",
+ o:["ইজমা","কিয়াস","সুন্নাহ","ইতিহাস"],
+ a:2,
+ e:"কুরআনের পর রাসূলুল্লাহ ﷺ-এর সুন্নাহ ইসলামী শরিয়তের গুরুত্বপূর্ণ উৎস।"
+},
+{
+ id:8,cat:"hadith",
+ q:"সহিহ বুখারি সংকলন করেছেন কে?",
+ o:["ইমাম মুসলিম","ইমাম বুখারি","ইমাম তিরমিজি","ইমাম আবু দাউদ"],
+ a:1,
+ e:"সহিহ বুখারির সংকলক ইমাম মুহাম্মদ ইবনে ইসমাইল আল-বুখারি (রহ.)।"
+},
+{
+ id:9,cat:"hadith",
+ q:"হাদিসের পরিভাষায় 'সনদ' বলতে কী বোঝায়?",
+ o:["হাদিসের বিষয়বস্তু","বর্ণনাকারীদের ধারাবাহিকতা","গ্রন্থের নাম","অধ্যায়"],
+ a:1,
+ e:"সনদ হলো হাদিস বর্ণনাকারীদের ধারাবাহিক সূত্র।"
+},
+{
+ id:10,cat:"fiqh",
+ q:"এক দিনে ফরজ নামাজ কত ওয়াক্ত?",
+ o:["৩ ওয়াক্ত","৪ ওয়াক্ত","৫ ওয়াক্ত","৬ ওয়াক্ত"],
+ a:2,
+ e:"প্রতিদিন পাঁচ ওয়াক্ত ফরজ নামাজ আদায় করতে হয়।"
+},
+{
+ id:11,cat:"fiqh",
+ q:"রমজান মাসে কোন ইবাদতটি ফরজ?",
+ o:["তারাবিহ","ইতিকাফ","রোজা","তাহাজ্জুদ"],
+ a:2,
+ e:"রমজান মাসের রোজা প্রাপ্তবয়স্ক ও সক্ষম মুসলিমের ওপর ফরজ।"
+},
+{
+ id:12,cat:"fiqh",
+ q:"অজুর ফরজ অঙ্গগুলোর মধ্যে কোনটি রয়েছে?",
+ o:["ঘাড় মাসেহ","দুই হাত কনুইসহ ধোয়া","কান ধোয়া","নাভি ধোয়া"],
+ a:1,
+ e:"অজুতে দুই হাত কনুইসহ ধোয়া কুরআনে বর্ণিত ফরজ অঙ্গের অন্তর্ভুক্ত।"
+},
+{
+ id:13,cat:"fiqh",
+ q:"সালাত আদায়ের সময় মুসলিমরা কোন দিকে মুখ করেন?",
+ o:["মদিনা","বায়তুল মুকাদ্দাস","কাবা শরিফ","মসজিদে নববি"],
+ a:2,
+ e:"নামাজে কাবা শরিফের দিকে মুখ করে দাঁড়াতে হয়।"
+},
+{
+ id:14,cat:"aqidah",
+ q:"ইসলামের মূল স্তম্ভ কয়টি?",
+ o:["৪টি","৫টি","৬টি","৭টি"],
+ a:1,
+ e:"ইসলামের পাঁচটি স্তম্ভ রয়েছে।"
+},
+{
+ id:15,cat:"aqidah",
+ q:"ঈমানের মৌলিক বিষয় সাধারণভাবে কয়টি?",
+ o:["৪টি","৫টি","৬টি","৭টি"],
+ a:2,
+ e:"ঈমানের ছয়টি বিষয়: আল্লাহ, ফেরেশতা, কিতাব, রাসূল, আখিরাত এবং তাকদির।"
+},
+{
+ id:16,cat:"aqidah",
+ q:"ইসলামের শেষ নবী কে?",
+ o:["ঈসা (আ.)","মূসা (আ.)","ইবরাহিম (আ.)","মুহাম্মদ ﷺ"],
+ a:3,
+ e:"মুহাম্মদ ﷺ আল্লাহর শেষ নবী ও রাসূল।"
+},
+{
+ id:17,cat:"seerah",
+ q:"রাসূলুল্লাহ ﷺ কোথায় জন্মগ্রহণ করেন?",
+ o:["মদিনা","মক্কা","তায়েফ","জেরুজালেম"],
+ a:1,
+ e:"রাসূলুল্লাহ ﷺ মক্কা নগরীতে জন্মগ্রহণ করেন।"
+},
+{
+ id:18,cat:"seerah",
+ q:"হিজরতের পর রাসূলুল্লাহ ﷺ কোন শহরে গমন করেন?",
+ o:["তায়েফ","শাম","মদিনা","ইয়েমেন"],
+ a:2,
+ e:"রাসূলুল্লাহ ﷺ মক্কা থেকে মদিনায় হিজরত করেন।"
+},
+{
+ id:19,cat:"seerah",
+ q:"রাসূলুল্লাহ ﷺ-এর পিতার নাম কী?",
+ o:["আবু তালিব","আবদুল্লাহ","আবদুল মুত্তালিব","হামজা"],
+ a:1,
+ e:"রাসূলুল্লাহ ﷺ-এর পিতার নাম আবদুল্লাহ।"
+},
+{
+ id:20,cat:"seerah",
+ q:"রাসূলুল্লাহ ﷺ-এর প্রথম স্ত্রী কে ছিলেন?",
+ o:["আয়েশা (রা.)","হাফসা (রা.)","খাদিজা (রা.)","সাওদা (রা.)"],
+ a:2,
+ e:"উম্মুল মুমিনীন খাদিজা (রা.) ছিলেন রাসূলুল্লাহ ﷺ-এর প্রথম স্ত্রী।"
+},
+{
+ id:21,cat:"quran",
+ q:"কুরআনের কোন সূরায় বিসমিল্লাহ দুইবার এসেছে?",
+ o:["সূরা নামল","সূরা রহমান","সূরা মুলক","সূরা কাহফ"],
+ a:0,
+ e:"সূরা আন-নামলের শুরুতে এবং ৩০ নম্বর আয়াতে বিসমিল্লাহ এসেছে।"
+},
+{
+ id:22,cat:"quran",
+ q:"আয়াতুল কুরসি কোন সূরায় রয়েছে?",
+ o:["সূরা ইয়াসিন","সূরা বাকারা","সূরা ফাতিহা","সূরা ইখলাস"],
+ a:1,
+ e:"আয়াতুল কুরসি সূরা আল-বাকারার ২৫৫ নম্বর আয়াত।"
+},
+{
+ id:23,cat:"hadith",
+ q:"সহিহ মুসলিমের সংকলক কে?",
+ o:["ইমাম মুসলিম","ইমাম নাসাঈ","ইমাম মালিক","ইমাম বুখারি"],
+ a:0,
+ e:"সহিহ মুসলিম সংকলন করেছেন ইমাম মুসলিম ইবনে হাজ্জাজ (রহ.)।"
+},
+{
+ id:24,cat:"fiqh",
+ q:"যাকাত ইসলামের কততম স্তম্ভ?",
+ o:["দ্বিতীয়","তৃতীয়","চতুর্থ","পঞ্চম"],
+ a:1,
+ e:"ইসলামের পাঁচ স্তম্ভের মধ্যে যাকাত তৃতীয়।"
+},
+{
+ id:25,cat:"seerah",
+ q:"প্রথম ওহি কোন গুহায় নাজিল হয়?",
+ o:["সাওর","হেরা","উহুদ","কুবা"],
+ a:1,
+ e:"মক্কার নিকটবর্তী হেরা গুহায় প্রথম ওহি নাজিল হয়।"
+},
+{
+ id:26,cat:"aqidah",
+ q:"আল্লাহর একত্ববাদকে কী বলা হয়?",
+ o:["রিসালাত","তাওহিদ","আখিরাত","ইজমা"],
+ a:1,
+ e:"আল্লাহকে এক ও অদ্বিতীয় হিসেবে বিশ্বাস করাকে তাওহিদ বলা হয়।"
+},
+{
+ id:27,cat:"quran",
+ q:"কুরআনের শেষ সূরার নাম কী?",
+ o:["সূরা ফালাক","সূরা ইখলাস","সূরা নাস","সূরা কাওসার"],
+ a:2,
+ e:"মুসহাফের বিন্যাস অনুযায়ী কুরআনের শেষ সূরা হলো সূরা আন-নাস।"
+},
+{
+ id:28,cat:"fiqh",
+ q:"হজ কোন মাসে আদায় করা হয়?",
+ o:["রমজান","শাওয়াল","জিলহজ","মুহাররম"],
+ a:2,
+ e:"হজের নির্ধারিত সময় জিলহজ মাসে।"
+},
+{
+ id:29,cat:"hadith",
+ q:"হাদিসের পরিভাষায় 'মতন' বলতে কী বোঝায়?",
+ o:["বর্ণনাকারী","হাদিসের মূল বক্তব্য","গ্রন্থের নাম","অধ্যায়ের নাম"],
+ a:1,
+ e:"মতন হলো সনদের পর বর্ণিত হাদিসের মূল বক্তব্য।"
+},
+{
+ id:30,cat:"seerah",
+ q:"মদিনায় হিজরতের সময় রাসূলুল্লাহ ﷺ-এর সঙ্গী কে ছিলেন?",
+ o:["উমর (রা.)","আবু বকর (রা.)","উসমান (রা.)","আলী (রা.)"],
+ a:1,
+ e:"হিজরতের সফরে রাসূলুল্লাহ ﷺ-এর সঙ্গী ছিলেন আবু বকর (রা.)।"
+}
+
+];
+
+// =====================================
+// তারিখ ও দৈনিক প্রশ্ন নির্বাচন
+// =====================================
+
+const banglaDigits=n=>
+ String(n).replace(/[0-9]/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+
+const dateKey=()=>{
+ const parts=new Intl.DateTimeFormat("en-CA",{
+  timeZone:"Asia/Dhaka",
+  year:"numeric",month:"2-digit",day:"2-digit"
+ }).format(new Date());
+ return parts;
+};
+
+const today=dateKey();
+
+$("todayDate").textContent=
+ new Intl.DateTimeFormat("bn-BD",{
+  timeZone:"Asia/Dhaka",
+  year:"numeric",month:"long",day:"numeric"
+ }).format(new Date());
+
+function dailyQuestions(category="all"){
+ let list=questionBank.filter(q=>
+  category==="all" || q.cat===category
+ );
+
+ // প্রতিদিনের জন্য আলাদা নির্ধারিত ক্রম
+ let seed=0;
+ for(let i=0;i<today.length;i++){
+  seed=(seed*31+today.charCodeAt(i))>>>0;
+ }
+
+ function random(){
+  seed=(seed*1664525+1013904223)>>>0;
+  return seed/4294967296;
+ }
+
+ list=list.slice();
+
+ for(let i=list.length-1;i>0;i--){
+  const j=Math.floor(random()*(i+1));
+  [list[i],list[j]]=[list[j],list[i]];
+ }
+
+ return list.slice(0,Math.min(10,list.length));
+}
+
+// =====================================
+// পরীক্ষা ব্যবস্থা
+// =====================================
+
+let questions=[];
+let answers={};
+let current=0;
+let timeLeft=600;
+let timerInterval=null;
+let examFinished=false;
+
+const home=$("home");
+const exam=$("exam");
+const result=$("result");
+
+function showSection(section){
+ home.classList.add("hidden");
+ exam.classList.add("hidden");
+ result.classList.add("hidden");
+ section.classList.remove("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function startExam(){
+ const selected=
+ document.querySelector(".category.active");
+
+ const category=selected.dataset.category;
+
+ questions=dailyQuestions(category);
+
+ if(!questions.length){
+  alert("এই বিষয়ে পর্যাপ্ত প্রশ্ন নেই।");
+  return;
+ }
+
+ answers={};
+ current=0;
+ timeLeft=600;
+ examFinished=false;
+
+ showSection(exam);
+ renderQuestion();
+ updateTimer();
+
+ clearInterval(timerInterval);
+ timerInterval=setInterval(()=>{
+  timeLeft--;
+  updateTimer();
+
+  if(timeLeft<=0){
+   finishExam();
+  }
+ },1000);
+}
+
+function updateTimer(){
+ const min=Math.floor(timeLeft/60);
+ const sec=timeLeft%60;
+
+ $("timer").textContent=
+  banglaDigits(String(min).padStart(2,"0"))+
+  ":"+
+  banglaDigits(String(sec).padStart(2,"0"));
+
+ $("timer").style.background=
+  timeLeft<=60?"#ffe6e6":"#fff1e9";
+}
+
+function renderQuestion(){
+ const q=questions[current];
+
+ $("questionNumber").textContent=
+  `প্রশ্ন ${banglaDigits(current+1)} / ${banglaDigits(questions.length)}`;
+
+ $("questionText").textContent=q.q;
+
+ $("progress").style.width=
+  ((current+1)/questions.length*100)+"%";
+
+ $("options").innerHTML="";
+
+ q.o.forEach((option,index)=>{
+  const btn=document.createElement("button");
+  btn.className="option";
+
+  if(answers[q.id]===index){
+   btn.classList.add("selected");
+  }
+
+  const letter=document.createElement("span");
+  letter.className="letter";
+  letter.textContent="কখগঘ"[index];
+
+  const text=document.createElement("span");
+  text.textContent=option;
+
+  btn.append(letter,text);
+
+  btn.addEventListener("click",()=>{
+   answers[q.id]=index;
+   renderQuestion();
+  });
+
+  $("options").appendChild(btn);
+ });
+
+ $("previousButton").disabled=current===0;
+ $("previousButton").style.opacity=current===0?".45":"1";
+
+ $("nextButton").textContent=
+  current===questions.length-1?"পরীক্ষা জমা দিন":"পরবর্তী →";
+}
+
+$("nextButton").addEventListener("click",()=>{
+ if(current===questions.length-1){
+  const unanswered=questions.filter(q=>answers[q.id]===undefined).length;
+
+  if(unanswered>0){
+   if(!confirm(
+    `${banglaDigits(unanswered)}টি প্রশ্নের উত্তর দেওয়া হয়নি। পরীক্ষা জমা দিতে চাও?`
+   ))return;
+  }
+
+  finishExam();
+ }else{
+  current++;
+  renderQuestion();
+ }
+});
+
+$("previousButton").addEventListener("click",()=>{
+ if(current>0){
+  current--;
+  renderQuestion();
+ }
+});
+
+// =====================================
+// ফলাফল
+// =====================================
+
+function finishExam(){
+ if(examFinished)return;
+ examFinished=true;
+
+ clearInterval(timerInterval);
+
+ let correct=0;
+ let wrong=0;
+ let unanswered=0;
+
+ questions.forEach(q=>{
+  if(answers[q.id]===undefined){
+   unanswered++;
+  }else if(answers[q.id]===q.a){
+   correct++;
+  }else{
+   wrong++;
+  }
+ });
+
+ const total=questions.length;
+ const percentage=Math.round(correct/total*100);
+
+ $("scoreText").textContent=
+  banglaDigits(correct)+"/"+banglaDigits(total);
+
+ $("correctCount").textContent=banglaDigits(correct);
+ $("wrongCount").textContent=banglaDigits(wrong);
+ $("unansweredCount").textContent=banglaDigits(unanswered);
+
+ $("percentage").textContent=
+  "প্রাপ্ত নম্বর: "+banglaDigits(percentage)+"%";
+
+ $("resultMessage").textContent=
+  percentage>=80?"মাশাআল্লাহ! চমৎকার ফলাফল":
+  percentage>=50?"আলহামদুলিল্লাহ! ভালো চেষ্টা":
+  "আরও অনুশীলন করুন";
+
+ const review=$("review");
+ review.innerHTML="";
+
+ questions.forEach((q,i)=>{
+  const userAnswer=answers[q.id];
+  const isCorrect=userAnswer===q.a;
+
+  const box=document.createElement("div");
+  box.className="review-item";
+
+  const title=document.createElement("p");
+  title.style.fontWeight="600";
+  title.textContent=
+   `${banglaDigits(i+1)}. ${q.q}`;
+
+  const user=document.createElement("p");
+  user.style.marginTop="9px";
+
+  if(userAnswer===undefined){
+   user.textContent="তোমার উত্তর: দেওয়া হয়নি";
+   user.className="wrong";
+  }else{
+   user.textContent=
+    "তোমার উত্তর: "+q.o[userAnswer];
+   user.className=isCorrect?"correct":"wrong";
+  }
+
+  const answer=document.createElement("p");
+  answer.className="correct";
+  answer.style.marginTop="5px";
+  answer.textContent="সঠিক উত্তর: "+q.o[q.a];
+
+  const explanation=document.createElement("p");
+  explanation.className="explanation";
+  explanation.textContent="ব্যাখ্যা: "+q.e;
+
+  box.append(title,user,answer,explanation);
+  review.appendChild(box);
+ });
+
+ // এই ডিভাইসে আজকের ফলাফল সংরক্ষণ
+ try{
+  localStorage.setItem("hayatulQuizResult",JSON.stringify({
+   date:today,
+   correct,
+   wrong,
+   unanswered,
+   total,
+   percentage
+  }));
+ }catch(e){}
+
+ showSection(result);
+ updateDailyResult();
+}
+
+function updateDailyResult(){
+ try{
+  const saved=JSON.parse(
+   localStorage.getItem("hayatulQuizResult")
+  );
+
+  if(saved && saved.date===today){
+   $("dailyResult").innerHTML=
+    `<p style="color:#087f5b;font-weight:600">
+    আজকের পরীক্ষা সম্পন্ন হয়েছে।
+    </p>
+    <p style="margin-top:8px;font-size:14px">
+    প্রাপ্ত নম্বর: ${banglaDigits(saved.correct)}/${banglaDigits(saved.total)}
+    (${banglaDigits(saved.percentage)}%)
+    </p>`;
+  }else{
+   $("dailyResult").textContent=
+    "আজ এখনো কোনো পরীক্ষা সম্পন্ন করা হয়নি।";
+  }
+ }catch(e){}
+}
+
+// =====================================
+// বিষয় নির্বাচন
+// =====================================
+
+document.querySelectorAll(".category").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".category")
+   .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+  const count=dailyQuestions(button.dataset.category).length;
+  $("totalQuestions").textContent=banglaDigits(count);
+ });
+});
+
+$("startExam").addEventListener("click",startExam);
+
+$("homeButton").addEventListener("click",()=>{
+ showSection(home);
+});
+
+updateDailyResult();
+</script>
+
+</body>
+</html>
