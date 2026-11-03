@@ -205,7 +205,299 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 @media(prefers-reduced-motion:reduce){  
 *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}  
 }  
-</style>  </head>  <body>  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">  
+
+
+/* ===== DIGITAL QIBLA COMPASS ===== */
+
+.qibla-section{
+  padding:30px 15px;
+  scroll-margin-top:90px;
+}
+
+.qibla-header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.qibla-subtitle{
+  color:#d9b45b;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.qibla-header h2{
+  margin:7px 0;
+  color:var(--text,#fff);
+  font-size:25px;
+}
+
+.qibla-header p{
+  color:var(--muted,#aaa);
+  font-size:13px;
+}
+
+.qibla-card{
+  max-width:520px;
+  margin:auto;
+  padding:22px 16px;
+  background:var(--card,rgba(255,255,255,.06));
+  border:1px solid rgba(217,180,91,.25);
+  border-radius:18px;
+  text-align:center;
+}
+
+.qibla-status{
+  color:#d9b45b;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.qibla-compass-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.qibla-degree{
+  color:var(--text,#fff);
+  font-size:30px;
+  font-weight:800;
+  margin-bottom:12px;
+  font-variant-numeric:tabular-nums;
+}
+
+.qibla-compass{
+  width:270px;
+  height:270px;
+  max-width:80vw;
+  max-height:80vw;
+  position:relative;
+  border-radius:50%;
+  border:5px solid #d9b45b;
+  background:
+    radial-gradient(circle,#0d6049 0%,#063b2e 70%);
+  box-shadow:
+    0 0 0 7px rgba(217,180,91,.10),
+    0 12px 35px rgba(0,0,0,.25);
+}
+
+.qibla-dial{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  transition:transform .15s ease-out;
+}
+
+.qdir{
+  position:absolute;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+}
+
+.q-n{
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#f2d98a;
+}
+
+.q-e{
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.q-s{
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.q-w{
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.q-ne{top:42px;right:43px;font-size:10px}
+.q-se{bottom:42px;right:43px;font-size:10px}
+.q-sw{bottom:42px;left:43px;font-size:10px}
+.q-nw{top:42px;left:43px;font-size:10px}
+
+.qibla-ticks{
+  position:absolute;
+  inset:23px;
+  border-radius:50%;
+  border:1px dashed rgba(255,255,255,.35);
+}
+
+.qibla-needle{
+  position:absolute;
+  width:34px;
+  height:190px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  pointer-events:none;
+  transition:transform .15s ease-out;
+}
+
+.qibla-needle-top{
+  position:absolute;
+  top:0;
+  left:7px;
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:90px solid #f2d98a;
+  filter:drop-shadow(0 2px 4px #000);
+}
+
+.qibla-needle-bottom{
+  position:absolute;
+  bottom:0;
+  left:7px;
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:90px solid #fff;
+}
+
+.qibla-center{
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#d9b45b;
+  border:4px solid #fff;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:5;
+}
+
+.qibla-direction{
+  margin-top:22px;
+  color:#d9b45b;
+  font-size:17px;
+  font-weight:700;
+}
+
+.qibla-angle{
+  margin-top:8px;
+  color:var(--muted,#aaa);
+  font-size:13px;
+}
+
+.qibla-angle strong{
+  color:var(--text,#fff);
+  font-size:17px;
+}
+
+.qibla-info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:22px 0;
+}
+
+.qibla-info{
+  padding:13px 8px;
+  border:1px solid rgba(217,180,91,.18);
+  border-radius:12px;
+  background:rgba(0,0,0,.10);
+  min-width:0;
+}
+
+.qibla-info span{
+  display:block;
+  color:var(--muted,#aaa);
+  font-size:11px;
+  margin-bottom:6px;
+}
+
+.qibla-info strong{
+  display:block;
+  color:var(--text,#fff);
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+
+.qibla-btn{
+  width:100%;
+  padding:14px;
+  margin-top:9px;
+  border:0;
+  border-radius:10px;
+  background:#087f5b;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.qibla-btn:active{
+  transform:scale(.98);
+}
+
+.qibla-secondary{
+  background:transparent;
+  border:1px solid #d9b45b;
+  color:var(--text,#fff);
+}
+
+.qibla-help{
+  margin-top:20px;
+  padding:15px;
+  text-align:left;
+  border-radius:12px;
+  background:rgba(217,180,91,.07);
+  color:var(--muted,#aaa);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.qibla-help strong{
+  color:#d9b45b;
+  font-size:14px;
+}
+
+.qibla-help p{
+  margin:5px 0;
+}
+
+.qibla-warning{
+  color:#d9b45b;
+  margin-top:12px!important;
+}
+
+@media(max-width:380px){
+  .qibla-compass{
+    width:240px;
+    height:240px;
+  }
+  .qibla-needle{
+    height:165px;
+  }
+  .qibla-needle-top{
+    border-bottom-width:77px;
+  }
+  .qibla-needle-bottom{
+    border-top-width:77px;
+  }
+}
+
+
+  
+</style>  
+
+
+</head>  <body>  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">  
 <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>  
 <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>  
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>  
@@ -293,6 +585,109 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="card info-card"><h3><svg><use href="#i-moon"/></svg> তাহাজ্জুদ</h3><p id="tahajjudTime">--:--</p><p class="muted small">রাতের শেষ এক-তৃতীয়াংশের আনুমানিক শুরু।</p></div>  
 <div class="card info-card"><h3><svg><use href="#i-moon"/></svg> আওয়াবিন</h3><p id="awwabinTime">মাগরিবের পর</p><p class="muted small">মাগরিবের পর নফল ইবাদতের সময়।</p></div>  
 </div>  
+
+
+
+<!-- DIGITAL COMPASS & QIBLA SECTION -->
+<section id="qibla" class="qibla-section">
+
+  <div class="qibla-header">
+    <span class="qibla-subtitle">DIGITAL COMPASS</span>
+    <h2>ডিজিটাল কম্পাস</h2>
+    <p>সহজেই নির্ণয় করো কিবলার সঠিক দিক</p>
+  </div>
+
+  <div class="qibla-card">
+
+    <div class="qibla-status" id="qiblaStatus">
+      অবস্থান নির্ণয়ের জন্য প্রস্তুত
+    </div>
+
+    <div class="qibla-compass-wrap">
+
+      <div class="qibla-degree" id="qiblaHeading">
+        ০°
+      </div>
+
+      <div class="qibla-compass" id="qiblaCompass">
+
+        <div class="qibla-dial" id="qiblaDial">
+
+          <span class="qdir q-n">N</span>
+          <span class="qdir q-e">E</span>
+          <span class="qdir q-s">S</span>
+          <span class="qdir q-w">W</span>
+
+          <span class="qdir q-ne">NE</span>
+          <span class="qdir q-se">SE</span>
+          <span class="qdir q-sw">SW</span>
+          <span class="qdir q-nw">NW</span>
+
+          <div class="qibla-ticks"></div>
+
+        </div>
+
+        <div class="qibla-needle" id="qiblaNeedle">
+          <div class="qibla-needle-top"></div>
+          <div class="qibla-needle-bottom"></div>
+        </div>
+
+        <div class="qibla-center"></div>
+
+      </div>
+
+      <div class="qibla-direction" id="qiblaDirection">
+        কিবলার দিক নির্ণয় করা হয়নি
+      </div>
+
+      <div class="qibla-angle">
+        কিবলার কোণ:
+        <strong id="qiblaBearing">--°</strong>
+      </div>
+
+    </div>
+
+    <div class="qibla-info-grid">
+
+      <div class="qibla-info">
+        <span>বর্তমান অবস্থান</span>
+        <strong id="qiblaLocation">অজানা</strong>
+      </div>
+
+      <div class="qibla-info">
+        <span>কম্পাসের অবস্থা</span>
+        <strong id="qiblaSensor">বন্ধ</strong>
+      </div>
+
+    </div>
+
+    <button type="button" id="qiblaStart" class="qibla-btn">
+      <span>◎</span> কম্পাস চালু করো
+    </button>
+
+    <button type="button" id="qiblaLocate" class="qibla-btn qibla-secondary">
+      <span>⌖</span> আমার অবস্থান নির্ণয় করো
+    </button>
+
+    <div class="qibla-help">
+      <strong>ব্যবহারের নির্দেশনা</strong>
+      <p>১. প্রথমে অবস্থান নির্ণয় করো।</p>
+      <p>২. কম্পাস চালু করার অনুমতি দাও।</p>
+      <p>৩. ফোনটি সমতলভাবে ধরে ধীরে ঘোরাও।</p>
+      <p>৪. কম্পাসের কাঁটা কিবলার দিকে নির্দেশ করবে।</p>
+      <p class="qibla-warning">
+        ⚠️ ধাতব বস্তু, চুম্বক ও ইলেকট্রনিক যন্ত্রের কাছে কম্পাসের
+        দিক ভুল দেখাতে পারে। প্রয়োজনে ফোনটি আটের আকৃতিতে কয়েকবার
+        নাড়িয়ে ক্যালিব্রেট করো।
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- END DIGITAL COMPASS -->
+
+
+  
 </div></section>  <section class="section" id="calendar"><div class="container">  
 <div class="section-heading"><h2>মাসিক ক্যালেন্ডার</h2><p>ইংরেজি মাসের তারিখ</p></div>  
 <div class="card"><div class="calendar-head"><button id="prevMonth">পূর্ববর্তী</button><h3 id="monthTitle"></h3><button id="nextMonth">পরবর্তী</button></div><div class="calendar-grid" id="calendarGrid"></div></div>  
@@ -938,5 +1333,266 @@ if("IntersectionObserver"in window){
   
  sections.forEach(s=>observer.observe(s));  
 }  
+
+
+/* ===== DIGITAL QIBLA COMPASS ENGINE ===== */
+
+(function(){
+
+  const KAABA_LAT = 21.4225;
+  const KAABA_LON = 39.8262;
+
+  const $ = id => document.getElementById(id);
+
+  const status = $("qiblaStatus");
+  const headingText = $("qiblaHeading");
+  const bearingText = $("qiblaBearing");
+  const directionText = $("qiblaDirection");
+  const locationText = $("qiblaLocation");
+  const sensorText = $("qiblaSensor");
+  const dial = $("qiblaDial");
+  const needle = $("qiblaNeedle");
+
+  if(!status || !dial || !needle) return;
+
+  let qiblaBearing = null;
+  let deviceHeading = null;
+  let sensorActive = false;
+
+  function toBangla(number){
+    return String(number).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+  }
+
+  function normalize(degree){
+    return (degree % 360 + 360) % 360;
+  }
+
+  function calculateQibla(lat,lon){
+
+    const lat1 = lat * Math.PI / 180;
+    const lat2 = KAABA_LAT * Math.PI / 180;
+    const deltaLon = (KAABA_LON-lon) * Math.PI / 180;
+
+    const y = Math.sin(deltaLon);
+    const x =
+      Math.cos(lat1)*Math.tan(lat2) -
+      Math.sin(lat1)*Math.cos(deltaLon);
+
+    return normalize(Math.atan2(y,x)*180/Math.PI);
+  }
+
+  function getDirection(degree){
+
+    const directions = [
+      "উত্তর","উত্তর-পূর্ব","পূর্ব","দক্ষিণ-পূর্ব",
+      "দক্ষিণ","দক্ষিণ-পশ্চিম","পশ্চিম","উত্তর-পশ্চিম"
+    ];
+
+    return directions[Math.round(degree/45)%8];
+  }
+
+  function updateCompass(){
+
+    if(qiblaBearing === null) return;
+
+    if(deviceHeading === null){
+
+      directionText.textContent =
+        "কিবলা "+toBangla(Math.round(qiblaBearing))+"°";
+
+      return;
+    }
+
+    const relative = normalize(qiblaBearing-deviceHeading);
+
+    dial.style.transform = `rotate(${-deviceHeading}deg)`;
+
+    needle.style.transform =
+      `translate(-50%,-50%) rotate(${relative}deg)`;
+
+    headingText.textContent =
+      toBangla(Math.round(deviceHeading))+"°";
+
+    directionText.textContent =
+      "কিবলা "+getDirection(qiblaBearing);
+
+  }
+
+  function setLocation(lat,lon){
+
+    qiblaBearing = calculateQibla(lat,lon);
+
+    bearingText.textContent =
+      toBangla(Math.round(qiblaBearing))+"°";
+
+    status.textContent = "কিবলার দিক নির্ণয় সম্পন্ন";
+
+    locationText.textContent =
+      lat.toFixed(4)+", "+lon.toFixed(4);
+
+    updateCompass();
+  }
+
+  function locateUser(){
+
+    if(!navigator.geolocation){
+
+      status.textContent =
+        "তোমার ব্রাউজারে GPS সুবিধা নেই";
+
+      return;
+    }
+
+    status.textContent = "অবস্থান নির্ণয় করা হচ্ছে...";
+
+    navigator.geolocation.getCurrentPosition(
+
+      position => {
+
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        setLocation(lat,lon);
+
+      },
+
+      error => {
+
+        const messages = {
+          1:"অবস্থানের অনুমতি দেওয়া হয়নি",
+          2:"অবস্থান পাওয়া যাচ্ছে না",
+          3:"অবস্থান নির্ণয়ে সময় শেষ হয়েছে"
+        };
+
+        status.textContent =
+          messages[error.code] || "অবস্থান নির্ণয় ব্যর্থ";
+
+      },
+
+      {
+        enableHighAccuracy:true,
+        timeout:20000,
+        maximumAge:0
+      }
+
+    );
+  }
+
+  function handleOrientation(event){
+
+    let heading = null;
+
+    if(typeof event.webkitCompassHeading === "number"){
+
+      heading = event.webkitCompassHeading;
+
+    }else if(typeof event.alpha === "number"){
+
+      heading = 360-event.alpha;
+
+      const screenAngle =
+        screen.orientation?.angle ??
+        window.orientation ??
+        0;
+
+      heading += screenAngle;
+
+    }
+
+    if(heading === null || !Number.isFinite(heading)) return;
+
+    deviceHeading = normalize(heading);
+
+    sensorActive = true;
+
+    sensorText.textContent = "চালু";
+
+    updateCompass();
+  }
+
+  function startCompass(){
+
+    if(!window.isSecureContext){
+
+      status.textContent =
+        "কম্পাস ব্যবহারের জন্য HTTPS ওয়েবসাইট প্রয়োজন";
+
+      return;
+    }
+
+    if(!("DeviceOrientationEvent" in window)){
+
+      status.textContent =
+        "এই ফোনে কম্পাস সেন্সর সমর্থিত নয়";
+
+      sensorText.textContent = "অসমর্থিত";
+
+      return;
+    }
+
+    function activate(){
+
+      window.addEventListener(
+        "deviceorientationabsolute",
+        handleOrientation,
+        true
+      );
+
+      window.addEventListener(
+        "deviceorientation",
+        handleOrientation,
+        true
+      );
+
+      status.textContent =
+        "ফোনটি সমতলভাবে ধরে ধীরে ঘোরাও";
+
+    }
+
+    if(typeof DeviceOrientationEvent.requestPermission === "function"){
+
+      DeviceOrientationEvent.requestPermission()
+
+        .then(permission => {
+
+          if(permission === "granted"){
+
+            activate();
+
+          }else{
+
+            status.textContent =
+              "কম্পাস সেন্সরের অনুমতি দেওয়া হয়নি";
+
+          }
+
+        })
+
+        .catch(() => {
+
+          status.textContent =
+            "কম্পাস চালু করা যায়নি";
+
+        });
+
+    }else{
+
+      activate();
+
+    }
+
+  }
+
+  $("qiblaLocate")?.addEventListener("click",locateUser);
+
+  $("qiblaStart")?.addEventListener("click",startCompass);
+
+  // পৃষ্ঠা চালুর পর স্বয়ংক্রিয়ভাবে GPS অনুরোধ নয়
+
+})();
+
+
+
+  
 </script>  </body>  
 </html>
