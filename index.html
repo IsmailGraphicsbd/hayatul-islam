@@ -912,27 +912,50 @@ const monthNames=[
 const weekdays=["রবি","সোম","মঙ্গল","বুধ","বৃহস্পতি","শুক্র","শনি"];
 
 function renderCalendar(){
- const y=calendarDate.getFullYear();
- const m=calendarDate.getMonth();
+  const nowParts=new Intl.DateTimeFormat("en-GB",{
+    timeZone:"Asia/Dhaka",
+    day:"numeric",
+    month:"numeric",
+    year:"numeric"
+  }).formatToParts(new Date());
 
- const first=new Date(y,m,1).getDay();
- const total=new Date(y,m+1,0).getDate();
+  const get=t=>Number(nowParts.find(p=>p.type===t).value);
 
- $("monthTitle").textContent=monthNames[m]+" "+banglaDigits(y);
+  const todayDay=get("day");
+  const todayMonth=get("month")-1;
+  const todayYear=get("year");
 
- let h=weekdays.map(d=>`<div class="weekday">${d}</div>`).join("");
+  const y=calendarDate.getFullYear();
+  const m=calendarDate.getMonth();
 
- for(let i=0;i<first;i++)h+='<div class="empty"> </div>';
+  const first=new Date(y,m,1).getDay();
+  const total=new Date(y,m+1,0).getDate();
 
- const n=new Date();
+  $("monthTitle").textContent=
+    monthNames[m]+" "+banglaDigits(y);
 
- for(let d=1;d<=total;d++){
-  const t=d===n.getDate()&&m===n.getMonth()&&y===n.getFullYear();
+  let html=weekdays.map(d=>
+    `<div class="weekday">${d}</div>`
+  ).join("");
 
-  h+=`<div class="${t?"today":""}">${banglaDigits(d)}</div>`;
- }
+  for(let i=0;i<first;i++){
+    html+='<div class="empty"></div>';
+  }
 
- $("calendarGrid").innerHTML=h;
+  for(let d=1;d<=total;d++){
+    const isToday=
+      d===todayDay&&
+      m===todayMonth&&
+      y===todayYear;
+
+    html+=`
+      <div class="${isToday?"today":""}">
+        ${banglaDigits(d)}
+      </div>
+    `;
+  }
+
+  $("calendarGrid").innerHTML=html;
 }
 
 $("prevMonth").addEventListener("click",()=>{
