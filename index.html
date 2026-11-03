@@ -493,6 +493,194 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 }
 
 
+/* DAILY ISLAMIC QUIZ */
+#hi-daily-quiz {
+  padding: 45px 15px;
+  background: transparent;
+  font-family: inherit;
+}
+
+#hi-daily-quiz * {
+  box-sizing: border-box;
+}
+
+#hi-daily-quiz .quiz-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+#hi-daily-quiz .quiz-tag {
+  display: inline-block;
+  color: #d9b45b;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#hi-daily-quiz .quiz-heading h2 {
+  color: var(--primary, #087f5b);
+  font-size: 25px;
+  margin: 5px 0 8px;
+}
+
+#hi-daily-quiz .quiz-heading p {
+  color: var(--text-secondary, #777);
+  font-size: 14px;
+  margin: 0;
+}
+
+#hi-daily-quiz .quiz-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 22px;
+  border: 1px solid rgba(8,127,91,.18);
+  border-radius: 16px;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 8px 30px rgba(0,0,0,.07);
+}
+
+#hi-daily-quiz .quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #087f5b;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#hi-daily-quiz .quiz-progress {
+  height: 6px;
+  background: rgba(8,127,91,.12);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+#hi-daily-quiz #quizProgress {
+  height: 100%;
+  width: 0%;
+  background: #087f5b;
+  transition: width .3s ease;
+}
+
+#hi-daily-quiz #quizQuestion {
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--text-color, #222);
+  margin: 0 0 20px;
+}
+
+#hi-daily-quiz .quiz-options {
+  display: grid;
+  gap: 11px;
+}
+
+#hi-daily-quiz .quiz-option {
+  width: 100%;
+  padding: 13px 15px;
+  text-align: left;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-color, #222);
+  background: var(--bg-secondary, #f5f8f6);
+  border: 1px solid rgba(8,127,91,.17);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#hi-daily-quiz .quiz-option:hover {
+  border-color: #087f5b;
+  background: rgba(8,127,91,.07);
+}
+
+#hi-daily-quiz .quiz-option.correct {
+  background: #e5f6ec;
+  border-color: #16864d;
+  color: #126b3c;
+}
+
+#hi-daily-quiz .quiz-option.wrong {
+  background: #fff0f0;
+  border-color: #d9534f;
+  color: #b52b27;
+}
+
+#hi-daily-quiz .quiz-option:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+#hi-daily-quiz .quiz-feedback {
+  min-height: 55px;
+  padding-top: 15px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-color, #333);
+}
+
+#hi-daily-quiz .quiz-feedback.success {
+  color: #16864d;
+}
+
+#hi-daily-quiz .quiz-feedback.error {
+  color: #c0392b;
+}
+
+#hi-daily-quiz .quiz-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(8,127,91,.15);
+  padding-top: 15px;
+  margin-top: 10px;
+  color: var(--text-color, #333);
+}
+
+#hi-daily-quiz .quiz-bottom strong {
+  color: #087f5b;
+  font-size: 22px;
+}
+
+#hi-daily-quiz .quiz-next {
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px;
+  border: none;
+  background: #087f5b;
+  color: white;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#hi-daily-quiz .quiz-note {
+  font-size: 12px;
+  color: var(--text-secondary, #888);
+  text-align: center;
+  margin: 18px 0 0;
+  line-height: 1.7;
+}
+
+@media(max-width:480px) {
+  #hi-daily-quiz {
+    padding: 30px 12px;
+  }
+
+  #hi-daily-quiz .quiz-card {
+    padding: 17px;
+  }
+
+  #hi-daily-quiz #quizQuestion {
+    font-size: 17px;
+  }
+}
+
+
+  
   
 </style>  
 
@@ -727,22 +915,80 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 </div></section>  <section class="section" id="calendar"><div class="container">  
 <div class="section-heading"><h2>মাসিক ক্যালেন্ডার</h2><p>ইংরেজি মাসের তারিখ</p></div>  
 <div class="card"><div class="calendar-head"><button id="prevMonth">পূর্ববর্তী</button><h3 id="monthTitle"></h3><button id="nextMonth">পরবর্তী</button></div><div class="calendar-grid" id="calendarGrid"></div></div>  
-</div></section>  <section class="section" id="quran"><div class="container">  
+</div></section> 
+  
+  
+  <!-- DAILY ISLAMIC QUIZ -->
+<section id="hi-daily-quiz">
+  <div class="quiz-heading">
+    <span class="quiz-tag">প্রতিদিনের জ্ঞানচর্চা</span>
+    <h2>দৈনিক ইসলামিক কুইজ</h2>
+    <p>প্রতিদিন নতুন কিছু শিখি, দ্বীনের জ্ঞান বৃদ্ধি করি।</p>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top">
+      <span id="quizDate">আজকের কুইজ</span>
+      <span id="quizNumber">প্রশ্ন ১</span>
+    </div>
+
+    <div class="quiz-progress">
+      <div id="quizProgress"></div>
+    </div>
+
+    <h3 id="quizQuestion">প্রশ্ন লোড হচ্ছে...</h3>
+
+    <div id="quizOptions" class="quiz-options"></div>
+
+    <div id="quizFeedback" class="quiz-feedback"
+         aria-live="polite"></div>
+
+    <div class="quiz-bottom">
+      <span>আজকের স্কোর</span>
+      <strong id="quizScore">০</strong>
+    </div>
+
+    <button id="quizNext" class="quiz-next" type="button" hidden>
+      পরবর্তী প্রশ্ন
+    </button>
+
+    <p class="quiz-note">
+      প্রতিদিন নতুন প্রশ্নের মাধ্যমে নিজের ইসলামিক জ্ঞান যাচাই করো।
+    </p>
+  </div>
+</section>
+  
+  
+  
+  <section class="section" id="quran"><div class="container">  
 <div class="section-heading"><h2>আল-কুরআন</h2><p>কুরআন তিলাওয়াত ও অধ্যয়ন</p></div>  
-<div class="grid two-col">  
+
+    
+    
+    <div class="grid two-col">  
 <div class="card"><h3 style="color:var(--green2)">الْقُرْآنُ الْكَرِيمُ</h3><p class="muted" style="margin:10px 0">পবিত্র কুরআন মাজিদ পড়ো, অর্থ বোঝার চেষ্টা করো এবং জীবনে আমল করো।</p><a class="hero-btn" style="margin-top:5px" href="quran.html">কুরআন পড়ুন</a></div>  
 <div class="card"><h3 style="color:var(--green2)">আজকের স্মরণ</h3><p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><p class="muted">পরম করুণাময়, অসীম দয়ালু আল্লাহর নামে।</p></div>  
 </div>  
-</div></section>  <section class="section" id="tasbih"><div class="container">  
+</div></section>  
+  
+  
+  
+  <section class="section" id="tasbih"><div class="container">  
 <div class="section-heading"><h2>ডিজিটাল তাসবিহ</h2><p>জিকিরের গণনা</p></div>  
 <div class="card tasbih"><p class="arabic-text" style="text-align:center">سُبْحَانَ اللَّهِ</p><div class="tasbih-count" id="tasbihCount">০</div><button class="tasbih-btn" id="tasbihBtn">গণনা করুন</button><button class="tasbih-btn reset-btn" id="resetTasbih">রিসেট</button></div>  
-</div></section>  <section class="section" id="dua"><div class="container">  
+</div></section> 
+  
+  
+  <section class="section" id="dua"><div class="container">  
 <div class="section-heading"><h2>দৈনিক আমল ও দোয়া</h2><p>প্রতিদিনের জীবনে দ্বীনি অভ্যাস</p></div>  
 <div class="grid two-col">  
 <div class="card"><h3 style="color:var(--green2);margin-bottom:12px">দৈনিক আমল</h3><ul class="content-list"><li>পাঁচ ওয়াক্ত নামাজ সময়মতো আদায় করা</li><li>প্রতিদিন কুরআন তিলাওয়াত করা</li><li>সকাল ও সন্ধ্যার মাসনুন জিকির করা</li><li>মাতা-পিতার সঙ্গে সদাচরণ করা</li><li>সত্য কথা বলা ও গিবত থেকে বিরত থাকা</li></ul></div>  
 <div class="card"><h3 style="color:var(--green2);margin-bottom:12px">একটি সুন্দর দোয়া</h3><p class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><p style="margin-top:12px">অর্থ: হে আমাদের রব! আমাদের দুনিয়াতে কল্যাণ দান করুন এবং আখিরাতেও কল্যাণ দান করুন, আর আমাদের জাহান্নামের আজাব থেকে রক্ষা করুন।</p><p class="muted small" style="margin-top:8px">সূরা আল-বাকারা, আয়াত ২০১</p></div>  
 </div>  
-</div></section>  <section class="section" id="about"><div class="container">  
+</div></section>  
+  
+  
+  <section class="section" id="about"><div class="container">  
 <div class="section-heading"><h2>আমার পরিচিতি</h2><p>দ্বীনি শিক্ষা ও উপকারী জ্ঞান ছড়িয়ে দেওয়ার প্রত্যয়</p></div>  
 <div class="card profile-card">  
 <div class="profile-cover"></div>  
@@ -755,6 +1001,9 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="profile-links"><a class="facebook" href="https://www.facebook.com/share/1HHyGXFu3Q/" target="_blank" rel="noopener">Facebook</a><a class="whatsapp" href="https://wa.me/8801405464247" target="_blank" rel="noopener">WhatsApp</a></div>  
 <p class="profile-note">দ্বীনি উপকার ও ভালো কাজের উদ্দেশ্যে এই পথচলা।</p>  
 </div></div></div></section>  
+
+
+  
 </main>  <footer class="site-footer"><div class="container">  
 <div class="footer-arabic">حَيَاةُ الْإِسْلَامِ</div><h2>হায়াতুল ইসলাম</h2><p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>  
 <div class="footer-links"><a href="#home">হোম</a><a href="#prayer">নামাজ</a><a href="#quran">কুরআন</a><a href="#dua">দোয়া</a><a href="#about">পরিচিতি</a></div>  
@@ -765,7 +1014,11 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <a href="#calendar"><svg><use href="#i-calendar"/></svg><span>ক্যালেন্ডার</span></a>  
 <a href="#quran"><svg><use href="#i-book"/></svg><span>কুরআন</span></a>  
 <button id="moreBtn"><svg><use href="#i-menu"/></svg><span>আরও</span></button>  
-</nav>  <script>  
+</nav> 
+  
+  
+  
+  <script>  
 // লোগো  
 const SITE_LOGO_URL = "https://raw.githubusercontent.com/IsmailGraphicsbd/hayatul-islam/refs/heads/main/file_00000000a6dc8211a029a054995f0154.png";  
   
@@ -1628,6 +1881,298 @@ if("IntersectionObserver"in window){
 })();
 
 
+/* ==================================
+   HAYATUL ISLAM - DAILY QUIZ SYSTEM
+================================== */
+
+(function () {
+  "use strict";
+
+  const quizQuestions = [
+
+    {
+      q: "পবিত্র কুরআনের প্রথম নাজিল হওয়া আয়াত কোন সূরায় রয়েছে?",
+      a: ["সূরা আল-ফাতিহা", "সূরা আল-আলাক", "সূরা আল-ইখলাস", "সূরা আন-নাস"],
+      c: 1,
+      r: "সূরা আল-আলাক, আয়াত ১-৫।"
+    },
+
+    {
+      q: "আয়াতুল কুরসি কোন সূরায় রয়েছে?",
+      a: ["সূরা আলে ইমরান", "সূরা আন-নিসা", "সূরা আল-বাকারা", "সূরা আল-মায়িদা"],
+      c: 2,
+      r: "সূরা আল-বাকারা, আয়াত ২৫৫।"
+    },
+
+    {
+      q: "পবিত্র কুরআনে মোট কতটি সূরা রয়েছে?",
+      a: ["১১০টি", "১১২টি", "১১৪টি", "১১৬টি"],
+      c: 2,
+      r: "কুরআনের শেষ সূরা আন-নাসের ক্রমিক নম্বর ১১৪।"
+    },
+
+    {
+      q: "রমজান মাসে রোজা ফরজ হওয়ার নির্দেশ কোন সূরায় এসেছে?",
+      a: ["সূরা আল-বাকারা", "সূরা আল-ফিল", "সূরা আল-কাওসার", "সূরা মারইয়াম"],
+      c: 0,
+      r: "সূরা আল-বাকারা, আয়াত ১৮৩।"
+    },
+
+    {
+      q: "কুরআনে হযরত ঈসা (আ.)-এর মায়ের নাম কী?",
+      a: ["আসিয়া", "হাজেরা", "মারইয়াম", "সারা"],
+      c: 2,
+      r: "হযরত মারইয়াম (আ.)। সূরা মারইয়াম, আয়াত ১৬।"
+    },
+
+    {
+      q: "হযরত লুকমান (আ.) তাঁর ছেলেকে প্রথম কোন বিষয়ে উপদেশ দিয়েছিলেন?",
+      a: ["সদকা", "শিরক থেকে বিরত থাকা", "হজ", "ব্যবসা"],
+      c: 1,
+      r: "সূরা লুকমান, আয়াত ১৩।"
+    },
+
+    {
+      q: "সূরা আল-ইখলাসে মূলত কোন বিষয়ের বর্ণনা রয়েছে?",
+      a: ["তাওহিদ", "হজ", "যাকাত", "উত্তরাধিকার"],
+      c: 0,
+      r: "সূরা আল-ইখলাসে আল্লাহর একত্বের ঘোষণা রয়েছে।"
+    },
+
+    {
+      q: "আসহাবে কাহফের ঘটনা কোন সূরায় বর্ণিত হয়েছে?",
+      a: ["সূরা ইউসুফ", "সূরা আল-কাহফ", "সূরা নূহ", "সূরা আর-রহমান"],
+      c: 1,
+      r: "সূরা আল-কাহফ, আয়াত ৯-২৬।"
+    },
+
+    {
+      q: "হযরত দাউদ (আ.)-এর প্রতি কোন আসমানি কিতাব নাজিল হয়েছিল?",
+      a: ["তাওরাত", "ইনজিল", "যাবুর", "কুরআন"],
+      c: 2,
+      r: "সূরা আন-নিসা, আয়াত ১৬৩।"
+    },
+
+    {
+      q: "হযরত মূসা (আ.)-এর প্রতি কোন কিতাব দেওয়া হয়েছিল?",
+      a: ["যাবুর", "তাওরাত", "ইনজিল", "কুরআন"],
+      c: 1,
+      r: "সূরা আল-ইসরা, আয়াত ২।"
+    },
+
+    {
+      q: "হযরত নূহ (আ.)-কে কী নির্মাণ করার নির্দেশ দেওয়া হয়েছিল?",
+      a: ["প্রাসাদ", "মসজিদ", "নৌযান", "দুর্গ"],
+      c: 2,
+      r: "সূরা হুদ, আয়াত ৩৭।"
+    },
+
+    {
+      q: "হযরত ইউসুফ (আ.) স্বপ্নে কয়টি নক্ষত্র দেখেছিলেন?",
+      a: ["১০টি", "১১টি", "১২টি", "৭টি"],
+      c: 1,
+      r: "সূরা ইউসুফ, আয়াত ৪।"
+    },
+
+    {
+      q: "হযরত ইবরাহিম (আ.) ও হযরত ইসমাইল (আ.) কোন ঘরের ভিত্তি উঁচু করেছিলেন?",
+      a: ["মসজিদে নববি", "বায়তুল মুকাদ্দাস", "কাবাঘর", "মসজিদে কুবা"],
+      c: 2,
+      r: "সূরা আল-বাকারা, আয়াত ১২৭।"
+    },
+
+    {
+      q: "লাইলাতুল কদর কত মাসের চেয়ে উত্তম?",
+      a: ["১০০ মাস", "৫০০ মাস", "১০০০ মাস", "২০০০ মাস"],
+      c: 2,
+      r: "সূরা আল-কদর, আয়াত ৩।"
+    },
+
+    {
+      q: "কুরআনের কোন সূরায় হযরত ইউসুফ (আ.)-এর ঘটনা ধারাবাহিকভাবে বর্ণিত হয়েছে?",
+      a: ["সূরা ইউসুফ", "সূরা আল-কাসাস", "সূরা আল-আম্বিয়া", "সূরা আন-নামল"],
+      c: 0,
+      r: "সূরা ইউসুফ।"
+    }
+
+  ];
+
+  const root = document.getElementById("hi-daily-quiz");
+
+  if (!root) return;
+
+  const questionEl = root.querySelector("#quizQuestion");
+  const optionsEl = root.querySelector("#quizOptions");
+  const feedbackEl = root.querySelector("#quizFeedback");
+  const dateEl = root.querySelector("#quizDate");
+  const numberEl = root.querySelector("#quizNumber");
+  const scoreEl = root.querySelector("#quizScore");
+  const progressEl = root.querySelector("#quizProgress");
+  const nextBtn = root.querySelector("#quizNext");
+
+  const banglaNumber = value =>
+    String(value).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+
+  function getBangladeshDate() {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Dhaka",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(new Date());
+  }
+
+  function getDailyIndex() {
+    const date = getBangladeshDate();
+    const start = new Date("2026-01-01T00:00:00+06:00");
+    const current = new Date(date + "T00:00:00+06:00");
+
+    const days = Math.floor(
+      (current.getTime() - start.getTime()) / 86400000
+    );
+
+    return ((days % quizQuestions.length) + quizQuestions.length)
+      % quizQuestions.length;
+  }
+
+  const today = getBangladeshDate();
+  const questionIndex = getDailyIndex();
+  const question = quizQuestions[questionIndex];
+
+  const storageKey = "hayatulIslamQuiz_" + today;
+
+  let saved = null;
+
+  try {
+    saved = JSON.parse(localStorage.getItem(storageKey));
+  } catch (error) {
+    saved = null;
+  }
+
+  let answered = !!saved;
+  let score = Number(saved?.score || 0);
+
+  function showQuestion() {
+    dateEl.textContent = "তারিখ: " + today;
+    numberEl.textContent =
+      "প্রশ্ন " + banglaNumber(questionIndex + 1);
+
+    questionEl.textContent = question.q;
+    scoreEl.textContent = banglaNumber(score);
+
+    progressEl.style.width = "0%";
+    optionsEl.innerHTML = "";
+    feedbackEl.textContent = "";
+    feedbackEl.className = "quiz-feedback";
+
+    question.a.forEach((answer, index) => {
+      const button = document.createElement("button");
+
+      button.type = "button";
+      button.className = "quiz-option";
+      button.textContent =
+        banglaNumber(index + 1) + ". " + answer;
+
+      button.addEventListener("click", () => {
+        checkAnswer(index);
+      });
+
+      optionsEl.appendChild(button);
+    });
+
+    nextBtn.hidden = true;
+
+    if (answered) {
+      restoreAnswer();
+    }
+  }
+
+  function checkAnswer(selected) {
+    if (answered) return;
+
+    answered = true;
+
+    const correct = selected === question.c;
+    const buttons = optionsEl.querySelectorAll(".quiz-option");
+
+    buttons.forEach((button, index) => {
+      button.disabled = true;
+
+      if (index === question.c) {
+        button.classList.add("correct");
+      }
+
+      if (index === selected && !correct) {
+        button.classList.add("wrong");
+      }
+    });
+
+    if (correct) {
+      score = 1;
+      feedbackEl.textContent =
+        "অভিনন্দন! তোমার উত্তর সঠিক। " + question.r;
+      feedbackEl.classList.add("success");
+    } else {
+      feedbackEl.textContent =
+        "উত্তরটি সঠিক হয়নি। সঠিক উত্তর: " +
+        question.a[question.c] + "। " + question.r;
+
+      feedbackEl.classList.add("error");
+    }
+
+    scoreEl.textContent = banglaNumber(score);
+    progressEl.style.width = "100%";
+
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({
+        selected: selected,
+        score: score
+      }));
+    } catch (error) {}
+
+    nextBtn.hidden = false;
+    nextBtn.textContent = "আগামীকালের কুইজ";
+    nextBtn.disabled = true;
+  }
+
+  function restoreAnswer() {
+    const buttons = optionsEl.querySelectorAll(".quiz-option");
+    const selected = Number(saved.selected);
+
+    buttons.forEach((button, index) => {
+      button.disabled = true;
+
+      if (index === question.c) {
+        button.classList.add("correct");
+      }
+
+      if (index === selected && selected !== question.c) {
+        button.classList.add("wrong");
+      }
+    });
+
+    if (selected === question.c) {
+      feedbackEl.textContent =
+        "তুমি আজকের কুইজে সঠিক উত্তর দিয়েছ। " + question.r;
+      feedbackEl.classList.add("success");
+    } else {
+      feedbackEl.textContent =
+        "আজকের কুইজ সম্পন্ন। সঠিক উত্তর: " +
+        question.a[question.c] + "। " + question.r;
+      feedbackEl.classList.add("error");
+    }
+
+    progressEl.style.width = "100%";
+    nextBtn.hidden = false;
+    nextBtn.textContent = "আগামীকালের কুইজ";
+    nextBtn.disabled = true;
+  }
+
+  showQuestion();
+
+})();
+
+    
 
   
 </script>  </body>  
