@@ -1,1594 +1,1425 @@
-
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#063b2e">
-<meta name="description" content="হায়াতুল ইসলাম — প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।">
-<title>হায়াতুল ইসলাম | প্রতিদিনের দ্বীনি জীবন</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-:root{--bg:#f3f7f4;--surface:#fff;--surface2:#eaf2ed;--text:#18372d;--muted:#6b8176;--green:#063b2e;--green2:#087f5b;--gold:#d9b45b;--border:#dce8df;--shadow:0 12px 35px rgba(5,55,40,.09)}
-body.dark{--bg:#071b16;--surface:#102a21;--surface2:#18372b;--text:#edf7ef;--muted:#a8beb1;--green:#0a4938;--green2:#22a77b;--gold:#e2c16f;--border:#29483a;--shadow:0 12px 35px rgba(0,0,0,.2)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:'Hind Siliguri',sans-serif;background:var(--bg);color:var(--text);transition:.3s;padding-bottom:90px}
-button,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
-svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.container{width:min(1160px,93%);margin:auto}
-.header{position:sticky;top:0;z-index:100;background:var(--green);color:white;box-shadow:0 5px 25px #001b1330}
-.header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.brand{display:flex;align-items:center;gap:11px}
-.brand-logo{width:55px;height:55px;flex-shrink:0;border-radius:25%;display:grid;place-items:center;color:var(--gold);animation:glow 3s infinite}
-.brand-logo svg{width:30px;height:30px}
-.brand-name{font-size:22px;font-weight:700}
-.brand-arabic{font:16px Amiri;color:#f0d58e}
-.header-actions{display:flex;gap:10px}
-.icon-btn{width:42px;height:42px;border:1px solid #ffffff40;background:#ffffff12;color:white;border-radius:12px;display:grid;place-items:center}
-.menu-btn{gap:5px;place-content:center}
-.menu-btn span{width:21px;height:2px;background:white;border-radius:4px;transition:.3s}
-.menu-btn.active span:first-child{transform:translateY(7px) rotate(45deg)}
-.menu-btn.active span:nth-child(2){opacity:0}
-.menu-btn.active span:last-child{transform:translateY(-7px) rotate(-45deg)}
-.drawer-backdrop{position:fixed;inset:0;background:#00130eb0;z-index:199;opacity:0;visibility:hidden;transition:.3s}
-.drawer-backdrop.show{opacity:1;visibility:visible}
-.drawer{position:fixed;z-index:200;right:0;top:0;height:100%;width:min(340px,86vw);background:var(--surface);transform:translateX(105%);transition:.35s;padding:22px;overflow-y:auto;box-shadow:var(--shadow)}
-.drawer.open{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.drawer-head h2{color:var(--green2)}
-.drawer-close{border:0;background:var(--surface2);color:var(--text);width:38px;height:38px;border-radius:10px}
-.drawer-links{display:grid;gap:8px}
-.drawer-links a{padding:13px 12px;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:12px}
-.drawer-links a svg{color:var(--gold)}
-.hero{position:relative;overflow:hidden;text-align:center;padding:65px 18px;color:white;background:radial-gradient(circle at 15% 20%,#16845f 0,transparent 30%),linear-gradient(135deg,#042c22,#07563f 60%,#06382d)}
-.hero-content{position:relative;z-index:1}
-.hero h1{font-size:clamp(32px,6vw,55px);margin:10px 0}
-.hero .arabic{font:700 clamp(25px,5vw,38px) Amiri;color:#f1d68d}
-.hero p{color:#d7e9dd;font-size:17px}
-.hero-line{width:75px;height:3px;background:var(--gold);margin:20px auto}
-.hero-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 23px;border-radius:30px;background:var(--gold);color:#173729;font-weight:700}
-.section{padding:34px 0}
-.section-heading{text-align:center;margin-bottom:22px}
-.section-heading h2{font-size:27px;color:var(--green2)}
-.section-heading p,.muted{color:var(--muted)}
-.small{font-size:13px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:.25s;animation:fadeUp .6s both}
-.card:hover{transform:translateY(-3px);border-color:var(--gold)}
-.grid{display:grid;gap:16px}
-.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
-.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
-.date-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;background:linear-gradient(120deg,var(--surface),var(--surface2))}
-.date-card h3{font-size:21px}
-.hijri{color:var(--green2);font-size:18px}
-select{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px;max-width:100%}
-.prayer-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-.prayer-item{text-align:center;padding:18px 8px}
-.prayer-icon{width:43px;height:43px;margin:0 auto 10px;display:grid;place-items:center;border-radius:14px;background:var(--surface2);color:var(--green2)}
-.prayer-time{font-size:22px;font-weight:700;color:var(--green2);margin-top:5px}
-.next-card{background:linear-gradient(130deg,#063b2e,#0b7855);color:white;text-align:center;padding:25px}
-.next-card h3{color:#f1d68d;font-size:22px}
-.countdown{font-size:clamp(30px,7vw,43px);font-weight:700;letter-spacing:2px;margin:8px}
-.next-card p{color:#d7e9dd}
-.info-card h3{display:flex;align-items:center;gap:9px;color:var(--green2);margin-bottom:12px}
-.calendar-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
-.calendar-head button{border:1px solid var(--border);background:var(--surface2);color:var(--text);padding:8px 12px;border-radius:9px}
-.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
-.calendar-grid div{padding:9px 2px;border-radius:8px;font-size:14px}
-.weekday{font-weight:700;color:var(--green2);background:var(--surface2)}
-.today{background:var(--green2);color:white;font-weight:700}
-.empty{visibility:hidden}
-.tasbih{text-align:center}
-.tasbih-count{font-size:55px;font-weight:700;color:var(--green2);margin:12px}
-.tasbih-btn{border:0;background:var(--green2);color:white;padding:13px 28px;border-radius:30px;font-weight:700}
-.reset-btn{background:var(--surface2);color:var(--text);margin-left:8px}
-.content-list{display:grid;gap:12px}
-.content-list li{list-style:none;background:var(--surface2);padding:14px;border-radius:12px;line-height:1.8}
-.arabic-text{font:22px/1.9 Amiri,serif;text-align:right;color:var(--green2)}
-.profile-card{max-width:820px;margin:auto;overflow:hidden;padding:0}
-.profile-cover{height:105px;background:linear-gradient(120deg,#063b2e,#087f5b 65%,#d9b45b)}
-.profile-main{padding:0 25px 25px;text-align:center}
-.profile-photo{width:150px;height:150px;object-fit:cover;object-position:center 25%;border-radius:50%;border:5px solid var(--surface);margin-top:-76px;box-shadow:0 5px 22px #0003;background:var(--surface2)}
-.profile-name{font-size:27px;color:var(--green2);margin-top:10px}
-.profile-role{font-weight:600;margin:3px 0;color:var(--text)}
-.profile-details{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:15px 0}
-.profile-details span{background:var(--surface2);border:1px solid var(--border);padding:7px 12px;border-radius:20px;font-size:14px}
-.profile-intro{line-height:1.9;max-width:650px;margin:15px auto;color:var(--muted)}
-.profile-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px}
-.profile-links a{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:30px;color:#fff;font-weight:600}
-.facebook{background:#1877f2}.whatsapp{background:#168b50}
-.profile-note{font-size:13px;color:var(--muted);margin-top:13px}
-.site-footer{margin-top:35px;padding:35px 0 30px;background:#062e24;color:#e3f0e8;text-align:center}
-.footer-arabic{font:25px Amiri;color:#f0d58e}
-.site-footer p{margin:5px 0;color:#b9d0c2}
-.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:16px}
-.footer-links a{color:#f0d58e}
-.bottom-nav{position:fixed;z-index:150;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -8px 25px #001c1015;padding:7px 5px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr)}
-.bottom-nav a,.bottom-nav button{border:0;background:none;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;min-height:52px}
-.bottom-nav svg{width:22px;height:22px}
-.bottom-nav .active{color:var(--green2);font-weight:700}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes glow{50%{box-shadow:0 0 18px #e3c16b55}}
-@media(max-width:760px){
-.hero{padding:52px 14px 58px}
-.prayer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.prayer-item:last-child{grid-column:span 2}
-.three-col{grid-template-columns:repeat(2,minmax(0,1fr))}
-.two-col{grid-template-columns:1fr}
-.brand-name{font-size:19px}
-}
-@media(max-width:390px){
-.three-col{grid-template-columns:1fr}
-.brand-name{font-size:17px}
-.prayer-time{font-size:20px}
-.profile-photo{width:130px;height:130px}
-}
-.location-panel{display:flex;align-items:center;gap:12px;min-width:min(100%,310px);padding:11px 14px;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:0 7px 22px rgba(5,55,40,.06)}
-.location-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#087f5b,#063b2e)}
-.location-copy{display:grid;gap:1px;min-width:0}
-.location-label{font-size:11px;color:var(--muted)}
-.location-copy strong{font-size:15px;color:var(--green2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.location-copy small{font-size:11px;color:var(--muted)}
-.location-refresh{margin-left:auto;width:37px;height:37px;flex-shrink:0;border:1px solid var(--border);border-radius:11px;background:var(--surface2);color:var(--green2);display:grid;place-items:center}
-.location-refresh:active{transform:rotate(35deg)}
-.prayer-eyebrow{display:inline-block;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:5px}
-.prayer-livebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 16px;margin-bottom:15px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(110deg,var(--surface),var(--surface2));color:var(--muted);font-size:13px}
-.live-dot{width:8px;height:8px;border-radius:50%;background:#19a66e;box-shadow:0 0 0 5px #19a66e20;display:inline-block;margin-right:5px}
-.prayer-livebar #prayerLocationLabel{margin-right:auto}
-.prayer-item{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(155deg,var(--surface),var(--surface2));border:1px solid var(--border);min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.prayer-item:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.75}
-.prayer-item.current-prayer{background:linear-gradient(145deg,#063b2e,#0b7855);border-color:#d9b45b;box-shadow:0 12px 28px #063b2e2b;color:white}
-.prayer-item.current-prayer h3,.prayer-item.current-prayer .prayer-time{color:#fff}
-.prayer-item.current-prayer .prayer-icon{background:#ffffff20;color:#f3d68d}
-.prayer-item .prayer-time{font-size:clamp(20px,3vw,25px);font-variant-numeric:tabular-nums}
-.prayer-item h3{font-size:16px}
-.next-card{position:relative;overflow:hidden;border:1px solid #d9b45b55;border-radius:22px;background:radial-gradient(circle at 90% 10%,#ffffff20,transparent 30%),linear-gradient(125deg,#042d23,#0b7855 72%,#0a4938);box-shadow:0 16px 36px #063b2e25}
-.next-card:after{content:"☾";position:absolute;right:22px;top:4px;font:70px Amiri;color:#ffffff12;pointer-events:none}
-.next-card h3{letter-spacing:.3px}
-.countdown{font-variant-numeric:tabular-nums;text-shadow:0 3px 18px #0003}
-.next-card p{font-size:13px}
-@media(max-width:760px){
-.location-panel{width:100%}
-.prayer-livebar{font-size:12px}
-.prayer-item{min-height:132px}
-}
-.hero{padding:clamp(48px,7vw,88px) 0;text-align:left;isolation:isolate}
-.hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border:1px solid #d9b45b30;border-radius:50%;z-index:-1}
-.hero:before{width:440px;height:440px;right:-130px;top:-210px}
-.hero:after{width:300px;height:300px;left:-170px;bottom:-190px}
-.hero-layout{width:min(1120px,93%);margin:auto;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:36px}
-.hero-copy{max-width:650px}
-.hero-kicker{display:inline-block;color:#f0d58e;font:20px Amiri;margin-bottom:12px;letter-spacing:.3px}
-.hero .arabic{font:700 clamp(25px,4vw,36px) Amiri;color:#f1d68d;text-align:left}
-.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.2;margin:8px 0 12px;letter-spacing:-.5px}
-.hero-line{width:82px;height:3px;background:var(--gold);margin:18px 0}
-.hero p{color:#d7e9dd;font-size:clamp(16px,2vw,19px);max-width:460px;line-height:1.8}
-.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
-.hero-btn{margin-top:0;padding:13px 22px;box-shadow:0 8px 22px #001b1340}
-.hero-secondary{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border:1px solid #ffffff70;border-radius:30px;color:#fff;font-weight:600}
-.hero-meta{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:30px;color:#c4dacf;font-size:13px}
-.hero-meta i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
-.hero-art{position:relative;min-height:340px;display:grid;place-items:center}
-.hero-orbit{position:absolute;border:1px solid #e4c67555;border-radius:50%;transform:rotate(-22deg)}
-.orbit-one{width:290px;height:290px}
-.orbit-two{width:350px;height:220px;transform:rotate(35deg)}
-.hero-emblem{width:190px;height:190px;border:1px solid #e5c879;border-radius:48% 48% 44% 44%;background:linear-gradient(145deg,#0b7655,#042f24);display:grid;place-items:center;color:#f1d68d;box-shadow:0 0 0 12px #ffffff08,0 25px 65px #001a124f;position:relative;z-index:2}
-.hero-emblem svg{width:92px;height:92px;stroke-width:1.15}
-.hero-emblem img{width:78%;height:78%;object-fit:contain;padding:8px}
-.art-star{position:absolute;color:#f1d68d;font-size:27px}
-.star-one{top:35px;right:20%}
-.star-two{bottom:42px;left:17%;font-size:35px}
-.art-caption{position:absolute;bottom:0;color:#f1d68d;font:22px Amiri;letter-spacing:1px}
-.brand-logo img{width:100%;height:100%;object-fit:contain;padding:5px;border-radius:inherit}
-@media(max-width:760px){
-.hero{padding:48px 0 58px}
-.hero-layout{grid-template-columns:1fr;gap:18px;text-align:center}
-.hero-copy{margin:auto}
-.hero .arabic{text-align:center}
-.hero-line{margin:17px auto}
-.hero p{margin:auto}
-.hero-actions,.hero-meta{justify-content:center}
-.hero-art{min-height:250px;grid-row:1}
-.hero-emblem{width:145px;height:145px}
-.hero-emblem svg{width:70px;height:70px}
-.orbit-one{width:220px;height:220px}
-.orbit-two{width:260px;height:165px}
-.art-caption{bottom:-2px}
-.hero-kicker{font-size:18px}
-}
-@media(max-width:390px){
-.hero-art{min-height:220px}
-.hero-emblem{width:125px;height:125px}
-.orbit-one{width:190px;height:190px}
-.orbit-two{width:225px;height:145px}
-.hero-actions{gap:9px}
-.hero-btn,.hero-secondary{padding:11px 15px;font-size:14px}
-}
-@media(prefers-reduced-motion:reduce){
-*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-}
-
-
-/* বাংলা ও হিজরি তারিখসহ ক্যালেন্ডার */
-#calendarGrid > div:not(.weekday):not(.empty) {
-  min-height: 75px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  padding: 5px 2px;
-  text-align: center;
-}
-
-.calendar-en {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.calendar-bn {
-  font-size: 11px;
-  color: #087f5b;
-  line-height: 1.3;
-}
-
-.calendar-hijri {
-  font-size: 11px;
-  color: #b18a36;
-  line-height: 1.3;
-  direction: rtl;
-}
-
-#calendarGrid .today .calendar-bn,
-#calendarGrid .today .calendar-hijri {
-  color: inherit;
-}
-
- 
-</style>
-</head>
-
-<body>
-
-<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
-<symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
-<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>
-<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
-<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
-<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22zM4 5.5v16.5M8 7h8m-8 4h8"/></symbol>
-<symbol id="i-x" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
-<symbol id="i-mosque" viewBox="0 0 24 24"><path d="M3 21h18M5 21v-8h14v8M8 13V9l4-4 4 4v4M12 5V2m-2 11v-3h4v3M3 13h18"/></symbol>
-<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.3-8.8 11-8.8 11S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.3Z"/></symbol>
-<symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4m14-1v2a3 3 0 0 1-3 3H3"/></symbol>
-<symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-</svg>
-
-<header class="header">
-<div class="container header-inner">
-<a href="#home" class="brand">
-<span class="brand-logo" data-site-logo><svg><use href="#i-mosque"/></svg></span>
-<span><span class="brand-name">হায়াতুল ইসলাম</span><br><span class="brand-arabic">ইসলাময় জীবন।</span></span>
-</a>
-<div class="header-actions">
-<button class="icon-btn" id="themeBtn" aria-label="থিম পরিবর্তন"></button>
-<button class="icon-btn menu-btn" id="menuBtn" aria-label="মেনু খুলুন" aria-expanded="false"><span></span><span></span><span></span></button>
-</div>
-</div>
-</header>
-
-<div class="drawer-backdrop" id="backdrop"></div>
-<aside class="drawer" id="drawer" aria-hidden="true">
-<div class="drawer-head"><h2>হায়াতুল ইসলাম</h2><button class="drawer-close" id="closeDrawer"><svg><use href="#i-x"/></svg></button></div>
-<nav class="drawer-links">
-<a href="#home"><svg><use href="#i-home"/></svg> হোম</a>
-<a href="#prayer"><svg><use href="#i-mosque"/></svg> নামাজের সময়</a>
-<a href="#forbidden"><svg><use href="#i-clock"/></svg> নিষিদ্ধ সময়</a>
-<a href="#nafl"><svg><use href="#i-sun"/></svg> নফল নামাজ</a>
-<a href="#calendar"><svg><use href="#i-calendar"/></svg> মাসিক ক্যালেন্ডার</a>
-<a href="#quran"><svg><use href="#i-book"/></svg> আল-কুরআন</a>
-<a href="#tasbih"><svg><use href="#i-repeat"/></svg> ডিজিটাল তাসবিহ</a>
-<a href="#dua"><svg><use href="#i-heart"/></svg> দোয়া ও আমল</a>
-<a href="#about"><svg><use href="#i-heart"/></svg> আমার পরিচিতি</a>
-</nav>
-</aside>
-
-<main>
-<section class="hero" id="home">
-<div class="hero-content"><div class="hero-layout">
-<div class="hero-copy">
-<span class="hero-kicker">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
-<h1>হায়াতুল ইসলাম</h1><div class="hero-line"></div>
-<p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
-<div class="hero-actions">
-<a href="#prayer" class="hero-btn">নামাজের সময় দেখুন <svg><use href="#i-clock"/></svg></a>
-<a href="#quran" class="hero-secondary">কুরআন পড়ুন</a>
-</div>
-<div class="hero-meta"><span>নামাজের সময়</span><i></i><span>কুরআন ও দোয়া</span><i></i><span>দৈনিক আমল</span></div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section"><div class="container">
-<div class="card date-card">
-<div><h3 id="todayDate">আজকের তারিখ</h3><div class="hijri" id="hijriDate">হিজরি তারিখ</div><div class="muted small" id="englishDate"></div></div>
-<div class="location-panel">
-<div class="location-mark"><svg><use href="#i-location"/></svg></div>
-<div class="location-copy"><span class="location-label">আপনার বর্তমান অবস্থান</span><strong id="locationName">অবস্থান শনাক্ত করা হচ্ছে...</strong><small id="locationAccuracy">লোকেশন অনুমতির অপেক্ষায়</small></div>
-<button class="location-refresh" id="refreshLocation" type="button" aria-label="লোকেশন আবার শনাক্ত করো"><svg><use href="#i-repeat"/></svg></button>
-</div>
-</div></div></section>
-
-<section class="section" id="prayer"><div class="container">
-<div class="section-heading"><span class="prayer-eyebrow">নামাজ • ইবাদত • সময়ানুবর্তিতা</span><h2>আজকের নামাজের সময়সূচি</h2><p>তোমার বর্তমান অবস্থান অনুযায়ী স্বয়ংক্রিয় সময়</p></div>
-<div class="prayer-livebar"><span class="live-dot"></span><span id="prayerLocationLabel">অবস্থান শনাক্ত হচ্ছে</span><span class="live-date" id="prayerLocalDate"></span></div>
-<div class="grid prayer-grid" id="prayerGrid">
-<div class="card prayer-item"><h3>ফজর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>যোহর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>আসর</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>মাগরিব</h3><div class="prayer-time">--:--</div></div>
-<div class="card prayer-item"><h3>ইশা</h3><div class="prayer-time">--:--</div></div>
-</div>
-<p class="muted small" id="apiStatus" style="text-align:center;margin-top:12px">নামাজের সময় লোড হচ্ছে...</p>
-<div class="card next-card" style="margin-top:18px"><h3>পরবর্তী নামাজ</h3><div id="nextPrayerName">সময় নির্ধারণ হচ্ছে</div><div class="countdown" id="countdown">--:--:--</div><p>পরবর্তী নামাজের বাকি সময়</p></div>
-</div></section>
-
-<section class="section" id="forbidden"><div class="container">
-<div class="section-heading"><h2>নামাজের নিষিদ্ধ সময়</h2><p>সময়গুলো আনুমানিক; স্থানীয় আলেমের পরামর্শ নিন।</p></div>
-<div class="grid three-col">
-<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> সূর্যোদয়ের সময়</h3><p id="sunriseTime">--:--</p><p class="muted small">সূর্যোদয়ের পর আনুমানিক ১৫ মিনিট পর্যন্ত</p></div>
-<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> দ্বিপ্রহর / জাওয়াল</h3><p id="zawalTime">--:--</p><p class="muted small">যোহরের কাছাকাছি সময়; সুনির্দিষ্ট সময় যাচাই করো</p></div>
-<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> সূর্যাস্ত</h3><p id="sunsetTime">--:--</p><p class="muted small">সূর্যাস্তের আগের আনুমানিক ২০ মিনিট</p></div>
-</div>
-<div class="card" style="margin-top:16px"><strong>গুরুত্বপূর্ণ:</strong><p class="muted">হানাফি ফিকহে ফজরের পর সূর্যোদয় পর্যন্ত এবং আসরের পর সূর্যাস্ত পর্যন্ত নফল নামাজের নিষেধাজ্ঞাও রয়েছে। এখানে পূর্ণ ফিকহি হিসাব দেখানো হচ্ছে না। স্থানীয় মসজিদের সময়সূচি ও নির্ভরযোগ্য আলেমের নির্দেশনা অনুসরণ করো।</p></div>
-</div></section>
-
-<section class="section" id="nafl"><div class="container">
-<div class="section-heading"><h2>নফল নামাজের সময়</h2><p>সাধারণ হিসাবভিত্তিক নির্দেশনা</p></div>
-<div class="grid two-col">
-<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> ইশরাক</h3><p id="ishraqTime">--:--</p><p class="muted small">সূর্যোদয়ের কিছু সময় পর।</p></div>
-<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> চাশত / দুহা</h3><p id="duhaTime">--:--</p><p class="muted small">সকাল থেকে যোহরের আগ পর্যন্ত।</p></div>
-<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> তাহাজ্জুদ</h3><p id="tahajjudTime">--:--</p><p class="muted small">রাতের শেষ এক-তৃতীয়াংশের আনুমানিক শুরু।</p></div>
-<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> আওয়াবিন</h3><p id="awwabinTime">মাগরিবের পর</p><p class="muted small">মাগরিবের পর নফল ইবাদতের সময়।</p></div>
-</div>
-</div></section>
-
-<section class="section" id="calendar"><div class="container">
-<div class="section-heading"><h2>মাসিক ক্যালেন্ডার</h2><p>ইংরেজি মাসের তারিখ</p></div>
-<div class="card"><div class="calendar-head"><button id="prevMonth">পূর্ববর্তী</button><h3 id="monthTitle"></h3><button id="nextMonth">পরবর্তী</button></div><div class="calendar-grid" id="calendarGrid"></div></div>
-</div></section>
-
-<section class="section" id="quran"><div class="container">
-<div class="section-heading"><h2>আল-কুরআন</h2><p>কুরআন তিলাওয়াত ও অধ্যয়ন</p></div>
-<div class="grid two-col">
-<div class="card"><h3 style="color:var(--green2)">الْقُرْآنُ الْكَرِيمُ</h3><p class="muted" style="margin:10px 0">পবিত্র কুরআন মাজিদ পড়ো, অর্থ বোঝার চেষ্টা করো এবং জীবনে আমল করো।</p><a class="hero-btn" style="margin-top:5px" href="quran.html">কুরআন পড়ুন</a></div>
-<div class="card"><h3 style="color:var(--green2)">আজকের স্মরণ</h3><p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><p class="muted">পরম করুণাময়, অসীম দয়ালু আল্লাহর নামে।</p></div>
-</div>
-</div></section>
-
-<section class="section" id="tasbih"><div class="container">
-<div class="section-heading"><h2>ডিজিটাল তাসবিহ</h2><p>জিকিরের গণনা</p></div>
-<div class="card tasbih"><p class="arabic-text" style="text-align:center">سُبْحَانَ اللَّهِ</p><div class="tasbih-count" id="tasbihCount">০</div><button class="tasbih-btn" id="tasbihBtn">গণনা করুন</button><button class="tasbih-btn reset-btn" id="resetTasbih">রিসেট</button></div>
-</div></section>
-
-<section class="section" id="dua"><div class="container">
-<div class="section-heading"><h2>দৈনিক আমল ও দোয়া</h2><p>প্রতিদিনের জীবনে দ্বীনি অভ্যাস</p></div>
-<div class="grid two-col">
-<div class="card"><h3 style="color:var(--green2);margin-bottom:12px">দৈনিক আমল</h3><ul class="content-list"><li>পাঁচ ওয়াক্ত নামাজ সময়মতো আদায় করা</li><li>প্রতিদিন কুরআন তিলাওয়াত করা</li><li>সকাল ও সন্ধ্যার মাসনুন জিকির করা</li><li>মাতা-পিতার সঙ্গে সদাচরণ করা</li><li>সত্য কথা বলা ও গিবত থেকে বিরত থাকা</li></ul></div>
-<div class="card"><h3 style="color:var(--green2);margin-bottom:12px">একটি সুন্দর দোয়া</h3><p class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><p style="margin-top:12px">অর্থ: হে আমাদের রব! আমাদের দুনিয়াতে কল্যাণ দান করুন এবং আখিরাতেও কল্যাণ দান করুন, আর আমাদের জাহান্নামের আজাব থেকে রক্ষা করুন।</p><p class="muted small" style="margin-top:8px">সূরা আল-বাকারা, আয়াত ২০১</p></div>
-</div>
-</div></section>
-
-
-<!-- নতুন বিভাগগুলোর জন্য মডিউল কনটেইনার -->
-<div id="extraIslamicModules"></div>
-
-
- 
-
-<section class="section" id="about"><div class="container">
-<div class="section-heading"><h2>আমার পরিচিতি</h2><p>দ্বীনি শিক্ষা ও উপকারী জ্ঞান ছড়িয়ে দেওয়ার প্রত্যয়</p></div>
-<div class="card profile-card">
-<div class="profile-cover"></div>
-<div class="profile-main">
-<img class="profile-photo" src="https://raw.githubusercontent.com/IsmailGraphicsbd/hayatul-islam/main/ismail-profile.jpg" alt="মোঃ ইসমাইল হোসেনের ছবি">
-<h2 class="profile-name">মোঃ ইসমাইল হোসেন</h2>
-<p class="profile-role">মাদ্রাসা শিক্ষক</p>
-<div class="profile-details"><span>নূরানী প্রশিক্ষণপ্রাপ্ত মুয়াল্লেম</span><span>মাদ্রাসাতুল হারামাইন, নূরানী বিভাগ</span></div>
-<p class="profile-intro">ইসলামিক শিক্ষা, দ্বীনি জ্ঞানচর্চা এবং মানুষের কাছে উপকারী ইসলামিক তথ্য পৌঁছে দেওয়ার আগ্রহ নিয়ে আমার পথচলা।</p>
-<div class="profile-links"><a class="facebook" href="https://www.facebook.com/share/1HHyGXFu3Q/" target="_blank" rel="noopener">Facebook</a><a class="whatsapp" href="https://wa.me/8801405464247" target="_blank" rel="noopener">WhatsApp</a></div>
-<p class="profile-note">দ্বীনি উপকার ও ভালো কাজের উদ্দেশ্যে এই পথচলা।</p>
-</div></div></div></section>
-</main>
-
-<footer class="site-footer"><div class="container">
-<div class="footer-arabic">حَيَاةُ الْإِسْلَامِ</div><h2>হায়াতুল ইসলাম</h2><p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
-<div class="footer-links"><a href="#home">হোম</a><a href="#prayer">নামাজ</a><a href="#quran">কুরআন</a><a href="#dua">দোয়া</a><a href="#about">পরিচিতি</a></div>
-<p class="small" style="margin-top:22px">© <span id="year"></span> হায়াতুল ইসলাম। সর্বস্বত্ব সংরক্ষিত।</p>
-</div></footer>
-
-<nav class="bottom-nav" aria-label="প্রধান মেনু">
-<a href="#home" class="active"><svg><use href="#i-home"/></svg><span>হোম</span></a>
-<a href="#prayer"><svg><use href="#i-mosque"/></svg><span>নামাজ</span></a>
-<a href="#calendar"><svg><use href="#i-calendar"/></svg><span>ক্যালেন্ডার</span></a>
-<a href="#quran"><svg><use href="#i-book"/></svg><span>কুরআন</span></a>
-<button id="moreBtn"><svg><use href="#i-heart"/></svg><span>আরও</span></button>
-</nav>
-
-<script>
-// লোগো
-const SITE_LOGO_URL = "https://raw.githubusercontent.com/IsmailGraphicsbd/hayatul-islam/refs/heads/main/file_00000000a6dc8211a029a054995f0154.png";
-
-function applySiteLogo(){
- document.querySelectorAll("[data-site-logo]").forEach(el=>{
-  if(SITE_LOGO_URL.trim()){
-   el.innerHTML="";
-   const img=document.createElement("img");
-   img.src=SITE_LOGO_URL.trim();
-   img.alt="হায়াতুল ইসলাম লোগো";
-   el.appendChild(img);
-  }
- });
-}
-applySiteLogo();
-
-const $=id=>document.getElementById(id);
-const banglaDigits=v=>String(v).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
-
-// মেনু
-const drawer=$("drawer"),backdrop=$("backdrop"),menuBtn=$("menuBtn");
-
-function openDrawer(){
- drawer.classList.add("open");
- backdrop.classList.add("show");
- menuBtn.classList.add("active");
- menuBtn.setAttribute("aria-expanded","true");
- drawer.setAttribute("aria-hidden","false");
-}
-function closeDrawer(){
- drawer.classList.remove("open");
- backdrop.classList.remove("show");
- menuBtn.classList.remove("active");
- menuBtn.setAttribute("aria-expanded","false");
- drawer.setAttribute("aria-hidden","true");
-}
-menuBtn.addEventListener("click",()=>drawer.classList.contains("open")?closeDrawer():openDrawer());
-$("closeDrawer").addEventListener("click",closeDrawer);
-backdrop.addEventListener("click",closeDrawer);
-$("moreBtn").addEventListener("click",openDrawer);
-document.querySelectorAll(".drawer-links a").forEach(a=>a.addEventListener("click",closeDrawer));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
-
-// ডার্ক মোড
-const savedTheme=localStorage.getItem("hayatulTheme");
-if(savedTheme==="dark")document.body.classList.add("dark");
-
-function updateThemeIcon(){
- $("themeBtn").innerHTML=document.body.classList.contains("dark")
- ?'<svg><use href="#i-sun"/></svg>'
- :'<svg><use href="#i-moon"/></svg>';
-}
-updateThemeIcon();
-
-$("themeBtn").addEventListener("click",()=>{
- document.body.classList.toggle("dark");
- localStorage.setItem("hayatulTheme",document.body.classList.contains("dark")?"dark":"light");
- updateThemeIcon();
-});
-
-// তারিখ ও হিজরি
-async function updateDates(){
- const n=new Date();
-
- $("todayDate").textContent=new Intl.DateTimeFormat("bn-BD",{
-  weekday:"long",day:"numeric",month:"long",year:"numeric",
-  timeZone:"Asia/Dhaka"
- }).format(n);
-
- $("englishDate").textContent=new Intl.DateTimeFormat("en-GB",{
-  weekday:"long",day:"numeric",month:"long",year:"numeric",
-  timeZone:"Asia/Dhaka"
- }).format(n);
-
- $("year").textContent=n.getFullYear();
-
- try{
-  const parts=new Intl.DateTimeFormat("en-GB",{
-   timeZone:"Asia/Dhaka",day:"2-digit",month:"2-digit",year:"numeric"
-  }).formatToParts(n);
-
-  const day=parts.find(p=>p.type==="day").value;
-  const month=parts.find(p=>p.type==="month").value;
-  const year=parts.find(p=>p.type==="year").value;
-  const date=`${day}-${month}-${year}`;
-
-  const response=await fetch(
-   `https://api.aladhan.com/v1/gToH/${date}?calendarMethod=MATHEMATICAL&adjustment=0`
-  );
-
-  if(!response.ok)throw new Error("Hijri API error");
-
-  const result=await response.json();
-
-  if(result.code!==200||!result.data?.hijri)throw new Error("Hijri date unavailable");
-
-  const h=result.data.hijri;
-  const hijriMonths=[
-   "মুহাররম","সফর","রবিউল আউয়াল","রবিউস সানি",
-   "জমাদিউল আউয়াল","জমাদিউস সানি","রজব","শাবান",
-   "রমজান","শাওয়াল","জিলকদ","জিলহজ"
-  ];
-
-  const monthBn=hijriMonths[Number(h.month.number)-1];
-  if(!monthBn)throw new Error("Invalid Hijri month");
-
-  $("hijriDate").textContent=
-   `${banglaDigits(h.day)} ${monthBn}, ${banglaDigits(h.year)} হিজরি`;
-
- }catch(e){
-  $("hijriDate").textContent="হিজরি তারিখ প্রদর্শন করা যাচ্ছে না";
-  console.error("Hijri date error:",e);
- }
-}
-updateDates();
-setInterval(updateDates,60*60*1000);
-
-
-// ==================================================
-// সংশোধিত নামাজের সময়সূচি
-// পদ্ধতি: Karachi (Method 1)
-// আসর: Hanafi (School 1)
-// কোনো নিজস্ব মিনিট যোগ বা বিয়োগ করা হয় না।
-// ==================================================
-
-let prayerData=null;
-let tomorrowFajr=null;
-let prayerTimezone="Asia/Dhaka";
-let currentCoords=null;
-let locationLabel="ঢাকা (ডিফল্ট অবস্থান)";
-let prayerRequestNumber=0;
-
-const prayerNames={
- Fajr:"ফজর",
- Dhuhr:"যোহর",
- Asr:"আসর",
- Maghrib:"মাগরিব",
- Isha:"ইশা"
-};
-
-function timeToMinutes(t){
- if(!t)return null;
- const m=String(t).match(/(\d{1,2}):(\d{2})/);
- return m?Number(m[1])*60+Number(m[2]):null;
-}
-
-function clockFromMinutes(n){
- n=(n+1440)%1440;
- return String(Math.floor(n/60)).padStart(2,"0")+":"+
- String(n%60).padStart(2,"0");
-}
-
-function displayTime(t){
- if(!t)return"--:--";
- const n=timeToMinutes(t);
- if(n===null)return"--:--";
-
- const h=Math.floor(n/60);
- const m=n%60;
-
- return banglaDigits(
-  String(h%12||12).padStart(2,"0")+":"+
-  String(m).padStart(2,"0")
- )+(h<12?" পূর্বাহ্ণ":" অপরাহ্ণ");
-}
-
-// নির্বাচিত টাইমজোনের বর্তমান তারিখ ও সময়
-function getZoneParts(zone=prayerTimezone){
- const parts=new Intl.DateTimeFormat("en-GB",{
-  timeZone:zone,
-  day:"2-digit",
-  month:"2-digit",
-  year:"numeric",
-  hour:"2-digit",
-  minute:"2-digit",
-  second:"2-digit",
-  hourCycle:"h23"
- }).formatToParts(new Date());
-
- const get=type=>Number(parts.find(p=>p.type===type).value);
-
- return {
-  day:get("day"),
-  month:get("month"),
-  year:get("year"),
-  hour:get("hour"),
-  minute:get("minute"),
-  second:get("second")
- };
-}
-
-// তারিখ তৈরি
-function dateString(date){
- return String(date.getUTCDate()).padStart(2,"0")+"-"+
- String(date.getUTCMonth()+1).padStart(2,"0")+"-"+
- date.getUTCFullYear();
-}
-
-// টাইমজোন অনুযায়ী আজ বা আগামীকালের তারিখ
-function getDateForZone(addDays=0){
- const p=getZoneParts();
-
- const date=new Date(Date.UTC(p.year,p.month-1,p.day+addDays));
-
- return dateString(date);
-}
-
-function updateLocalPrayerDate(){
- try{
-  $("prayerLocalDate").textContent=
-   new Intl.DateTimeFormat("bn-BD",{
-    weekday:"long",
-    day:"numeric",
-    month:"long",
-    timeZone:prayerTimezone
-   }).format(new Date());
- }catch(e){
-  console.error(e);
- }
-}
-
-// API থেকে নির্দিষ্ট দিনের নামাজের সময়
-async function getPrayerApiData(lat,lon,date){
- const url=
-  `https://api.aladhan.com/v1/timings/${date}`+
-  `?latitude=${encodeURIComponent(lat)}`+
-  `&longitude=${encodeURIComponent(lon)}`+
-  `&method=1&school=1`;
-
- const response=await fetch(url);
-
- if(!response.ok)throw new Error("Prayer API request failed");
-
- const result=await response.json();
-
- if(result.code!==200||!result.data?.timings){
-  throw new Error("Prayer data unavailable");
- }
-
- return result.data;
-}
-
-// নামাজের সময় প্রদর্শন
-function renderPrayer(data){
- const t=data.timings;
-
- prayerData=t;
- prayerTimezone=data.meta?.timezone||"Asia/Dhaka";
-
- const keys=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
- const icons=["#i-moon","#i-sun","#i-sun","#i-sun","#i-moon"];
-
- $("prayerGrid").innerHTML=keys.map((k,i)=>`
-  <div class="card prayer-item" data-prayer="${k}">
-   <div class="prayer-icon">
-    <svg><use href="${icons[i]}"/></svg>
-   </div>
-   <h3>${prayerNames[k]}</h3>
-   <div class="prayer-time">${displayTime(t[k])}</div>
-  </div>
- `).join("");
-
- const sunrise=timeToMinutes(t.Sunrise);
- const sunset=timeToMinutes(t.Sunset);
- const dhuhr=timeToMinutes(t.Dhuhr);
- const maghrib=timeToMinutes(t.Maghrib);
- const fajr=timeToMinutes(t.Fajr);
-
- if([sunrise,sunset,dhuhr,maghrib,fajr].some(v=>v===null)){
-  throw new Error("Some prayer timings are missing");
- }
-
- $("sunriseTime").textContent=
-  displayTime(t.Sunrise)+" – "+
-  displayTime(clockFromMinutes(sunrise+15));
-
- $("zawalTime").textContent=
-  displayTime(clockFromMinutes(dhuhr-5))+" – "+
-  displayTime(clockFromMinutes(dhuhr+5));
-
- $("sunsetTime").textContent=
-  displayTime(clockFromMinutes(sunset-20))+" – "+
-  displayTime(t.Sunset);
-
- $("ishraqTime").textContent=
-  displayTime(clockFromMinutes(sunrise+15))+" – "+
-  displayTime(clockFromMinutes(sunrise+30));
-
- $("duhaTime").textContent=
-  displayTime(clockFromMinutes(sunrise+20))+" – "+
-  displayTime(clockFromMinutes(dhuhr-10));
-
- const night=fajr+1440-maghrib;
- const third=(maghrib+Math.floor(night*2/3))%1440;
-
- $("tahajjudTime").textContent=
-  displayTime(clockFromMinutes(third))+" – "+
-  displayTime(t.Fajr);
-
- $("awwabinTime").textContent=
-  displayTime(t.Maghrib)+" এর পর – "+
-  displayTime(t.Isha);
-
- $("apiStatus").textContent=
-  "সময়সূচি লোড হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নাও।";
-
- $("prayerLocationLabel").textContent=locationLabel;
-
- updateLocalPrayerDate();
- updateCountdown();
-}
-
-// আজকের ও আগামীকালের নামাজের সময় একসঙ্গে লোড
-async function fetchPrayerByCoords(lat,lon){
- const requestId=++prayerRequestNumber;
-
- const todayDate=getDateForZone(0);
- const tomorrowDate=getDateForZone(1);
-
- const [today,tomorrow]=await Promise.all([
-  getPrayerApiData(lat,lon,todayDate),
-  getPrayerApiData(lat,lon,tomorrowDate)
- ]);
-
- // পুরোনো রিকোয়েস্টের ফলাফল নতুন ফলাফলকে বদলাতে পারবে না
- if(requestId!==prayerRequestNumber)return;
-
- tomorrowFajr=tomorrow.timings.Fajr;
-
- renderPrayer(today);
-}
-
-// অবস্থানের নাম
-async function resolveLocationName(lat,lon){
- try{
-  const response=await fetch(
-   `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=bn`
-  );
-
-  if(!response.ok)throw new Error();
-
-  const data=await response.json();
-
-  return data.city||
-   data.locality||
-   data.principalSubdivision||
-   data.countryName||
-   "তোমার অবস্থান";
-
- }catch(e){
-  return "অবস্থান শনাক্ত হয়েছে";
- }
-}
-
-// GPS/IP অবস্থান অনুযায়ী নামাজের সময়
-async function useCoordinates(lat,lon,source){
- currentCoords={lat,lon};
-
- $("apiStatus").textContent="অবস্থান অনুযায়ী সময় লোড হচ্ছে...";
-
- locationLabel=await resolveLocationName(lat,lon);
-
- $("locationName").textContent=locationLabel;
-
- $("locationAccuracy").textContent=
-  source==="gps"?"ডিভাইসের GPS অনুযায়ী":
-  source==="ip"?"IP থেকে আনুমানিক অবস্থান":
-  "ডিফল্ট অবস্থান: ঢাকা";
-
- try{
-  await fetchPrayerByCoords(lat,lon);
- }catch(e){
-  $("apiStatus").textContent=
-   "নামাজের সময় লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";
-  console.error("Prayer loading error:",e);
- }
-}
-
-// GPS না পেলে IP অবস্থান
-async function fallbackIpLocation(){
- try{
-  $("locationAccuracy").textContent="আনুমানিক অবস্থান খোঁজা হচ্ছে...";
-
-  const response=await fetch("https://ipapi.co/json/");
-
-  if(!response.ok)throw new Error("IP location failed");
-
-  const data=await response.json();
-
-  if(
-   typeof data.latitude!=="number"||
-   typeof data.longitude!=="number"
-  )throw new Error("Coordinates missing");
-
-  await useCoordinates(
-   data.latitude,
-   data.longitude,
-   "ip"
-  );
-
- }catch(e){
-  locationLabel="ঢাকা (ডিফল্ট অবস্থান)";
-
-  await useCoordinates(
-   23.8103,
-   90.4125,
-   "default"
-  );
- }
-}
-
-// লোকেশন শনাক্ত
-function detectLocation(){
- $("locationName").textContent="অবস্থান শনাক্ত করা হচ্ছে...";
- $("locationAccuracy").textContent="ডিভাইসের অনুমতির অপেক্ষায়";
- $("apiStatus").textContent="নামাজের সময় লোড হচ্ছে...";
-
- if(!navigator.geolocation){
-  fallbackIpLocation();
-  return;
- }
-
- navigator.geolocation.getCurrentPosition(
-  pos=>{
-   useCoordinates(
-    pos.coords.latitude,
-    pos.coords.longitude,
-    "gps"
-   );
-  },
-  ()=>{
-   fallbackIpLocation();
-  },
-  {
-   enableHighAccuracy:true,
-   timeout:15000,
-   maximumAge:300000
-  }
- );
-}
-
-// পরবর্তী নামাজের কাউন্টডাউন
-function updateCountdown(){
- if(!prayerData)return;
-
- const p=getZoneParts();
-
- const now=p.hour*3600+p.minute*60+p.second;
-
- const order=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
-
- let next=null;
- let target=null;
-
- for(const key of order){
-  const minutes=timeToMinutes(prayerData[key]);
-
-  if(minutes!==null&&minutes*60>now){
-   next=key;
-   target=minutes*60;
-   break;
-  }
- }
-
- // আজকের সব নামাজ শেষ হলে আগামীকালের ফজর
- if(!next){
-  next="Fajr";
-
-  const tomorrowMinutes=timeToMinutes(tomorrowFajr);
-
-  if(tomorrowMinutes!==null){
-   target=tomorrowMinutes*60+86400;
-  }else{
-   target=timeToMinutes(prayerData.Fajr)*60+86400;
-  }
- }
-
- let remaining=target-now;
-
- if(remaining<0)remaining+=86400;
-
- const h=Math.floor(remaining/3600);
- const m=Math.floor((remaining%3600)/60);
- const s=remaining%60;
-
- $("nextPrayerName").textContent=prayerNames[next];
-
- $("countdown").textContent=[h,m,s]
-  .map(v=>banglaDigits(String(v).padStart(2,"0")))
-  .join(":");
-
- document.querySelectorAll(".prayer-item").forEach(el=>{
-  el.classList.toggle(
-   "current-prayer",
-   el.dataset.prayer===next
-  );
- });
-}
-
-// লোকেশন রিফ্রেশ
-$("refreshLocation").addEventListener("click",detectLocation);
-
-// প্রথমবার চালু
-detectLocation();
-
-// প্রতি সেকেন্ডে কাউন্টডাউন
-setInterval(updateCountdown,1000);
-
-// প্রতি ঘণ্টায় নামাজের সময় রিফ্রেশ
-setInterval(()=>{
- if(currentCoords){
-  fetchPrayerByCoords(
-   currentCoords.lat,
-   currentCoords.lon
-  ).catch(e=>console.error(e));
- }
-},3600000);
-
-
-
-// মাসিক ক্যালেন্ডার: বাংলা + ইংরেজি + হিজরি
-
-let calendarDate = new Date();
-
-const monthNames = [
- "জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল",
- "মে","জুন","জুলাই","আগস্ট",
- "সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"
-];
-
-const weekdays = [
- "রবি","সোম","মঙ্গল","বুধ",
- "বৃহস্পতি","শুক্র","শনি"
-];
-
-// বাংলা তারিখ
-const banglaCalendar = new Intl.DateTimeFormat(
- "bn-BD-u-ca-bengali",
- {
-   day: "numeric",
-   month: "short"
- }
-);
-
-// আরবি হিজরি তারিখ
-const hijriCalendar = new Intl.DateTimeFormat(
- "ar-SA-u-ca-islamic-umalqura",
- {
-   day: "numeric",
-   month: "short"
- }
-);
-
-// তারিখকে নিরাপদভাবে তৈরি
-function calendarSafeDate(y, m, d) {
- return new Date(y, m, d, 12, 0, 0);
-}
-
-function renderCalendar() {
-
- const nowParts = new Intl.DateTimeFormat("en-GB", {
-   timeZone: "Asia/Dhaka",
-   day: "numeric",
-   month: "numeric",
-   year: "numeric"
- }).formatToParts(new Date());
-
- const get = t =>
-   Number(nowParts.find(p => p.type === t).value);
-
- const todayDay = get("day");
- const todayMonth = get("month") - 1;
- const todayYear = get("year");
-
- const y = calendarDate.getFullYear();
- const m = calendarDate.getMonth();
-
- const first = new Date(y, m, 1).getDay();
- const total = new Date(y, m + 1, 0).getDate();
-
- $("monthTitle").textContent =
-   monthNames[m] + " " + banglaDigits(y);
-
- let html = weekdays.map(d =>
-   `<div class="weekday">${d}</div>`
- ).join("");
-
- for (let i = 0; i < first; i++) {
-   html += '<div class="empty"></div>';
- }
-
- for (let d = 1; d <= total; d++) {
-
-   const date = calendarSafeDate(y, m, d);
-
-   const isToday =
-     d === todayDay &&
-     m === todayMonth &&
-     y === todayYear;
-
-   let banglaDate = "--";
-   let hijriDate = "--";
-
-   try {
-     banglaDate = banglaCalendar.format(date);
-   } catch (e) {
-     console.warn("বাংলা তারিখ পাওয়া যায়নি:", e);
-   }
-
-   try {
-     hijriDate = hijriCalendar.format(date);
-   } catch (e) {
-     console.warn("হিজরি তারিখ পাওয়া যায়নি:", e);
-   }
-
-   html += `
-     <div class="${isToday ? "today" : ""}">
-       <span class="calendar-en">
-         ${banglaDigits(d)}
-       </span>
-
-       <span class="calendar-bn">
-         ${banglaDate}
-       </span>
-
-       <span class="calendar-hijri">
-         ${hijriDate}
-       </span>
-     </div>
-   `;
- }
-
- $("calendarGrid").innerHTML = html;
-}
-
-$("prevMonth").addEventListener("click", () => {
- calendarDate.setMonth(calendarDate.getMonth() - 1);
- renderCalendar();
-});
-
-$("nextMonth").addEventListener("click", () => {
- calendarDate.setMonth(calendarDate.getMonth() + 1);
- renderCalendar();
-});
-
-renderCalendar();
-
-
+<!DOCTYPE html>  <html lang="bn">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width,initial-scale=1">  
+<meta name="theme-color" content="#063b2e">  
+<meta name="description" content="হায়াতুল ইসলাম — প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।">  
+<title>হায়াতুল ইসলাম | প্রতিদিনের দ্বীনি জীবন</title>  
+<link rel="preconnect" href="https://fonts.googleapis.com">  
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">  <style>  
+:root{--bg:#f3f7f4;--surface:#fff;--surface2:#eaf2ed;--text:#18372d;--muted:#6b8176;--green:#063b2e;--green2:#087f5b;--gold:#d9b45b;--border:#dce8df;--shadow:0 12px 35px rgba(5,55,40,.09)}  
+body.dark{--bg:#071b16;--surface:#102a21;--surface2:#18372b;--text:#edf7ef;--muted:#a8beb1;--green:#0a4938;--green2:#22a77b;--gold:#e2c16f;--border:#29483a;--shadow:0 12px 35px rgba(0,0,0,.2)}  
+*{box-sizing:border-box;margin:0;padding:0}  
+html{scroll-behavior:smooth;scroll-padding-top:90px}  
+body{font-family:'Hind Siliguri',sans-serif;background:var(--bg);color:var(--text);transition:.3s;padding-bottom:90px}  
+button,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}  
+svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}  
+.container{width:min(1160px,93%);margin:auto}  
+.header{position:sticky;top:0;z-index:100;background:var(--green);color:white;box-shadow:0 5px 25px #001b1330}  
+.header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}  
+.brand{display:flex;align-items:center;gap:11px}  
+.brand-logo{width:55px;height:55px;flex-shrink:0;border-radius:25%;display:grid;place-items:center;color:var(--gold);animation:glow 3s infinite}  
+.brand-logo svg{width:30px;height:30px}  
+.brand-name{font-size:22px;font-weight:700}  
+.brand-arabic{font:16px Amiri;color:#f0d58e}  
+.header-actions{display:flex;gap:10px}  
+.icon-btn{width:42px;height:42px;border:1px solid #ffffff40;background:#ffffff12;color:white;border-radius:12px;display:grid;place-items:center}  
+.menu-btn{gap:5px;place-content:center}  
+.menu-btn span{width:21px;height:2px;background:white;border-radius:4px;transition:.3s}  
+.menu-btn.active span:first-child{transform:translateY(7px) rotate(45deg)}  
+.menu-btn.active span:nth-child(2){opacity:0}  
+.menu-btn.active span:last-child{transform:translateY(-7px) rotate(-45deg)}  
+.drawer-backdrop{position:fixed;inset:0;background:#00130eb0;z-index:199;opacity:0;visibility:hidden;transition:.3s}  
+.drawer-backdrop.show{opacity:1;visibility:visible}  
+.drawer{position:fixed;z-index:200;right:0;top:0;height:100%;width:min(340px,86vw);background:var(--surface);transform:translateX(105%);transition:.35s;padding:22px;overflow-y:auto;box-shadow:var(--shadow)}  
+.drawer.open{transform:translateX(0)}  
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}  
+.drawer-head h2{color:var(--green2)}  
+.drawer-close{border:0;background:var(--surface2);color:var(--text);width:38px;height:38px;border-radius:10px}  
+.drawer-links{display:grid;gap:8px}  
+.drawer-links a{padding:13px 12px;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:12px}  
+.drawer-links a svg{color:var(--gold)}  
+.hero{position:relative;overflow:hidden;text-align:center;padding:65px 18px;color:white;background:radial-gradient(circle at 15% 20%,#16845f 0,transparent 30%),linear-gradient(135deg,#042c22,#07563f 60%,#06382d)}  
+.hero-content{position:relative;z-index:1}  
+.hero h1{font-size:clamp(32px,6vw,55px);margin:10px 0}  
+.hero .arabic{font:700 clamp(25px,5vw,38px) Amiri;color:#f1d68d}  
+.hero p{color:#d7e9dd;font-size:17px}  
+.hero-line{width:75px;height:3px;background:var(--gold);margin:20px auto}  
+.hero-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 23px;border-radius:30px;background:var(--gold);color:#173729;font-weight:700}  
+.section{padding:34px 0}  
+.section-heading{text-align:center;margin-bottom:22px}  
+.section-heading h2{font-size:27px;color:var(--green2)}  
+.section-heading p,.muted{color:var(--muted)}  
+.small{font-size:13px}  
+.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:.25s;animation:fadeUp .6s both}  
+.card:hover{transform:translateY(-3px);border-color:var(--gold)}  
+.grid{display:grid;gap:16px}  
+.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}  
+.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}  
+.date-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;background:linear-gradient(120deg,var(--surface),var(--surface2))}  
+.date-card h3{font-size:21px}  
+.hijri{color:var(--green2);font-size:18px}  
+select{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px;max-width:100%}  
+.prayer-grid{grid-template-columns:repeat(5,minmax(0,1fr))}  
+.prayer-item{text-align:center;padding:18px 8px}  
+.prayer-icon{width:43px;height:43px;margin:0 auto 10px;display:grid;place-items:center;border-radius:14px;background:var(--surface2);color:var(--green2)}  
+.prayer-time{font-size:22px;font-weight:700;color:var(--green2);margin-top:5px}  
+.next-card{background:linear-gradient(130deg,#063b2e,#0b7855);color:white;text-align:center;padding:25px}  
+.next-card h3{color:#f1d68d;font-size:22px}  
+.countdown{font-size:clamp(30px,7vw,43px);font-weight:700;letter-spacing:2px;margin:8px}  
+.next-card p{color:#d7e9dd}  
+.info-card h3{display:flex;align-items:center;gap:9px;color:var(--green2);margin-bottom:12px}  
+.calendar-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}  
+.calendar-head button{border:1px solid var(--border);background:var(--surface2);color:var(--text);padding:8px 12px;border-radius:9px}  
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}  
+.calendar-grid div{padding:9px 2px;border-radius:8px;font-size:14px}  
+.weekday{font-weight:700;color:var(--green2);background:var(--surface2)}  
+.today{background:var(--green2);color:white;font-weight:700}  
+.empty{visibility:hidden}  
+.tasbih{text-align:center}  
+.tasbih-count{font-size:55px;font-weight:700;color:var(--green2);margin:12px}  
+.tasbih-btn{border:0;background:var(--green2);color:white;padding:13px 28px;border-radius:30px;font-weight:700}  
+.reset-btn{background:var(--surface2);color:var(--text);margin-left:8px}  
+.content-list{display:grid;gap:12px}  
+.content-list li{list-style:none;background:var(--surface2);padding:14px;border-radius:12px;line-height:1.8}  
+.arabic-text{font:22px/1.9 Amiri,serif;text-align:right;color:var(--green2)}  
+.profile-card{max-width:820px;margin:auto;overflow:hidden;padding:0}  
+.profile-cover{height:105px;background:linear-gradient(120deg,#063b2e,#087f5b 65%,#d9b45b)}  
+.profile-main{padding:0 25px 25px;text-align:center}  
+.profile-photo{width:150px;height:150px;object-fit:cover;object-position:center 25%;border-radius:50%;border:5px solid var(--surface);margin-top:-76px;box-shadow:0 5px 22px #0003;background:var(--surface2)}  
+.profile-name{font-size:27px;color:var(--green2);margin-top:10px}  
+.profile-role{font-weight:600;margin:3px 0;color:var(--text)}  
+.profile-details{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:15px 0}  
+.profile-details span{background:var(--surface2);border:1px solid var(--border);padding:7px 12px;border-radius:20px;font-size:14px}  
+.profile-intro{line-height:1.9;max-width:650px;margin:15px auto;color:var(--muted)}  
+.profile-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px}  
+.profile-links a{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:30px;color:#fff;font-weight:600}  
+.facebook{background:#1877f2}.whatsapp{background:#168b50}  
+.profile-note{font-size:13px;color:var(--muted);margin-top:13px}  
+.site-footer{margin-top:35px;padding:35px 0 30px;background:#062e24;color:#e3f0e8;text-align:center}  
+.footer-arabic{font:25px Amiri;color:#f0d58e}  
+.site-footer p{margin:5px 0;color:#b9d0c2}  
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:16px}  
+.footer-links a{color:#f0d58e}  
+.bottom-nav{position:fixed;z-index:150;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -8px 25px #001c1015;padding:7px 5px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr)}  
+.bottom-nav a,.bottom-nav button{border:0;background:none;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;min-height:52px}  
+.bottom-nav svg{width:22px;height:22px}  
+.bottom-nav .active{color:var(--green2);font-weight:700}  
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}  
+@keyframes glow{50%{box-shadow:0 0 18px #e3c16b55}}  
+@media(max-width:760px){  
+.hero{padding:52px 14px 58px}  
+.prayer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}  
+.prayer-item:last-child{grid-column:span 2}  
+.three-col{grid-template-columns:repeat(2,minmax(0,1fr))}  
+.two-col{grid-template-columns:1fr}  
+.brand-name{font-size:19px}  
+}  
+@media(max-width:390px){  
+.three-col{grid-template-columns:1fr}  
+.brand-name{font-size:17px}  
+.prayer-time{font-size:20px}  
+.profile-photo{width:130px;height:130px}  
+}  
+.location-panel{display:flex;align-items:center;gap:12px;min-width:min(100%,310px);padding:11px 14px;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:0 7px 22px rgba(5,55,40,.06)}  
+.location-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#087f5b,#063b2e)}  
+.location-copy{display:grid;gap:1px;min-width:0}  
+.location-label{font-size:11px;color:var(--muted)}  
+.location-copy strong{font-size:15px;color:var(--green2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}  
+.location-copy small{font-size:11px;color:var(--muted)}  
+.location-refresh{margin-left:auto;width:37px;height:37px;flex-shrink:0;border:1px solid var(--border);border-radius:11px;background:var(--surface2);color:var(--green2);display:grid;place-items:center}  
+.location-refresh:active{transform:rotate(35deg)}  
+.prayer-eyebrow{display:inline-block;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:5px}  
+.prayer-livebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 16px;margin-bottom:15px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(110deg,var(--surface),var(--surface2));color:var(--muted);font-size:13px}  
+.live-dot{width:8px;height:8px;border-radius:50%;background:#19a66e;box-shadow:0 0 0 5px #19a66e20;display:inline-block;margin-right:5px}  
+.prayer-livebar #prayerLocationLabel{margin-right:auto}  
+.prayer-item{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(155deg,var(--surface),var(--surface2));border:1px solid var(--border);min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center}  
+.prayer-item:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.75}  
+.prayer-item.current-prayer{background:linear-gradient(145deg,#063b2e,#0b7855);border-color:#d9b45b;box-shadow:0 12px 28px #063b2e2b;color:white}  
+.prayer-item.current-prayer h3,.prayer-item.current-prayer .prayer-time{color:#fff}  
+.prayer-item.current-prayer .prayer-icon{background:#ffffff20;color:#f3d68d}  
+.prayer-item .prayer-time{font-size:clamp(20px,3vw,25px);font-variant-numeric:tabular-nums}  
+.prayer-item h3{font-size:16px}  
+.next-card{position:relative;overflow:hidden;border:1px solid #d9b45b55;border-radius:22px;background:radial-gradient(circle at 90% 10%,#ffffff20,transparent 30%),linear-gradient(125deg,#042d23,#0b7855 72%,#0a4938);box-shadow:0 16px 36px #063b2e25}  
+.next-card:after{content:"☾";position:absolute;right:22px;top:4px;font:70px Amiri;color:#ffffff12;pointer-events:none}  
+.next-card h3{letter-spacing:.3px}  
+.countdown{font-variant-numeric:tabular-nums;text-shadow:0 3px 18px #0003}  
+.next-card p{font-size:13px}  
+@media(max-width:760px){  
+.location-panel{width:100%}  
+.prayer-livebar{font-size:12px}  
+.prayer-item{min-height:132px}  
+}  
+.hero{padding:clamp(48px,7vw,88px) 0;text-align:left;isolation:isolate}  
+.hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border:1px solid #d9b45b30;border-radius:50%;z-index:-1}  
+.hero:before{width:440px;height:440px;right:-130px;top:-210px}  
+.hero:after{width:300px;height:300px;left:-170px;bottom:-190px}  
+.hero-layout{width:min(1120px,93%);margin:auto;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:36px}  
+.hero-copy{max-width:650px}  
+.hero-kicker{display:inline-block;color:#f0d58e;font:20px Amiri;margin-bottom:12px;letter-spacing:.3px}  
+.hero .arabic{font:700 clamp(25px,4vw,36px) Amiri;color:#f1d68d;text-align:left}  
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.2;margin:8px 0 12px;letter-spacing:-.5px}  
+.hero-line{width:82px;height:3px;background:var(--gold);margin:18px 0}  
+.hero p{color:#d7e9dd;font-size:clamp(16px,2vw,19px);max-width:460px;line-height:1.8}  
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}  
+.hero-btn{margin-top:0;padding:13px 22px;box-shadow:0 8px 22px #001b1340}  
+.hero-secondary{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border:1px solid #ffffff70;border-radius:30px;color:#fff;font-weight:600}  
+.hero-meta{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:30px;color:#c4dacf;font-size:13px}  
+.hero-meta i{width:4px;height:4px;border-radius:50%;background:var(--gold)}  
+.hero-art{position:relative;min-height:340px;display:grid;place-items:center}  
+.hero-orbit{position:absolute;border:1px solid #e4c67555;border-radius:50%;transform:rotate(-22deg)}  
+.orbit-one{width:290px;height:290px}  
+.orbit-two{width:350px;height:220px;transform:rotate(35deg)}  
+.hero-emblem{width:190px;height:190px;border:1px solid #e5c879;border-radius:48% 48% 44% 44%;background:linear-gradient(145deg,#0b7655,#042f24);display:grid;place-items:center;color:#f1d68d;box-shadow:0 0 0 12px #ffffff08,0 25px 65px #001a124f;position:relative;z-index:2}  
+.hero-emblem svg{width:92px;height:92px;stroke-width:1.15}  
+.hero-emblem img{width:78%;height:78%;object-fit:contain;padding:8px}  
+.art-star{position:absolute;color:#f1d68d;font-size:27px}  
+.star-one{top:35px;right:20%}  
+.star-two{bottom:42px;left:17%;font-size:35px}  
+.art-caption{position:absolute;bottom:0;color:#f1d68d;font:22px Amiri;letter-spacing:1px}  
+.brand-logo img{width:100%;height:100%;object-fit:contain;padding:5px;border-radius:inherit}  
+@media(max-width:760px){  
+.hero{padding:48px 0 58px}  
+.hero-layout{grid-template-columns:1fr;gap:18px;text-align:center}  
+.hero-copy{margin:auto}  
+.hero .arabic{text-align:center}  
+.hero-line{margin:17px auto}  
+.hero p{margin:auto}  
+.hero-actions,.hero-meta{justify-content:center}  
+.hero-art{min-height:250px;grid-row:1}  
+.hero-emblem{width:145px;height:145px}  
+.hero-emblem svg{width:70px;height:70px}  
+.orbit-one{width:220px;height:220px}  
+.orbit-two{width:260px;height:165px}  
+.art-caption{bottom:-2px}  
+.hero-kicker{font-size:18px}  
+}  
+@media(max-width:390px){  
+.hero-art{min-height:220px}  
+.hero-emblem{width:125px;height:125px}  
+.orbit-one{width:190px;height:190px}  
+.orbit-two{width:225px;height:145px}  
+.hero-actions{gap:9px}  
+.hero-btn,.hero-secondary{padding:11px 15px;font-size:14px}  
+}  
+@media(prefers-reduced-motion:reduce){  
+*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}  
+}  
+</style>  </head>  <body>  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">  
+<symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>  
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>  
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>  
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>  
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>  
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22zM4 5.5v16.5M8 7h8m-8 4h8"/></symbol>  
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>  
+<symbol id="i-mosque" viewBox="0 0 24 24"><path d="M3 21h18M5 21v-8h14v8M8 13V9l4-4 4 4v4M12 5V2m-2 11v-3h4v3M3 13h18"/></symbol>  
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.3-8.8 11-8.8 11S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.3Z"/></symbol>  
+<symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4m14-1v2a3 3 0 0 1-3 3H3"/></symbol>  
+<symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>  
+</svg>  <header class="header">  
+<div class="container header-inner">  
+<a href="#home" class="brand">  
+<span class="brand-logo" data-site-logo><svg><use href="#i-mosque"/></svg></span>  
+<span><span class="brand-name">হায়াতুল ইসলাম</span><br><span class="brand-arabic">ইসলাময় জীবন।</span></span>  
+</a>  
+<div class="header-actions">  
+<button class="icon-btn" id="themeBtn" aria-label="থিম পরিবর্তন"></button>  
+<button class="icon-btn menu-btn" id="menuBtn" aria-label="মেনু খুলুন" aria-expanded="false"><span></span><span></span><span></span></button>  
+</div>  
+</div>  
+</header>  <div class="drawer-backdrop" id="backdrop"></div>  
+<aside class="drawer" id="drawer" aria-hidden="true">  
+<div class="drawer-head"><h2>হায়াতুল ইসলাম</h2><button class="drawer-close" id="closeDrawer"><svg><use href="#i-x"/></svg></button></div>  
+<nav class="drawer-links">  
+<a href="#home"><svg><use href="#i-home"/></svg> হোম</a>  
+<a href="#prayer"><svg><use href="#i-mosque"/></svg> নামাজের সময়</a>  
+<a href="#forbidden"><svg><use href="#i-clock"/></svg> নিষিদ্ধ সময়</a>  
+<a href="#nafl"><svg><use href="#i-sun"/></svg> নফল নামাজ</a>  
+<a href="#calendar"><svg><use href="#i-calendar"/></svg> মাসিক ক্যালেন্ডার</a>  
+<a href="#quran"><svg><use href="#i-book"/></svg> আল-কুরআন</a>  
+<a href="#tasbih"><svg><use href="#i-repeat"/></svg> ডিজিটাল তাসবিহ</a>  
+<a href="#dua"><svg><use href="#i-heart"/></svg> দোয়া ও আমল</a>  
+<a href="#about"><svg><use href="#i-heart"/></svg> আমার পরিচিতি</a>  
+</nav>  
+</aside>  <main>  
+<section class="hero" id="home">  
+<div class="hero-content"><div class="hero-layout">  
+<div class="hero-copy">  
+<span class="hero-kicker">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>  
+<h1>হায়াতুল ইসলাম</h1><div class="hero-line"></div>  
+<p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>  
+<div class="hero-actions">  
+<a href="#prayer" class="hero-btn">নামাজের সময় দেখুন <svg><use href="#i-clock"/></svg></a>  
+<a href="#quran" class="hero-secondary">কুরআন পড়ুন</a>  
+</div>  
+<div class="hero-meta"><span>নামাজের সময়</span><i></i><span>কুরআন ও দোয়া</span><i></i><span>দৈনিক আমল</span></div>  
+</div>  
+</div>  
+</div>  
+</section>  <section class="section"><div class="container">  
+<div class="card date-card">  
+<div><h3 id="todayDate">আজকের তারিখ</h3><div class="hijri" id="hijriDate">হিজরি তারিখ</div><div class="muted small" id="englishDate"></div></div>  
+<div class="location-panel">  
+<div class="location-mark"><svg><use href="#i-location"/></svg></div>  
+<div class="location-copy"><span class="location-label">আপনার বর্তমান অবস্থান</span><strong id="locationName">অবস্থান শনাক্ত করা হচ্ছে...</strong><small id="locationAccuracy">লোকেশন অনুমতির অপেক্ষায়</small></div>  
+<button class="location-refresh" id="refreshLocation" type="button" aria-label="লোকেশন আবার শনাক্ত করো"><svg><use href="#i-repeat"/></svg></button>  
+</div>  
+</div></div></section>  <section class="section" id="prayer"><div class="container">  
+<div class="section-heading"><span class="prayer-eyebrow">নামাজ • ইবাদত • সময়ানুবর্তিতা</span><h2>আজকের নামাজের সময়সূচি</h2><p>তোমার বর্তমান অবস্থান অনুযায়ী স্বয়ংক্রিয় সময়</p></div>  
+<div class="prayer-livebar"><span class="live-dot"></span><span id="prayerLocationLabel">অবস্থান শনাক্ত হচ্ছে</span><span class="live-date" id="prayerLocalDate"></span></div>  
+<div class="grid prayer-grid" id="prayerGrid">  
+<div class="card prayer-item"><h3>ফজর</h3><div class="prayer-time">--:--</div></div>  
+<div class="card prayer-item"><h3>যোহর</h3><div class="prayer-time">--:--</div></div>  
+<div class="card prayer-item"><h3>আসর</h3><div class="prayer-time">--:--</div></div>  
+<div class="card prayer-item"><h3>মাগরিব</h3><div class="prayer-time">--:--</div></div>  
+<div class="card prayer-item"><h3>ইশা</h3><div class="prayer-time">--:--</div></div>  
+</div>  
+<p class="muted small" id="apiStatus" style="text-align:center;margin-top:12px">নামাজের সময় লোড হচ্ছে...</p>  
+<div class="card next-card" style="margin-top:18px"><h3>পরবর্তী নামাজ</h3><div id="nextPrayerName">সময় নির্ধারণ হচ্ছে</div><div class="countdown" id="countdown">--:--:--</div><p>পরবর্তী নামাজের বাকি সময়</p></div>  
+</div></section>  <section class="section" id="forbidden"><div class="container">  
+<div class="section-heading"><h2>নামাজের নিষিদ্ধ সময়</h2><p>সময়গুলো আনুমানিক; স্থানীয় আলেমের পরামর্শ নিন।</p></div>  
+<div class="grid three-col">  
+<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> সূর্যোদয়ের সময়</h3><p id="sunriseTime">--:--</p><p class="muted small">সূর্যোদয়ের পর আনুমানিক ১৫ মিনিট পর্যন্ত</p></div>  
+<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> দ্বিপ্রহর / জাওয়াল</h3><p id="zawalTime">--:--</p><p class="muted small">যোহরের কাছাকাছি সময়; সুনির্দিষ্ট সময় যাচাই করো</p></div>  
+<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> সূর্যাস্ত</h3><p id="sunsetTime">--:--</p><p class="muted small">সূর্যাস্তের আগের আনুমানিক ২০ মিনিট</p></div>  
+</div>  
+<div class="card" style="margin-top:16px"><strong>গুরুত্বপূর্ণ:</strong><p class="muted">হানাফি ফিকহে ফজরের পর সূর্যোদয় পর্যন্ত এবং আসরের পর সূর্যাস্ত পর্যন্ত নফল নামাজের নিষেধাজ্ঞাও রয়েছে। এখানে পূর্ণ ফিকহি হিসাব দেখানো হচ্ছে না। স্থানীয় মসজিদের সময়সূচি ও নির্ভরযোগ্য আলেমের নির্দেশনা অনুসরণ করো।</p></div>  
+</div></section>  <section class="section" id="nafl"><div class="container">  
+<div class="section-heading"><h2>নফল নামাজের সময়</h2><p>সাধারণ হিসাবভিত্তিক নির্দেশনা</p></div>  
+<div class="grid two-col">  
+<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> ইশরাক</h3><p id="ishraqTime">--:--</p><p class="muted small">সূর্যোদয়ের কিছু সময় পর।</p></div>  
+<div class="card info-card"><h3><svg><use href="#i-sun"/></svg> চাশত / দুহা</h3><p id="duhaTime">--:--</p><p class="muted small">সকাল থেকে যোহরের আগ পর্যন্ত।</p></div>  
+<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> তাহাজ্জুদ</h3><p id="tahajjudTime">--:--</p><p class="muted small">রাতের শেষ এক-তৃতীয়াংশের আনুমানিক শুরু।</p></div>  
+<div class="card info-card"><h3><svg><use href="#i-moon"/></svg> আওয়াবিন</h3><p id="awwabinTime">মাগরিবের পর</p><p class="muted small">মাগরিবের পর নফল ইবাদতের সময়।</p></div>  
+</div>  
+</div></section>  <section class="section" id="calendar"><div class="container">  
+<div class="section-heading"><h2>মাসিক ক্যালেন্ডার</h2><p>ইংরেজি মাসের তারিখ</p></div>  
+<div class="card"><div class="calendar-head"><button id="prevMonth">পূর্ববর্তী</button><h3 id="monthTitle"></h3><button id="nextMonth">পরবর্তী</button></div><div class="calendar-grid" id="calendarGrid"></div></div>  
+</div></section>  <section class="section" id="quran"><div class="container">  
+<div class="section-heading"><h2>আল-কুরআন</h2><p>কুরআন তিলাওয়াত ও অধ্যয়ন</p></div>  
+<div class="grid two-col">  
+<div class="card"><h3 style="color:var(--green2)">الْقُرْآنُ الْكَرِيمُ</h3><p class="muted" style="margin:10px 0">পবিত্র কুরআন মাজিদ পড়ো, অর্থ বোঝার চেষ্টা করো এবং জীবনে আমল করো।</p><a class="hero-btn" style="margin-top:5px" href="quran.html">কুরআন পড়ুন</a></div>  
+<div class="card"><h3 style="color:var(--green2)">আজকের স্মরণ</h3><p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><p class="muted">পরম করুণাময়, অসীম দয়ালু আল্লাহর নামে।</p></div>  
+</div>  
+</div></section>  <section class="section" id="tasbih"><div class="container">  
+<div class="section-heading"><h2>ডিজিটাল তাসবিহ</h2><p>জিকিরের গণনা</p></div>  
+<div class="card tasbih"><p class="arabic-text" style="text-align:center">سُبْحَانَ اللَّهِ</p><div class="tasbih-count" id="tasbihCount">০</div><button class="tasbih-btn" id="tasbihBtn">গণনা করুন</button><button class="tasbih-btn reset-btn" id="resetTasbih">রিসেট</button></div>  
+</div></section>  <section class="section" id="dua"><div class="container">  
+<div class="section-heading"><h2>দৈনিক আমল ও দোয়া</h2><p>প্রতিদিনের জীবনে দ্বীনি অভ্যাস</p></div>  
+<div class="grid two-col">  
+<div class="card"><h3 style="color:var(--green2);margin-bottom:12px">দৈনিক আমল</h3><ul class="content-list"><li>পাঁচ ওয়াক্ত নামাজ সময়মতো আদায় করা</li><li>প্রতিদিন কুরআন তিলাওয়াত করা</li><li>সকাল ও সন্ধ্যার মাসনুন জিকির করা</li><li>মাতা-পিতার সঙ্গে সদাচরণ করা</li><li>সত্য কথা বলা ও গিবত থেকে বিরত থাকা</li></ul></div>  
+<div class="card"><h3 style="color:var(--green2);margin-bottom:12px">একটি সুন্দর দোয়া</h3><p class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><p style="margin-top:12px">অর্থ: হে আমাদের রব! আমাদের দুনিয়াতে কল্যাণ দান করুন এবং আখিরাতেও কল্যাণ দান করুন, আর আমাদের জাহান্নামের আজাব থেকে রক্ষা করুন।</p><p class="muted small" style="margin-top:8px">সূরা আল-বাকারা, আয়াত ২০১</p></div>  
+</div>  
+</div></section>  <!-- নতুন বিভাগগুলোর জন্য মডিউল কনটেইনার -->  <div id="extraIslamicModules"></div>  <section class="section" id="about"><div class="container">  
+<div class="section-heading"><h2>আমার পরিচিতি</h2><p>দ্বীনি শিক্ষা ও উপকারী জ্ঞান ছড়িয়ে দেওয়ার প্রত্যয়</p></div>  
+<div class="card profile-card">  
+<div class="profile-cover"></div>  
+<div class="profile-main">  
+<img class="profile-photo" src="https://raw.githubusercontent.com/IsmailGraphicsbd/hayatul-islam/main/ismail-profile.jpg" alt="মোঃ ইসমাইল হোসেনের ছবি">  
+<h2 class="profile-name">মোঃ ইসমাইল হোসেন</h2>  
+<p class="profile-role">মাদ্রাসা শিক্ষক</p>  
+<div class="profile-details"><span>নূরানী প্রশিক্ষণপ্রাপ্ত মুয়াল্লেম</span><span>মাদ্রাসাতুল হারামাইন, নূরানী বিভাগ</span></div>  
+<p class="profile-intro">ইসলামিক শিক্ষা, দ্বীনি জ্ঞানচর্চা এবং মানুষের কাছে উপকারী ইসলামিক তথ্য পৌঁছে দেওয়ার আগ্রহ নিয়ে আমার পথচলা।</p>  
+<div class="profile-links"><a class="facebook" href="https://www.facebook.com/share/1HHyGXFu3Q/" target="_blank" rel="noopener">Facebook</a><a class="whatsapp" href="https://wa.me/8801405464247" target="_blank" rel="noopener">WhatsApp</a></div>  
+<p class="profile-note">দ্বীনি উপকার ও ভালো কাজের উদ্দেশ্যে এই পথচলা।</p>  
+</div></div></div></section>  
+</main>  <footer class="site-footer"><div class="container">  
+<div class="footer-arabic">حَيَاةُ الْإِسْلَامِ</div><h2>হায়াতুল ইসলাম</h2><p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>  
+<div class="footer-links"><a href="#home">হোম</a><a href="#prayer">নামাজ</a><a href="#quran">কুরআন</a><a href="#dua">দোয়া</a><a href="#about">পরিচিতি</a></div>  
+<p class="small" style="margin-top:22px">© <span id="year"></span> হায়াতুল ইসলাম। সর্বস্বত্ব সংরক্ষিত।</p>  
+</div></footer>  <nav class="bottom-nav" aria-label="প্রধান মেনু">  
+<a href="#home" class="active"><svg><use href="#i-home"/></svg><span>হোম</span></a>  
+<a href="#prayer"><svg><use href="#i-mosque"/></svg><span>নামাজ</span></a>  
+<a href="#calendar"><svg><use href="#i-calendar"/></svg><span>ক্যালেন্ডার</span></a>  
+<a href="#quran"><svg><use href="#i-book"/></svg><span>কুরআন</span></a>  
+<button id="moreBtn"><svg><use href="#i-heart"/></svg><span>আরও</span></button>  
+</nav>  <script>  
+// লোগো  
+const SITE_LOGO_URL = "https://raw.githubusercontent.com/IsmailGraphicsbd/hayatul-islam/refs/heads/main/file_00000000a6dc8211a029a054995f0154.png";  
   
-
-// ডিজিটাল তাসবিহ
-let count=0;
-
-function showCount(){
- $("tasbihCount").textContent=banglaDigits(count);
-}
-
-$("tasbihBtn").addEventListener("click",()=>{
- count++;
- showCount();
-});
-
-$("resetTasbih").addEventListener("click",()=>{
- count=0;
- showCount();
-});
-
-// নিচের মেনু
-const bottomLinks=document.querySelectorAll(".bottom-nav a");
-const sections=[...document.querySelectorAll("main section[id]")];
-
-if("IntersectionObserver"in window){
- const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-   if(e.isIntersecting){
-    bottomLinks.forEach(a=>{
-     a.classList.toggle(
-      "active",
-      a.getAttribute("href")==="#"+e.target.id
-     );
-    });
-   }
-  });
- },{rootMargin:"-35% 0px -55% 0px"});
-
- sections.forEach(s=>observer.observe(s));
-}
-
-
-
-/* =====================================================
-   HAYATUL ISLAM — ADD-ON MODULE SYSTEM
-   মূল ডিজাইন পরিবর্তন না করে নতুন বিভাগ যুক্ত করার ব্যবস্থা
-===================================================== */
-
-const islamicModules = [
-
-{
- id:"hadith",
- title:"আজকের হাদিস",
- subtitle:"নির্বাচিত হাদিস ও শিক্ষা",
- icon:"#i-book",
- content:`
- <div class="card info-card">
-  <h3>আজকের হাদিস</h3>
-  <p id="dailyHadithText" style="line-height:2"></p>
-  <p class="muted small" id="dailyHadithSource"></p>
- </div>`
-},
-
-{
- id:"dua-library",
- title:"দোয়ার সংগ্রহ",
- subtitle:"কুরআন ও হাদিসের নির্বাচিত দোয়া",
- icon:"#i-heart",
- content:`
- <div class="grid two-col">
-  <div class="card">
-   <h3 style="color:var(--green2)">দুনিয়া ও আখিরাতের কল্যাণ</h3>
-   <p class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
-   <p>অর্থ: হে আমাদের রব! আমাদের দুনিয়া ও আখিরাতে কল্যাণ দান করুন এবং জাহান্নামের আজাব থেকে রক্ষা করুন।</p>
-   <p class="muted small">সূরা আল-বাকারা: ২০১</p>
-  </div>
-  <div class="card">
-   <h3 style="color:var(--green2)">জ্ঞান বৃদ্ধির দোয়া</h3>
-   <p class="arabic-text">رَبِّ زِدْنِي عِلْمًا</p>
-   <p>অর্থ: হে আমার রব! আমার জ্ঞান বৃদ্ধি করে দিন।</p>
-   <p class="muted small">সূরা ত্বহা: ১১৪</p>
-  </div>
-  <div class="card">
-   <h3 style="color:var(--green2)">ক্ষমা প্রার্থনা</h3>
-   <p class="arabic-text">رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</p>
-   <p>অর্থ: হে আমাদের রব! আমরা নিজেদের প্রতি জুলুম করেছি। আপনি ক্ষমা ও দয়া না করলে আমরা ক্ষতিগ্রস্ত হব।</p>
-   <p class="muted small">সূরা আল-আ'রাফ: ২৩</p>
-  </div>
-  <div class="card">
-   <h3 style="color:var(--green2)">অন্তরকে অবিচল রাখার দোয়া</h3>
-   <p class="arabic-text">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا</p>
-   <p>অর্থ: হে আমাদের রব! হিদায়াত দেওয়ার পর আমাদের অন্তরকে বক্র করবেন না।</p>
-   <p class="muted small">সূরা আলে ইমরান: ৮</p>
-  </div>
- </div>`
-},
-
-{
- id:"daily-amol",
- title:"দৈনিক আমল ট্র্যাকার",
- subtitle:"প্রতিদিনের আমল নিজে চিহ্নিত করো",
- icon:"#i-repeat",
- content:`
- <div class="card">
-  <p class="muted small" style="margin-bottom:12px">তোমার দৈনিক আমল সম্পন্ন হলে টিক চিহ্ন দাও।</p>
-  <div id="dailyAmolList" class="content-list"></div>
-  <p style="margin-top:15px;font-weight:700;color:var(--green2)">
-   সম্পন্ন: <span id="amolProgress">০/৬</span>
-  </p>
-  <button class="tasbih-btn" id="resetAmol" style="margin-top:12px">আজকের তালিকা রিসেট</button>
- </div>`
-},
-
-{
- id:"quiz",
- title:"ইসলামিক কুইজ",
- subtitle:"দ্বীনি জ্ঞান যাচাই করো",
- icon:"#i-book",
- content:`
- <div class="card">
-  <h3 id="quizQuestion" style="color:var(--green2);margin-bottom:15px"></h3>
-  <div id="quizOptions" class="content-list"></div>
-  <p id="quizFeedback" style="margin-top:15px;font-weight:600"></p>
-  <button class="tasbih-btn" id="nextQuiz" style="margin-top:15px">পরবর্তী প্রশ্ন</button>
-  <p class="muted small" id="quizScore" style="margin-top:12px"></p>
- </div>`
-},
-
-{
- id:"zakat",
- title:"যাকাত হিসাব",
- subtitle:"নিজের সম্পদের আনুমানিক যাকাত হিসাব",
- icon:"#i-heart",
- content:`
- <div class="card">
-  <p class="muted small">নিসাবের পরিমাণ ও সম্পদের মূল্য নিজে যাচাই করে বসাও। এটি সাধারণ হিসাবের সহায়ক, ফতোয়া নয়।</p>
-  <div class="grid two-col" style="margin-top:15px">
-   <label>নগদ টাকা
-    <input id="zCash" type="number" min="0" placeholder="টাকার পরিমাণ">
-   </label>
-   <label>স্বর্ণ ও রুপার মূল্য
-    <input id="zGoldSilver" type="number" min="0" placeholder="টাকার পরিমাণ">
-   </label>
-   <label>ব্যবসায়িক পণ্যের মূল্য
-    <input id="zTrade" type="number" min="0" placeholder="টাকার পরিমাণ">
-   </label>
-   <label>যোগ্য ঋণ ও তাৎক্ষণিক দায়
-    <input id="zDebt" type="number" min="0" placeholder="টাকার পরিমাণ">
-   </label>
-   <label>নিসাবের পরিমাণ
-    <input id="zNisab" type="number" min="0" placeholder="টাকার পরিমাণ">
-   </label>
-  </div>
-  <button class="tasbih-btn" id="calculateZakat" style="margin-top:15px">যাকাত হিসাব করো</button>
-  <div id="zakatResult" style="margin-top:15px" aria-live="polite"></div>
- </div>`
-},
-
-{
- id:"qibla",
- title:"কিবলার দিক",
- subtitle:"তোমার অবস্থান থেকে কিবলার দিক নির্ণয়",
- icon:"#i-location",
- content:`
- <div class="card" style="text-align:center">
-  <p class="muted">উত্তর দিক থেকে ঘড়ির কাঁটার দিকে কিবলার কোণ দেখানো হবে।</p>
-  <div style="font-size:42px;color:var(--green2);font-weight:700;margin:15px" id="qiblaDegree">--°</div>
-  <p id="qiblaDirection">অবস্থান পাওয়া গেলে দিক দেখানো হবে।</p>
-  <button class="tasbih-btn" id="findQibla" style="margin-top:15px">কিবলার দিক নির্ণয়</button>
-  <p class="muted small" style="margin-top:12px">এটি দিকের হিসাব; কম্পাসের মতো ঘূর্ণায়মান নির্দেশক নয়।</p>
- </div>`
-},
-
-{
- id:"islamic-words",
- title:"ইসলামিক শব্দার্থ",
- subtitle:"আরবি শব্দ ও বাংলা অর্থ",
- icon:"#i-book",
- content:`
- <div class="grid three-col">
-  <div class="card"><p class="arabic-text">الصَّلَاةُ</p><p>নামাজ</p></div>
-  <div class="card"><p class="arabic-text">الصَّوْمُ</p><p>রোজা</p></div>
-  <div class="card"><p class="arabic-text">الزَّكَاةُ</p><p>যাকাত</p></div>
-  <div class="card"><p class="arabic-text">الْحَجُّ</p><p>হজ</p></div>
-  <div class="card"><p class="arabic-text">الْإِيمَانُ</p><p>ঈমান</p></div>
-  <div class="card"><p class="arabic-text">التَّوْبَةُ</p><p>তাওবা</p></div>
-  <div class="card"><p class="arabic-text">الصَّبْرُ</p><p>ধৈর্য</p></div>
-  <div class="card"><p class="arabic-text">الشُّكْرُ</p><p>কৃতজ্ঞতা</p></div>
-  <div class="card"><p class="arabic-text">الرَّحْمَةُ</p><p>রহমত</p></div>
- </div>`
-},
-
-{
- id:"islamic-history",
- title:"ইসলামের ইতিহাস",
- subtitle:"ইসলামের ইতিহাস ও গুরুত্বপূর্ণ ঘটনা",
- icon:"#i-book",
- content:`
- <div class="content-list">
-  <li><strong>নবী মুহাম্মদ ﷺ:</strong> তাঁর জীবন, দাওয়াত ও উত্তম চরিত্র সম্পর্কে অধ্যয়ন।</li>
-  <li><strong>মক্কি জীবন:</strong> ইসলামের প্রাথমিক দাওয়াত ও সাহাবিদের ত্যাগ।</li>
-  <li><strong>হিজরত:</strong> মক্কা থেকে মদিনায় হিজরতের ঘটনা ও শিক্ষা।</li>
-  <li><strong>মদিনার সমাজ:</strong> মসজিদে নববী, ভ্রাতৃত্ব ও ইসলামী সমাজ গঠন।</li>
-  <li><strong>খুলাফায়ে রাশেদিন:</strong> ইসলামের প্রথম চার খলিফার জীবন ও অবদান।</li>
- </div>
- <p class="muted small" style="margin-top:12px">বিস্তারিত ইতিহাস প্রকাশের আগে নির্ভরযোগ্য সীরাত ও ইতিহাসগ্রন্থের তথ্য যাচাই করা হবে।</p>`
-},
-
-{
- id:"asmaul-husna",
- title:"আল্লাহর সুন্দর নামসমূহ",
- subtitle:"আসমাউল হুসনা",
- icon:"#i-heart",
- content:`
- <div class="grid three-col">
-  <div class="card"><p class="arabic-text">الرَّحْمَٰنُ</p><strong>আর-রহমান</strong><p class="muted small">পরম করুণাময়</p></div>
-  <div class="card"><p class="arabic-text">الرَّحِيمُ</p><strong>আর-রহিম</strong><p class="muted small">অতি দয়ালু</p></div>
-  <div class="card"><p class="arabic-text">الْمَلِكُ</p><strong>আল-মালিক</strong><p class="muted small">সর্বময় অধিপতি</p></div>
-  <div class="card"><p class="arabic-text">الْقُدُّوسُ</p><strong>আল-কুদ্দুস</strong><p class="muted small">মহাপবিত্র</p></div>
-  <div class="card"><p class="arabic-text">السَّلَامُ</p><strong>আস-সালাম</strong><p class="muted small">শান্তিদাতা</p></div>
-  <div class="card"><p class="arabic-text">الْمُؤْمِنُ</p><strong>আল-মুমিন</strong><p class="muted small">নিরাপত্তাদাতা</p></div>
- </div>
- <p class="muted small" style="margin-top:12px">এখানে নির্বাচিত কয়েকটি নাম দেখানো হয়েছে। পূর্ণ তালিকা ও অর্থ যাচাই করে পর্যায়ক্রমে যোগ করা যাবে।</p>`
-}
-
-];
-
-
-/* বিভাগগুলো মূল পরিচিতি অংশের আগে যুক্ত হবে */
-function renderIslamicModules(){
- const host=document.getElementById("extraIslamicModules");
- const about=document.getElementById("about");
-
- if(!host||!about)return;
-
- host.innerHTML=islamicModules.map(module=>`
-  <section class="section" id="${module.id}">
-   <div class="container">
-    <div class="section-heading">
-     <h2>${module.title}</h2>
-     <p>${module.subtitle}</p>
-    </div>
-    ${module.content}
-   </div>
-  </section>
- `).join("");
-
- /* ড্রয়ার মেনুতে নতুন লিংক */
- const nav=document.querySelector(".drawer-links");
- if(nav){
-  islamicModules.forEach(module=>{
-   if(nav.querySelector('a[href="#'+module.id+'"]'))return;
-
-   const a=document.createElement("a");
-   a.href="#"+module.id;
-   a.innerHTML=`
-    <svg><use href="${module.icon}"/></svg>
-    ${module.title}
-   `;
-   a.addEventListener("click",closeDrawer);
-   nav.appendChild(a);
-  });
- }
-
- initializeIslamicModules();
-}
-
-
-/* দৈনিক হাদিস */
-function initializeHadith(){
- const hadiths=[
-  {
-   text:"দ্বীন হলো কল্যাণকামিতা।",
-   source:"সহিহ মুসলিম, হাদিস ৫৫"
-  },
-  {
-   text:"সহজ করো, কঠিন করো না; সুসংবাদ দাও, বিরক্ত করো না।",
-   source:"সহিহ বুখারি, হাদিস ৬৯; সহিহ মুসলিম, হাদিস ১৭৩৪"
-  },
-  {
-   text:"যে দয়া করে না, তার প্রতি দয়া করা হয় না।",
-   source:"সহিহ বুখারি, হাদিস ৬০১৩; সহিহ মুসলিম, হাদিস ২৩১৯"
-  }
- ];
-
- const index=new Date().getDate()%hadiths.length;
- const item=hadiths[index];
-
- const text=document.getElementById("dailyHadithText");
- const source=document.getElementById("dailyHadithSource");
-
- if(text)text.textContent=item.text;
- if(source)source.textContent=item.source;
-}
-
-
-/* দৈনিক আমল ট্র্যাকার */
-function initializeAmol(){
- const list=document.getElementById("dailyAmolList");
- if(!list)return;
-
- const items=[
-  "পাঁচ ওয়াক্ত নামাজ আদায়",
-  "কুরআন তিলাওয়াত",
-  "সকাল ও সন্ধ্যার জিকির",
-  "দরুদ শরিফ পাঠ",
-  "মাতা-পিতার খোঁজখবর",
-  "গিবত ও মিথ্যা থেকে বিরত থাকা"
- ];
-
- const today=new Intl.DateTimeFormat("en-CA",{
-  timeZone:"Asia/Dhaka"
- }).format(new Date());
-
- const storageKey="hayatulAmol_"+today;
-
- let checked=[];
- try{
-  checked=JSON.parse(localStorage.getItem(storageKey)||"[]");
-  if(!Array.isArray(checked))checked=[];
- }catch(e){checked=[];}
-
- function draw(){
-  list.innerHTML=items.map((item,i)=>`
-   <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
-    <input type="checkbox" data-amol="${i}" ${checked.includes(i)?"checked":""}>
-    <span>${item}</span>
-   </label>
-  `).join("");
-
-  document.getElementById("amolProgress").textContent=
-   banglaDigits(checked.length+"/"+items.length);
-
-  list.querySelectorAll("[data-amol]").forEach(input=>{
-   input.addEventListener("change",()=>{
-    const i=Number(input.dataset.amol);
-
-    checked=input.checked
-     ?[...new Set([...checked,i])]
-     :checked.filter(x=>x!==i);
-
-    localStorage.setItem(storageKey,JSON.stringify(checked));
-    draw();
-   });
-  });
- }
-
- draw();
-
- document.getElementById("resetAmol").addEventListener("click",()=>{
-  checked=[];
-  localStorage.removeItem(storageKey);
-  draw();
- });
-}
-
-
-/* ইসলামিক কুইজ */
-function initializeQuiz(){
- const questions=[
-  {q:"পবিত্র কুরআনে মোট কতটি সূরা রয়েছে?",o:["১০০টি","১১৪টি","১২০টি"],a:1},
-  {q:"মুসলমানদের কিবলা কোনটি?",o:["মসজিদে নববী","বায়তুল মুকাদ্দাস","কাবা শরিফ"],a:2},
-  {q:"রমজান মাসে কোন ইবাদত ফরজ?",o:["রোজা","হজ","কুরবানি"],a:0},
-  {q:"কুরআনের প্রথম সূরার নাম কী?",o:["আল-বাকারা","আল-ফাতিহা","আল-ইখলাস"],a:1}
- ];
-
- let current=0;
- let score=0;
- let answered=false;
-
- const question=document.getElementById("quizQuestion");
- const options=document.getElementById("quizOptions");
- const feedback=document.getElementById("quizFeedback");
- const scoreText=document.getElementById("quizScore");
- const next=document.getElementById("nextQuiz");
-
- function draw(){
-  answered=false;
-  const item=questions[current];
-
-  question.textContent=item.q;
-  feedback.textContent="";
-  options.innerHTML=item.o.map((v,i)=>`
-   <button type="button" data-answer="${i}"
-    style="padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);text-align:left">
-    ${v}
-   </button>
-  `).join("");
-
-  options.querySelectorAll("[data-answer]").forEach(btn=>{
-   btn.addEventListener("click",()=>{
-    if(answered)return;
-    answered=true;
-
-    if(Number(btn.dataset.answer)===item.a){
-     score++;
-     feedback.textContent="সঠিক উত্তর। মাশাআল্লাহ!";
-    }else{
-     feedback.textContent="সঠিক উত্তর: "+item.o[item.a];
-    }
-
-    scoreText.textContent="সঠিক উত্তর: "+banglaDigits(score);
-   });
-  });
- }
-
- next.addEventListener("click",()=>{
-  current=(current+1)%questions.length;
-  if(current===0)score=0;
-  draw();
- });
-
- draw();
-}
-
-
-/* যাকাতের সাধারণ হিসাব */
-function initializeZakat(){
- const button=document.getElementById("calculateZakat");
- if(!button)return;
-
- button.addEventListener("click",()=>{
-  const number=id=>{
-   const v=Number(document.getElementById(id).value);
-   return Number.isFinite(v)&&v>0?v:0;
-  };
-
-  const assets=
-   number("zCash")+
-   number("zGoldSilver")+
-   number("zTrade")-
-   number("zDebt");
-
-  const nisab=number("zNisab");
-  const result=document.getElementById("zakatResult");
-
-  if(!nisab){
-   result.textContent="প্রথমে নিসাবের পরিমাণ বসাও।";
-   return;
-  }
-
-  if(assets<=0){
-   result.textContent="হিসাবযোগ্য সম্পদের পরিমাণ শূন্য বা ঋণাত্মক।";
-   return;
-  }
-
-  if(assets<nisab){
-   result.textContent="প্রদত্ত নিসাব অনুযায়ী সম্পদ নিসাব পরিমাণে পৌঁছায়নি।";
-   return;
-  }
-
-  const zakat=assets*.025;
-
-  result.innerHTML=`
-   <div class="card info-card">
-    <h3>আনুমানিক যাকাত</h3>
-    <p style="font-size:25px;font-weight:700;color:var(--green2)">
-     ৳${zakat.toLocaleString("en-BD",{maximumFractionDigits:2})}
-    </p>
-    <p class="muted small">যোগ্য সম্পদের ২.৫% হিসেবে হিসাব করা হয়েছে।</p>
-   </div>
-  `;
- });
-}
-
-
-/* কিবলার দিকের হিসাব */
-function initializeQibla(){
- const button=document.getElementById("findQibla");
- if(!button)return;
-
- button.addEventListener("click",()=>{
-  const output=document.getElementById("qiblaDegree");
-  const direction=document.getElementById("qiblaDirection");
-
-  const calculate=(lat,lon)=>{
-   const kaabaLat=21.4225*Math.PI/180;
-   const kaabaLon=39.8262*Math.PI/180;
-   const userLat=lat*Math.PI/180;
-   const deltaLon=kaabaLon-lon*Math.PI/180;
-
-   const y=Math.sin(deltaLon);
-   const x=Math.cos(userLat)*Math.tan(kaabaLat)-
-           Math.sin(userLat)*Math.cos(deltaLon);
-
-   const bearing=(Math.atan2(y,x)*180/Math.PI+360)%360;
-
-   output.textContent=banglaDigits(bearing.toFixed(1))+"°";
-   direction.textContent="উত্তর দিক থেকে ঘড়ির কাঁটার দিকে "+banglaDigits(bearing.toFixed(1))+"°";
-  };
-
-  if(currentCoords){
-   calculate(currentCoords.lat,currentCoords.lon);
-   return;
-  }
-
-  if(!navigator.geolocation){
-   direction.textContent="এই ডিভাইসে অবস্থান শনাক্ত করা যাচ্ছে না।";
-   return;
-  }
-
-  navigator.geolocation.getCurrentPosition(
-   pos=>calculate(pos.coords.latitude,pos.coords.longitude),
-   ()=>{direction.textContent="লোকেশন অনুমতি পাওয়া যায়নি।"}
-  );
- });
-}
-
-
-/* সব মডিউল চালু */
-function initializeIslamicModules(){
- initializeHadith();
- initializeAmol();
- initializeQuiz();
- initializeZakat();
- initializeQibla();
-}
-
-renderIslamicModules();
-
-
-
- 
-</script>
-</body>
+function applySiteLogo(){  
+ document.querySelectorAll("[data-site-logo]").forEach(el=>{  
+  if(SITE_LOGO_URL.trim()){  
+   el.innerHTML="";  
+   const img=document.createElement("img");  
+   img.src=SITE_LOGO_URL.trim();  
+   img.alt="হায়াতুল ইসলাম লোগো";  
+   el.appendChild(img);  
+  }  
+ });  
+}  
+applySiteLogo();  
+  
+const $=id=>document.getElementById(id);  
+const banglaDigits=v=>String(v).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);  
+  
+// মেনু  
+const drawer=$("drawer"),backdrop=$("backdrop"),menuBtn=$("menuBtn");  
+  
+function openDrawer(){  
+ drawer.classList.add("open");  
+ backdrop.classList.add("show");  
+ menuBtn.classList.add("active");  
+ menuBtn.setAttribute("aria-expanded","true");  
+ drawer.setAttribute("aria-hidden","false");  
+}  
+function closeDrawer(){  
+ drawer.classList.remove("open");  
+ backdrop.classList.remove("show");  
+ menuBtn.classList.remove("active");  
+ menuBtn.setAttribute("aria-expanded","false");  
+ drawer.setAttribute("aria-hidden","true");  
+}  
+menuBtn.addEventListener("click",()=>drawer.classList.contains("open")?closeDrawer():openDrawer());  
+$("closeDrawer").addEventListener("click",closeDrawer);  
+backdrop.addEventListener("click",closeDrawer);  
+$("moreBtn").addEventListener("click",openDrawer);  
+document.querySelectorAll(".drawer-links a").forEach(a=>a.addEventListener("click",closeDrawer));  
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});  
+  
+// ডার্ক মোড  
+const savedTheme=localStorage.getItem("hayatulTheme");  
+if(savedTheme==="dark")document.body.classList.add("dark");  
+  
+function updateThemeIcon(){  
+ $("themeBtn").innerHTML=document.body.classList.contains("dark")  
+ ?'<svg><use href="#i-sun"/></svg>'  
+ :'<svg><use href="#i-moon"/></svg>';  
+}  
+updateThemeIcon();  
+  
+$("themeBtn").addEventListener("click",()=>{  
+ document.body.classList.toggle("dark");  
+ localStorage.setItem("hayatulTheme",document.body.classList.contains("dark")?"dark":"light");  
+ updateThemeIcon();  
+});  
+  
+// তারিখ ও হিজরি  
+async function updateDates(){  
+ const n=new Date();  
+  
+ $("todayDate").textContent=new Intl.DateTimeFormat("bn-BD",{  
+  weekday:"long",day:"numeric",month:"long",year:"numeric",  
+  timeZone:"Asia/Dhaka"  
+ }).format(n);  
+  
+ $("englishDate").textContent=new Intl.DateTimeFormat("en-GB",{  
+  weekday:"long",day:"numeric",month:"long",year:"numeric",  
+  timeZone:"Asia/Dhaka"  
+ }).format(n);  
+  
+ $("year").textContent=n.getFullYear();  
+  
+ try{  
+  const parts=new Intl.DateTimeFormat("en-GB",{  
+   timeZone:"Asia/Dhaka",day:"2-digit",month:"2-digit",year:"numeric"  
+  }).formatToParts(n);  
+  
+  const day=parts.find(p=>p.type==="day").value;  
+  const month=parts.find(p=>p.type==="month").value;  
+  const year=parts.find(p=>p.type==="year").value;  
+  const date=`${day}-${month}-${year}`;  
+  
+  const response=await fetch(  
+   `https://api.aladhan.com/v1/gToH/${date}?calendarMethod=MATHEMATICAL&adjustment=0`  
+  );  
+  
+  if(!response.ok)throw new Error("Hijri API error");  
+  
+  const result=await response.json();  
+  
+  if(result.code!==200||!result.data?.hijri)throw new Error("Hijri date unavailable");  
+  
+  const h=result.data.hijri;  
+  const hijriMonths=[  
+   "মুহাররম","সফর","রবিউল আউয়াল","রবিউস সানি",  
+   "জমাদিউল আউয়াল","জমাদিউস সানি","রজব","শাবান",  
+   "রমজান","শাওয়াল","জিলকদ","জিলহজ"  
+  ];  
+  
+  const monthBn=hijriMonths[Number(h.month.number)-1];  
+  if(!monthBn)throw new Error("Invalid Hijri month");  
+  
+  $("hijriDate").textContent=  
+   `${banglaDigits(h.day)} ${monthBn}, ${banglaDigits(h.year)} হিজরি`;  
+  
+ }catch(e){  
+  $("hijriDate").textContent="হিজরি তারিখ প্রদর্শন করা যাচ্ছে না";  
+  console.error("Hijri date error:",e);  
+ }  
+}  
+updateDates();  
+setInterval(updateDates,60*60*1000);  
+  
+  
+// ==================================================  
+// সংশোধিত নামাজের সময়সূচি  
+// পদ্ধতি: Karachi (Method 1)  
+// আসর: Hanafi (School 1)  
+// কোনো নিজস্ব মিনিট যোগ বা বিয়োগ করা হয় না।  
+// ==================================================  
+  
+let prayerData=null;  
+let tomorrowFajr=null;  
+let prayerTimezone="Asia/Dhaka";  
+let currentCoords=null;  
+let locationLabel="ঢাকা (ডিফল্ট অবস্থান)";  
+let prayerRequestNumber=0;  
+  
+const prayerNames={  
+ Fajr:"ফজর",  
+ Dhuhr:"যোহর",  
+ Asr:"আসর",  
+ Maghrib:"মাগরিব",  
+ Isha:"ইশা"  
+};  
+  
+function timeToMinutes(t){  
+ if(!t)return null;  
+ const m=String(t).match(/(\d{1,2}):(\d{2})/);  
+ return m?Number(m[1])*60+Number(m[2]):null;  
+}  
+  
+function clockFromMinutes(n){  
+ n=(n+1440)%1440;  
+ return String(Math.floor(n/60)).padStart(2,"0")+":"+  
+ String(n%60).padStart(2,"0");  
+}  
+  
+function displayTime(t){  
+ if(!t)return"--:--";  
+ const n=timeToMinutes(t);  
+ if(n===null)return"--:--";  
+  
+ const h=Math.floor(n/60);  
+ const m=n%60;  
+  
+ return banglaDigits(  
+  String(h%12||12).padStart(2,"0")+":"+  
+  String(m).padStart(2,"0")  
+ )+(h<12?" পূর্বাহ্ণ":" অপরাহ্ণ");  
+}  
+  
+// নির্বাচিত টাইমজোনের বর্তমান তারিখ ও সময়  
+function getZoneParts(zone=prayerTimezone){  
+ const parts=new Intl.DateTimeFormat("en-GB",{  
+  timeZone:zone,  
+  day:"2-digit",  
+  month:"2-digit",  
+  year:"numeric",  
+  hour:"2-digit",  
+  minute:"2-digit",  
+  second:"2-digit",  
+  hourCycle:"h23"  
+ }).formatToParts(new Date());  
+  
+ const get=type=>Number(parts.find(p=>p.type===type).value);  
+  
+ return {  
+  day:get("day"),  
+  month:get("month"),  
+  year:get("year"),  
+  hour:get("hour"),  
+  minute:get("minute"),  
+  second:get("second")  
+ };  
+}  
+  
+// তারিখ তৈরি  
+function dateString(date){  
+ return String(date.getUTCDate()).padStart(2,"0")+"-"+  
+ String(date.getUTCMonth()+1).padStart(2,"0")+"-"+  
+ date.getUTCFullYear();  
+}  
+  
+// টাইমজোন অনুযায়ী আজ বা আগামীকালের তারিখ  
+function getDateForZone(addDays=0){  
+ const p=getZoneParts();  
+  
+ const date=new Date(Date.UTC(p.year,p.month-1,p.day+addDays));  
+  
+ return dateString(date);  
+}  
+  
+function updateLocalPrayerDate(){  
+ try{  
+  $("prayerLocalDate").textContent=  
+   new Intl.DateTimeFormat("bn-BD",{  
+    weekday:"long",  
+    day:"numeric",  
+    month:"long",  
+    timeZone:prayerTimezone  
+   }).format(new Date());  
+ }catch(e){  
+  console.error(e);  
+ }  
+}  
+  
+// API থেকে নির্দিষ্ট দিনের নামাজের সময়  
+async function getPrayerApiData(lat,lon,date){  
+ const url=  
+  `https://api.aladhan.com/v1/timings/${date}`+  
+  `?latitude=${encodeURIComponent(lat)}`+  
+  `&longitude=${encodeURIComponent(lon)}`+  
+  `&method=1&school=1`;  
+  
+ const response=await fetch(url);  
+  
+ if(!response.ok)throw new Error("Prayer API request failed");  
+  
+ const result=await response.json();  
+  
+ if(result.code!==200||!result.data?.timings){  
+  throw new Error("Prayer data unavailable");  
+ }  
+  
+ return result.data;  
+}  
+  
+// নামাজের সময় প্রদর্শন  
+function renderPrayer(data){  
+ const t=data.timings;  
+  
+ prayerData=t;  
+ prayerTimezone=data.meta?.timezone||"Asia/Dhaka";  
+  
+ const keys=["Fajr","Dhuhr","Asr","Maghrib","Isha"];  
+ const icons=["#i-moon","#i-sun","#i-sun","#i-sun","#i-moon"];  
+  
+ $("prayerGrid").innerHTML=keys.map((k,i)=>`  
+  <div class="card prayer-item" data-prayer="${k}">  
+   <div class="prayer-icon">  
+    <svg><use href="${icons[i]}"/></svg>  
+   </div>  
+   <h3>${prayerNames[k]}</h3>  
+   <div class="prayer-time">${displayTime(t[k])}</div>  
+  </div>  
+ `).join("");  
+  
+ const sunrise=timeToMinutes(t.Sunrise);  
+ const sunset=timeToMinutes(t.Sunset);  
+ const dhuhr=timeToMinutes(t.Dhuhr);  
+ const maghrib=timeToMinutes(t.Maghrib);  
+ const fajr=timeToMinutes(t.Fajr);  
+  
+ if([sunrise,sunset,dhuhr,maghrib,fajr].some(v=>v===null)){  
+  throw new Error("Some prayer timings are missing");  
+ }  
+  
+ $("sunriseTime").textContent=  
+  displayTime(t.Sunrise)+" – "+  
+  displayTime(clockFromMinutes(sunrise+15));  
+  
+ $("zawalTime").textContent=  
+  displayTime(clockFromMinutes(dhuhr-5))+" – "+  
+  displayTime(clockFromMinutes(dhuhr+5));  
+  
+ $("sunsetTime").textContent=  
+  displayTime(clockFromMinutes(sunset-20))+" – "+  
+  displayTime(t.Sunset);  
+  
+ $("ishraqTime").textContent=  
+  displayTime(clockFromMinutes(sunrise+15))+" – "+  
+  displayTime(clockFromMinutes(sunrise+30));  
+  
+ $("duhaTime").textContent=  
+  displayTime(clockFromMinutes(sunrise+20))+" – "+  
+  displayTime(clockFromMinutes(dhuhr-10));  
+  
+ const night=fajr+1440-maghrib;  
+ const third=(maghrib+Math.floor(night*2/3))%1440;  
+  
+ $("tahajjudTime").textContent=  
+  displayTime(clockFromMinutes(third))+" – "+  
+  displayTime(t.Fajr);  
+  
+ $("awwabinTime").textContent=  
+  displayTime(t.Maghrib)+" এর পর – "+  
+  displayTime(t.Isha);  
+  
+ $("apiStatus").textContent=  
+  "সময়সূচি লোড হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নাও।";  
+  
+ $("prayerLocationLabel").textContent=locationLabel;  
+  
+ updateLocalPrayerDate();  
+ updateCountdown();  
+}  
+  
+// আজকের ও আগামীকালের নামাজের সময় একসঙ্গে লোড  
+async function fetchPrayerByCoords(lat,lon){  
+ const requestId=++prayerRequestNumber;  
+  
+ const todayDate=getDateForZone(0);  
+ const tomorrowDate=getDateForZone(1);  
+  
+ const [today,tomorrow]=await Promise.all([  
+  getPrayerApiData(lat,lon,todayDate),  
+  getPrayerApiData(lat,lon,tomorrowDate)  
+ ]);  
+  
+ // পুরোনো রিকোয়েস্টের ফলাফল নতুন ফলাফলকে বদলাতে পারবে না  
+ if(requestId!==prayerRequestNumber)return;  
+  
+ tomorrowFajr=tomorrow.timings.Fajr;  
+  
+ renderPrayer(today);  
+}  
+  
+// অবস্থানের নাম  
+async function resolveLocationName(lat,lon){  
+ try{  
+  const response=await fetch(  
+   `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=bn`  
+  );  
+  
+  if(!response.ok)throw new Error();  
+  
+  const data=await response.json();  
+  
+  return data.city||  
+   data.locality||  
+   data.principalSubdivision||  
+   data.countryName||  
+   "তোমার অবস্থান";  
+  
+ }catch(e){  
+  return "অবস্থান শনাক্ত হয়েছে";  
+ }  
+}  
+  
+// GPS/IP অবস্থান অনুযায়ী নামাজের সময়  
+async function useCoordinates(lat,lon,source){  
+ currentCoords={lat,lon};  
+  
+ $("apiStatus").textContent="অবস্থান অনুযায়ী সময় লোড হচ্ছে...";  
+  
+ locationLabel=await resolveLocationName(lat,lon);  
+  
+ $("locationName").textContent=locationLabel;  
+  
+ $("locationAccuracy").textContent=  
+  source==="gps"?"ডিভাইসের GPS অনুযায়ী":  
+  source==="ip"?"IP থেকে আনুমানিক অবস্থান":  
+  "ডিফল্ট অবস্থান: ঢাকা";  
+  
+ try{  
+  await fetchPrayerByCoords(lat,lon);  
+ }catch(e){  
+  $("apiStatus").textContent=  
+   "নামাজের সময় লোড করা যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।";  
+  console.error("Prayer loading error:",e);  
+ }  
+}  
+  
+// GPS না পেলে IP অবস্থান  
+async function fallbackIpLocation(){  
+ try{  
+  $("locationAccuracy").textContent="আনুমানিক অবস্থান খোঁজা হচ্ছে...";  
+  
+  const response=await fetch("https://ipapi.co/json/");  
+  
+  if(!response.ok)throw new Error("IP location failed");  
+  
+  const data=await response.json();  
+  
+  if(  
+   typeof data.latitude!=="number"||  
+   typeof data.longitude!=="number"  
+  )throw new Error("Coordinates missing");  
+  
+  await useCoordinates(  
+   data.latitude,  
+   data.longitude,  
+   "ip"  
+  );  
+  
+ }catch(e){  
+  locationLabel="ঢাকা (ডিফল্ট অবস্থান)";  
+  
+  await useCoordinates(  
+   23.8103,  
+   90.4125,  
+   "default"  
+  );  
+ }  
+}  
+  
+// লোকেশন শনাক্ত  
+function detectLocation(){  
+ $("locationName").textContent="অবস্থান শনাক্ত করা হচ্ছে...";  
+ $("locationAccuracy").textContent="ডিভাইসের অনুমতির অপেক্ষায়";  
+ $("apiStatus").textContent="নামাজের সময় লোড হচ্ছে...";  
+  
+ if(!navigator.geolocation){  
+  fallbackIpLocation();  
+  return;  
+ }  
+  
+ navigator.geolocation.getCurrentPosition(  
+  pos=>{  
+   useCoordinates(  
+    pos.coords.latitude,  
+    pos.coords.longitude,  
+    "gps"  
+   );  
+  },  
+  ()=>{  
+   fallbackIpLocation();  
+  },  
+  {  
+   enableHighAccuracy:true,  
+   timeout:15000,  
+   maximumAge:300000  
+  }  
+ );  
+}  
+  
+// পরবর্তী নামাজের কাউন্টডাউন  
+function updateCountdown(){  
+ if(!prayerData)return;  
+  
+ const p=getZoneParts();  
+  
+ const now=p.hour*3600+p.minute*60+p.second;  
+  
+ const order=["Fajr","Dhuhr","Asr","Maghrib","Isha"];  
+  
+ let next=null;  
+ let target=null;  
+  
+ for(const key of order){  
+  const minutes=timeToMinutes(prayerData[key]);  
+  
+  if(minutes!==null&&minutes*60>now){  
+   next=key;  
+   target=minutes*60;  
+   break;  
+  }  
+ }  
+  
+ // আজকের সব নামাজ শেষ হলে আগামীকালের ফজর  
+ if(!next){  
+  next="Fajr";  
+  
+  const tomorrowMinutes=timeToMinutes(tomorrowFajr);  
+  
+  if(tomorrowMinutes!==null){  
+   target=tomorrowMinutes*60+86400;  
+  }else{  
+   target=timeToMinutes(prayerData.Fajr)*60+86400;  
+  }  
+ }  
+  
+ let remaining=target-now;  
+  
+ if(remaining<0)remaining+=86400;  
+  
+ const h=Math.floor(remaining/3600);  
+ const m=Math.floor((remaining%3600)/60);  
+ const s=remaining%60;  
+  
+ $("nextPrayerName").textContent=prayerNames[next];  
+  
+ $("countdown").textContent=[h,m,s]  
+  .map(v=>banglaDigits(String(v).padStart(2,"0")))  
+  .join(":");  
+  
+ document.querySelectorAll(".prayer-item").forEach(el=>{  
+  el.classList.toggle(  
+   "current-prayer",  
+   el.dataset.prayer===next  
+  );  
+ });  
+}  
+  
+// লোকেশন রিফ্রেশ  
+$("refreshLocation").addEventListener("click",detectLocation);  
+  
+// প্রথমবার চালু  
+detectLocation();  
+  
+// প্রতি সেকেন্ডে কাউন্টডাউন  
+setInterval(updateCountdown,1000);  
+  
+// প্রতি ঘণ্টায় নামাজের সময় রিফ্রেশ  
+setInterval(()=>{  
+ if(currentCoords){  
+  fetchPrayerByCoords(  
+   currentCoords.lat,  
+   currentCoords.lon  
+  ).catch(e=>console.error(e));  
+ }  
+},3600000);  
+  
+  
+// মাসিক ক্যালেন্ডার  
+let calendarDate=new Date();  
+  
+const monthNames=[  
+ "জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল",  
+ "মে","জুন","জুলাই","আগস্ট",  
+ "সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"  
+];  
+  
+const weekdays=["রবি","সোম","মঙ্গল","বুধ","বৃহস্পতি","শুক্র","শনি"];  
+  
+function renderCalendar(){  
+ const y=calendarDate.getFullYear();  
+ const m=calendarDate.getMonth();  
+  
+ const first=new Date(y,m,1).getDay();  
+ const total=new Date(y,m+1,0).getDate();  
+  
+ $("monthTitle").textContent=monthNames[m]+" "+banglaDigits(y);  
+  
+ let h=weekdays.map(d=>`<div class="weekday">${d}</div>`).join("");  
+  
+ for(let i=0;i<first;i++)h+='<div class="empty"> </div>';  
+  
+ const n=new Date();  
+  
+ for(let d=1;d<=total;d++){  
+  const t=d===n.getDate()&&m===n.getMonth()&&y===n.getFullYear();  
+  
+  h+=`<div class="${t?"today":""}">${banglaDigits(d)}</div>`;  
+ }  
+  
+ $("calendarGrid").innerHTML=h;  
+}  
+  
+$("prevMonth").addEventListener("click",()=>{  
+ calendarDate.setMonth(calendarDate.getMonth()-1);  
+ renderCalendar();  
+});  
+  
+$("nextMonth").addEventListener("click",()=>{  
+ calendarDate.setMonth(calendarDate.getMonth()+1);  
+ renderCalendar();  
+});  
+  
+renderCalendar();  
+  
+// ডিজিটাল তাসবিহ  
+let count=0;  
+  
+function showCount(){  
+ $("tasbihCount").textContent=banglaDigits(count);  
+}  
+  
+$("tasbihBtn").addEventListener("click",()=>{  
+ count++;  
+ showCount();  
+});  
+  
+$("resetTasbih").addEventListener("click",()=>{  
+ count=0;  
+ showCount();  
+});  
+  
+// নিচের মেনু  
+const bottomLinks=document.querySelectorAll(".bottom-nav a");  
+const sections=[...document.querySelectorAll("main section[id]")];  
+  
+if("IntersectionObserver"in window){  
+ const observer=new IntersectionObserver(entries=>{  
+  entries.forEach(e=>{  
+   if(e.isIntersecting){  
+    bottomLinks.forEach(a=>{  
+     a.classList.toggle(  
+      "active",  
+      a.getAttribute("href")==="#"+e.target.id  
+     );  
+    });  
+   }  
+  });  
+ },{rootMargin:"-35% 0px -55% 0px"});  
+  
+ sections.forEach(s=>observer.observe(s));  
+}  
+  
+  
+  
+/* =====================================================  
+   HAYATUL ISLAM — ADD-ON MODULE SYSTEM  
+   মূল ডিজাইন পরিবর্তন না করে নতুন বিভাগ যুক্ত করার ব্যবস্থা  
+===================================================== */  
+  
+const islamicModules = [  
+  
+{  
+ id:"hadith",  
+ title:"আজকের হাদিস",  
+ subtitle:"নির্বাচিত হাদিস ও শিক্ষা",  
+ icon:"#i-book",  
+ content:`  
+ <div class="card info-card">  
+  <h3>আজকের হাদিস</h3>  
+  <p id="dailyHadithText" style="line-height:2"></p>  
+  <p class="muted small" id="dailyHadithSource"></p>  
+ </div>`  
+},  
+  
+{  
+ id:"dua-library",  
+ title:"দোয়ার সংগ্রহ",  
+ subtitle:"কুরআন ও হাদিসের নির্বাচিত দোয়া",  
+ icon:"#i-heart",  
+ content:`  
+ <div class="grid two-col">  
+  <div class="card">  
+   <h3 style="color:var(--green2)">দুনিয়া ও আখিরাতের কল্যাণ</h3>  
+   <p class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>  
+   <p>অর্থ: হে আমাদের রব! আমাদের দুনিয়া ও আখিরাতে কল্যাণ দান করুন এবং জাহান্নামের আজাব থেকে রক্ষা করুন।</p>  
+   <p class="muted small">সূরা আল-বাকারা: ২০১</p>  
+  </div>  
+  <div class="card">  
+   <h3 style="color:var(--green2)">জ্ঞান বৃদ্ধির দোয়া</h3>  
+   <p class="arabic-text">رَبِّ زِدْنِي عِلْمًا</p>  
+   <p>অর্থ: হে আমার রব! আমার জ্ঞান বৃদ্ধি করে দিন।</p>  
+   <p class="muted small">সূরা ত্বহা: ১১৪</p>  
+  </div>  
+  <div class="card">  
+   <h3 style="color:var(--green2)">ক্ষমা প্রার্থনা</h3>  
+   <p class="arabic-text">رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</p>  
+   <p>অর্থ: হে আমাদের রব! আমরা নিজেদের প্রতি জুলুম করেছি। আপনি ক্ষমা ও দয়া না করলে আমরা ক্ষতিগ্রস্ত হব।</p>  
+   <p class="muted small">সূরা আল-আ'রাফ: ২৩</p>  
+  </div>  
+  <div class="card">  
+   <h3 style="color:var(--green2)">অন্তরকে অবিচল রাখার দোয়া</h3>  
+   <p class="arabic-text">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا</p>  
+   <p>অর্থ: হে আমাদের রব! হিদায়াত দেওয়ার পর আমাদের অন্তরকে বক্র করবেন না।</p>  
+   <p class="muted small">সূরা আলে ইমরান: ৮</p>  
+  </div>  
+ </div>`  
+},  
+  
+{  
+ id:"daily-amol",  
+ title:"দৈনিক আমল ট্র্যাকার",  
+ subtitle:"প্রতিদিনের আমল নিজে চিহ্নিত করো",  
+ icon:"#i-repeat",  
+ content:`  
+ <div class="card">  
+  <p class="muted small" style="margin-bottom:12px">তোমার দৈনিক আমল সম্পন্ন হলে টিক চিহ্ন দাও।</p>  
+  <div id="dailyAmolList" class="content-list"></div>  
+  <p style="margin-top:15px;font-weight:700;color:var(--green2)">  
+   সম্পন্ন: <span id="amolProgress">০/৬</span>  
+  </p>  
+  <button class="tasbih-btn" id="resetAmol" style="margin-top:12px">আজকের তালিকা রিসেট</button>  
+ </div>`  
+},  
+  
+{  
+ id:"quiz",  
+ title:"ইসলামিক কুইজ",  
+ subtitle:"দ্বীনি জ্ঞান যাচাই করো",  
+ icon:"#i-book",  
+ content:`  
+ <div class="card">  
+  <h3 id="quizQuestion" style="color:var(--green2);margin-bottom:15px"></h3>  
+  <div id="quizOptions" class="content-list"></div>  
+  <p id="quizFeedback" style="margin-top:15px;font-weight:600"></p>  
+  <button class="tasbih-btn" id="nextQuiz" style="margin-top:15px">পরবর্তী প্রশ্ন</button>  
+  <p class="muted small" id="quizScore" style="margin-top:12px"></p>  
+ </div>`  
+},  
+  
+{  
+ id:"zakat",  
+ title:"যাকাত হিসাব",  
+ subtitle:"নিজের সম্পদের আনুমানিক যাকাত হিসাব",  
+ icon:"#i-heart",  
+ content:`  
+ <div class="card">  
+  <p class="muted small">নিসাবের পরিমাণ ও সম্পদের মূল্য নিজে যাচাই করে বসাও। এটি সাধারণ হিসাবের সহায়ক, ফতোয়া নয়।</p>  
+  <div class="grid two-col" style="margin-top:15px">  
+   <label>নগদ টাকা  
+    <input id="zCash" type="number" min="0" placeholder="টাকার পরিমাণ">  
+   </label>  
+   <label>স্বর্ণ ও রুপার মূল্য  
+    <input id="zGoldSilver" type="number" min="0" placeholder="টাকার পরিমাণ">  
+   </label>  
+   <label>ব্যবসায়িক পণ্যের মূল্য  
+    <input id="zTrade" type="number" min="0" placeholder="টাকার পরিমাণ">  
+   </label>  
+   <label>যোগ্য ঋণ ও তাৎক্ষণিক দায়  
+    <input id="zDebt" type="number" min="0" placeholder="টাকার পরিমাণ">  
+   </label>  
+   <label>নিসাবের পরিমাণ  
+    <input id="zNisab" type="number" min="0" placeholder="টাকার পরিমাণ">  
+   </label>  
+  </div>  
+  <button class="tasbih-btn" id="calculateZakat" style="margin-top:15px">যাকাত হিসাব করো</button>  
+  <div id="zakatResult" style="margin-top:15px" aria-live="polite"></div>  
+ </div>`  
+},  
+  
+{  
+ id:"qibla",  
+ title:"কিবলার দিক",  
+ subtitle:"তোমার অবস্থান থেকে কিবলার দিক নির্ণয়",  
+ icon:"#i-location",  
+ content:`  
+ <div class="card" style="text-align:center">  
+  <p class="muted">উত্তর দিক থেকে ঘড়ির কাঁটার দিকে কিবলার কোণ দেখানো হবে।</p>  
+  <div style="font-size:42px;color:var(--green2);font-weight:700;margin:15px" id="qiblaDegree">--°</div>  
+  <p id="qiblaDirection">অবস্থান পাওয়া গেলে দিক দেখানো হবে।</p>  
+  <button class="tasbih-btn" id="findQibla" style="margin-top:15px">কিবলার দিক নির্ণয়</button>  
+  <p class="muted small" style="margin-top:12px">এটি দিকের হিসাব; কম্পাসের মতো ঘূর্ণায়মান নির্দেশক নয়।</p>  
+ </div>`  
+},  
+  
+{  
+ id:"islamic-words",  
+ title:"ইসলামিক শব্দার্থ",  
+ subtitle:"আরবি শব্দ ও বাংলা অর্থ",  
+ icon:"#i-book",  
+ content:`  
+ <div class="grid three-col">  
+  <div class="card"><p class="arabic-text">الصَّلَاةُ</p><p>নামাজ</p></div>  
+  <div class="card"><p class="arabic-text">الصَّوْمُ</p><p>রোজা</p></div>  
+  <div class="card"><p class="arabic-text">الزَّكَاةُ</p><p>যাকাত</p></div>  
+  <div class="card"><p class="arabic-text">الْحَجُّ</p><p>হজ</p></div>  
+  <div class="card"><p class="arabic-text">الْإِيمَانُ</p><p>ঈমান</p></div>  
+  <div class="card"><p class="arabic-text">التَّوْبَةُ</p><p>তাওবা</p></div>  
+  <div class="card"><p class="arabic-text">الصَّبْرُ</p><p>ধৈর্য</p></div>  
+  <div class="card"><p class="arabic-text">الشُّكْرُ</p><p>কৃতজ্ঞতা</p></div>  
+  <div class="card"><p class="arabic-text">الرَّحْمَةُ</p><p>রহমত</p></div>  
+ </div>`  
+},  
+  
+{  
+ id:"islamic-history",  
+ title:"ইসলামের ইতিহাস",  
+ subtitle:"ইসলামের ইতিহাস ও গুরুত্বপূর্ণ ঘটনা",  
+ icon:"#i-book",  
+ content:`  
+ <div class="content-list">  
+  <li><strong>নবী মুহাম্মদ ﷺ:</strong> তাঁর জীবন, দাওয়াত ও উত্তম চরিত্র সম্পর্কে অধ্যয়ন।</li>  
+  <li><strong>মক্কি জীবন:</strong> ইসলামের প্রাথমিক দাওয়াত ও সাহাবিদের ত্যাগ।</li>  
+  <li><strong>হিজরত:</strong> মক্কা থেকে মদিনায় হিজরতের ঘটনা ও শিক্ষা।</li>  
+  <li><strong>মদিনার সমাজ:</strong> মসজিদে নববী, ভ্রাতৃত্ব ও ইসলামী সমাজ গঠন।</li>  
+  <li><strong>খুলাফায়ে রাশেদিন:</strong> ইসলামের প্রথম চার খলিফার জীবন ও অবদান।</li>  
+ </div>  
+ <p class="muted small" style="margin-top:12px">বিস্তারিত ইতিহাস প্রকাশের আগে নির্ভরযোগ্য সীরাত ও ইতিহাসগ্রন্থের তথ্য যাচাই করা হবে।</p>`  
+},  
+  
+{  
+ id:"asmaul-husna",  
+ title:"আল্লাহর সুন্দর নামসমূহ",  
+ subtitle:"আসমাউল হুসনা",  
+ icon:"#i-heart",  
+ content:`  
+ <div class="grid three-col">  
+  <div class="card"><p class="arabic-text">الرَّحْمَٰنُ</p><strong>আর-রহমান</strong><p class="muted small">পরম করুণাময়</p></div>  
+  <div class="card"><p class="arabic-text">الرَّحِيمُ</p><strong>আর-রহিম</strong><p class="muted small">অতি দয়ালু</p></div>  
+  <div class="card"><p class="arabic-text">الْمَلِكُ</p><strong>আল-মালিক</strong><p class="muted small">সর্বময় অধিপতি</p></div>  
+  <div class="card"><p class="arabic-text">الْقُدُّوسُ</p><strong>আল-কুদ্দুস</strong><p class="muted small">মহাপবিত্র</p></div>  
+  <div class="card"><p class="arabic-text">السَّلَامُ</p><strong>আস-সালাম</strong><p class="muted small">শান্তিদাতা</p></div>  
+  <div class="card"><p class="arabic-text">الْمُؤْمِنُ</p><strong>আল-মুমিন</strong><p class="muted small">নিরাপত্তাদাতা</p></div>  
+ </div>  
+ <p class="muted small" style="margin-top:12px">এখানে নির্বাচিত কয়েকটি নাম দেখানো হয়েছে। পূর্ণ তালিকা ও অর্থ যাচাই করে পর্যায়ক্রমে যোগ করা যাবে।</p>`  
+}  
+  
+];  
+  
+  
+/* বিভাগগুলো মূল পরিচিতি অংশের আগে যুক্ত হবে */  
+function renderIslamicModules(){  
+ const host=document.getElementById("extraIslamicModules");  
+ const about=document.getElementById("about");  
+  
+ if(!host||!about)return;  
+  
+ host.innerHTML=islamicModules.map(module=>`  
+  <section class="section" id="${module.id}">  
+   <div class="container">  
+    <div class="section-heading">  
+     <h2>${module.title}</h2>  
+     <p>${module.subtitle}</p>  
+    </div>  
+    ${module.content}  
+   </div>  
+  </section>  
+ `).join("");  
+  
+ /* ড্রয়ার মেনুতে নতুন লিংক */  
+ const nav=document.querySelector(".drawer-links");  
+ if(nav){  
+  islamicModules.forEach(module=>{  
+   if(nav.querySelector('a[href="#'+module.id+'"]'))return;  
+  
+   const a=document.createElement("a");  
+   a.href="#"+module.id;  
+   a.innerHTML=`  
+    <svg><use href="${module.icon}"/></svg>  
+    ${module.title}  
+   `;  
+   a.addEventListener("click",closeDrawer);  
+   nav.appendChild(a);  
+  });  
+ }  
+  
+ initializeIslamicModules();  
+}  
+  
+  
+/* দৈনিক হাদিস */  
+function initializeHadith(){  
+ const hadiths=[  
+  {  
+   text:"দ্বীন হলো কল্যাণকামিতা।",  
+   source:"সহিহ মুসলিম, হাদিস ৫৫"  
+  },  
+  {  
+   text:"সহজ করো, কঠিন করো না; সুসংবাদ দাও, বিরক্ত করো না।",  
+   source:"সহিহ বুখারি, হাদিস ৬৯; সহিহ মুসলিম, হাদিস ১৭৩৪"  
+  },  
+  {  
+   text:"যে দয়া করে না, তার প্রতি দয়া করা হয় না।",  
+   source:"সহিহ বুখারি, হাদিস ৬০১৩; সহিহ মুসলিম, হাদিস ২৩১৯"  
+  }  
+ ];  
+  
+ const index=new Date().getDate()%hadiths.length;  
+ const item=hadiths[index];  
+  
+ const text=document.getElementById("dailyHadithText");  
+ const source=document.getElementById("dailyHadithSource");  
+  
+ if(text)text.textContent=item.text;  
+ if(source)source.textContent=item.source;  
+}  
+  
+  
+/* দৈনিক আমল ট্র্যাকার */  
+function initializeAmol(){  
+ const list=document.getElementById("dailyAmolList");  
+ if(!list)return;  
+  
+ const items=[  
+  "পাঁচ ওয়াক্ত নামাজ আদায়",  
+  "কুরআন তিলাওয়াত",  
+  "সকাল ও সন্ধ্যার জিকির",  
+  "দরুদ শরিফ পাঠ",  
+  "মাতা-পিতার খোঁজখবর",  
+  "গিবত ও মিথ্যা থেকে বিরত থাকা"  
+ ];  
+  
+ const today=new Intl.DateTimeFormat("en-CA",{  
+  timeZone:"Asia/Dhaka"  
+ }).format(new Date());  
+  
+ const storageKey="hayatulAmol_"+today;  
+  
+ let checked=[];  
+ try{  
+  checked=JSON.parse(localStorage.getItem(storageKey)||"[]");  
+  if(!Array.isArray(checked))checked=[];  
+ }catch(e){checked=[];}  
+  
+ function draw(){  
+  list.innerHTML=items.map((item,i)=>`  
+   <label style="display:flex;align-items:center;gap:10px;cursor:pointer">  
+    <input type="checkbox" data-amol="${i}" ${checked.includes(i)?"checked":""}>  
+    <span>${item}</span>  
+   </label>  
+  `).join("");  
+  
+  document.getElementById("amolProgress").textContent=  
+   banglaDigits(checked.length+"/"+items.length);  
+  
+  list.querySelectorAll("[data-amol]").forEach(input=>{  
+   input.addEventListener("change",()=>{  
+    const i=Number(input.dataset.amol);  
+  
+    checked=input.checked  
+     ?[...new Set([...checked,i])]  
+     :checked.filter(x=>x!==i);  
+  
+    localStorage.setItem(storageKey,JSON.stringify(checked));  
+    draw();  
+   });  
+  });  
+ }  
+  
+ draw();  
+  
+ document.getElementById("resetAmol").addEventListener("click",()=>{  
+  checked=[];  
+  localStorage.removeItem(storageKey);  
+  draw();  
+ });  
+}  
+  
+  
+/* ইসলামিক কুইজ */  
+function initializeQuiz(){  
+ const questions=[  
+  {q:"পবিত্র কুরআনে মোট কতটি সূরা রয়েছে?",o:["১০০টি","১১৪টি","১২০টি"],a:1},  
+  {q:"মুসলমানদের কিবলা কোনটি?",o:["মসজিদে নববী","বায়তুল মুকাদ্দাস","কাবা শরিফ"],a:2},  
+  {q:"রমজান মাসে কোন ইবাদত ফরজ?",o:["রোজা","হজ","কুরবানি"],a:0},  
+  {q:"কুরআনের প্রথম সূরার নাম কী?",o:["আল-বাকারা","আল-ফাতিহা","আল-ইখলাস"],a:1}  
+ ];  
+  
+ let current=0;  
+ let score=0;  
+ let answered=false;  
+  
+ const question=document.getElementById("quizQuestion");  
+ const options=document.getElementById("quizOptions");  
+ const feedback=document.getElementById("quizFeedback");  
+ const scoreText=document.getElementById("quizScore");  
+ const next=document.getElementById("nextQuiz");  
+  
+ function draw(){  
+  answered=false;  
+  const item=questions[current];  
+  
+  question.textContent=item.q;  
+  feedback.textContent="";  
+  options.innerHTML=item.o.map((v,i)=>`  
+   <button type="button" data-answer="${i}"  
+    style="padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);text-align:left">  
+    ${v}  
+   </button>  
+  `).join("");  
+  
+  options.querySelectorAll("[data-answer]").forEach(btn=>{  
+   btn.addEventListener("click",()=>{  
+    if(answered)return;  
+    answered=true;  
+  
+    if(Number(btn.dataset.answer)===item.a){  
+     score++;  
+     feedback.textContent="সঠিক উত্তর। মাশাআল্লাহ!";  
+    }else{  
+     feedback.textContent="সঠিক উত্তর: "+item.o[item.a];  
+    }  
+  
+    scoreText.textContent="সঠিক উত্তর: "+banglaDigits(score);  
+   });  
+  });  
+ }  
+  
+ next.addEventListener("click",()=>{  
+  current=(current+1)%questions.length;  
+  if(current===0)score=0;  
+  draw();  
+ });  
+  
+ draw();  
+}  
+  
+  
+/* যাকাতের সাধারণ হিসাব */  
+function initializeZakat(){  
+ const button=document.getElementById("calculateZakat");  
+ if(!button)return;  
+  
+ button.addEventListener("click",()=>{  
+  const number=id=>{  
+   const v=Number(document.getElementById(id).value);  
+   return Number.isFinite(v)&&v>0?v:0;  
+  };  
+  
+  const assets=  
+   number("zCash")+  
+   number("zGoldSilver")+  
+   number("zTrade")-  
+   number("zDebt");  
+  
+  const nisab=number("zNisab");  
+  const result=document.getElementById("zakatResult");  
+  
+  if(!nisab){  
+   result.textContent="প্রথমে নিসাবের পরিমাণ বসাও।";  
+   return;  
+  }  
+  
+  if(assets<=0){  
+   result.textContent="হিসাবযোগ্য সম্পদের পরিমাণ শূন্য বা ঋণাত্মক।";  
+   return;  
+  }  
+  
+  if(assets<nisab){  
+   result.textContent="প্রদত্ত নিসাব অনুযায়ী সম্পদ নিসাব পরিমাণে পৌঁছায়নি।";  
+   return;  
+  }  
+  
+  const zakat=assets*.025;  
+  
+  result.innerHTML=`  
+   <div class="card info-card">  
+    <h3>আনুমানিক যাকাত</h3>  
+    <p style="font-size:25px;font-weight:700;color:var(--green2)">  
+     ৳${zakat.toLocaleString("en-BD",{maximumFractionDigits:2})}  
+    </p>  
+    <p class="muted small">যোগ্য সম্পদের ২.৫% হিসেবে হিসাব করা হয়েছে।</p>  
+   </div>  
+  `;  
+ });  
+}  
+  
+  
+/* কিবলার দিকের হিসাব */  
+function initializeQibla(){  
+ const button=document.getElementById("findQibla");  
+ if(!button)return;  
+  
+ button.addEventListener("click",()=>{  
+  const output=document.getElementById("qiblaDegree");  
+  const direction=document.getElementById("qiblaDirection");  
+  
+  const calculate=(lat,lon)=>{  
+   const kaabaLat=21.4225*Math.PI/180;  
+   const kaabaLon=39.8262*Math.PI/180;  
+   const userLat=lat*Math.PI/180;  
+   const deltaLon=kaabaLon-lon*Math.PI/180;  
+  
+   const y=Math.sin(deltaLon);  
+   const x=Math.cos(userLat)*Math.tan(kaabaLat)-  
+           Math.sin(userLat)*Math.cos(deltaLon);  
+  
+   const bearing=(Math.atan2(y,x)*180/Math.PI+360)%360;  
+  
+   output.textContent=banglaDigits(bearing.toFixed(1))+"°";  
+   direction.textContent="উত্তর দিক থেকে ঘড়ির কাঁটার দিকে "+banglaDigits(bearing.toFixed(1))+"°";  
+  };  
+  
+  if(currentCoords){  
+   calculate(currentCoords.lat,currentCoords.lon);  
+   return;  
+  }  
+  
+  if(!navigator.geolocation){  
+   direction.textContent="এই ডিভাইসে অবস্থান শনাক্ত করা যাচ্ছে না।";  
+   return;  
+  }  
+  
+  navigator.geolocation.getCurrentPosition(  
+   pos=>calculate(pos.coords.latitude,pos.coords.longitude),  
+   ()=>{direction.textContent="লোকেশন অনুমতি পাওয়া যায়নি।"}  
+  );  
+ });  
+}  
+  
+  
+/* সব মডিউল চালু */  
+function initializeIslamicModules(){  
+ initializeHadith();  
+ initializeAmol();  
+ initializeQuiz();  
+ initializeZakat();  
+ initializeQibla();  
+}  
+  
+renderIslamicModules();  
+  
+  
+  
+   
+</script>  </body>  
 </html>
