@@ -680,6 +680,351 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 }
 
 
+
+/* =================================
+   HAYATUL ISLAM FULL EXAM DESIGN
+================================= */
+
+#hi-full-exam {
+  padding: 45px 15px;
+  font-family: inherit;
+}
+
+#hi-full-exam * {
+  box-sizing: border-box;
+}
+
+#hi-full-exam [hidden] {
+  display: none !important;
+}
+
+#hi-full-exam .exam-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+#hi-full-exam .exam-tag {
+  color: #d9b45b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#hi-full-exam .exam-heading h2 {
+  color: var(--primary, #087f5b);
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+#hi-full-exam .exam-heading p {
+  color: var(--text-secondary, #777);
+  font-size: 14px;
+}
+
+#hi-full-exam .exam-card,
+#hi-full-exam .exam-history-card {
+  max-width: 650px;
+  margin: 0 auto 20px;
+  padding: 22px;
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(8,127,91,.17);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+}
+
+#hi-full-exam #examStartScreen {
+  text-align: center;
+}
+
+#hi-full-exam .exam-icon,
+#hi-full-exam .exam-result-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 15px;
+  display: grid;
+  place-items: center;
+  background: rgba(8,127,91,.10);
+  color: #087f5b;
+  border-radius: 50%;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+#hi-full-exam h3 {
+  color: var(--text-color, #222);
+  line-height: 1.6;
+}
+
+#hi-full-exam #examStartScreen p {
+  color: var(--text-secondary, #777);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+#hi-full-exam label {
+  display: block;
+  text-align: left;
+  margin: 22px 0 8px;
+  color: var(--text-color, #333);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#hi-full-exam #examCategory {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid rgba(8,127,91,.25);
+  border-radius: 9px;
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #222);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+#hi-full-exam .exam-main-btn,
+#hi-full-exam .exam-secondary-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#hi-full-exam .exam-main-btn {
+  background: #087f5b;
+  color: #fff;
+}
+
+#hi-full-exam .exam-main-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+#hi-full-exam .exam-secondary-btn {
+  background: rgba(8,127,91,.10);
+  color: #087f5b;
+}
+
+#hi-full-exam .exam-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+#hi-full-exam .exam-info span {
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: rgba(8,127,91,.08);
+  color: #087f5b;
+  font-size: 12px;
+}
+
+#hi-full-exam .exam-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #087f5b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#hi-full-exam .exam-progress {
+  height: 7px;
+  background: rgba(8,127,91,.12);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0 25px;
+}
+
+#hi-full-exam #examProgressBar {
+  height: 100%;
+  width: 0;
+  background: #087f5b;
+  transition: width .3s;
+}
+
+#hi-full-exam #examQuestionText {
+  font-size: 19px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+#hi-full-exam .exam-options {
+  display: grid;
+  gap: 11px;
+}
+
+#hi-full-exam .exam-option {
+  padding: 13px 14px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(8,127,91,.20);
+  background: var(--bg-secondary, #f5f8f6);
+  color: var(--text-color, #222);
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+#hi-full-exam .exam-option.correct {
+  background: #e5f6ec;
+  color: #126b3c;
+  border-color: #16864d;
+}
+
+#hi-full-exam .exam-option.wrong {
+  background: #fff0f0;
+  color: #b52b27;
+  border-color: #d9534f;
+}
+
+#hi-full-exam .exam-option:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+#hi-full-exam .exam-explanation {
+  margin-top: 18px;
+  padding: 14px;
+  background: rgba(8,127,91,.07);
+  border-left: 3px solid #087f5b;
+  border-radius: 7px;
+  color: var(--text-color, #333);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#hi-full-exam .exam-explanation strong {
+  color: #087f5b;
+}
+
+#hi-full-exam #examResultScreen {
+  text-align: center;
+}
+
+#hi-full-exam .exam-result-icon {
+  background: #e5f6ec;
+  color: #16864d;
+}
+
+#hi-full-exam .exam-result-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+#hi-full-exam .exam-result-score strong {
+  font-size: 35px;
+  color: #087f5b;
+}
+
+#hi-full-exam .exam-result-score span {
+  color: var(--text-secondary, #777);
+}
+
+#hi-full-exam .exam-result-details {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+#hi-full-exam .exam-result-details div {
+  padding: 14px 5px;
+  background: rgba(8,127,91,.07);
+  border-radius: 9px;
+}
+
+#hi-full-exam .exam-result-details strong,
+#hi-full-exam .exam-result-details span {
+  display: block;
+}
+
+#hi-full-exam .exam-result-details strong {
+  font-size: 22px;
+  color: #087f5b;
+}
+
+#hi-full-exam .exam-result-details span {
+  font-size: 12px;
+  color: var(--text-secondary, #777);
+}
+
+#hi-full-exam #examResultScreen h4 {
+  text-align: left;
+  color: var(--text-color, #222);
+  margin-top: 28px;
+}
+
+#hi-full-exam .exam-review-item {
+  text-align: left;
+  padding: 13px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(8,127,91,.15);
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-color, #333);
+}
+
+#hi-full-exam .exam-review-item strong {
+  color: #087f5b;
+}
+
+#hi-full-exam .exam-history-card h3 {
+  margin-top: 0;
+  color: var(--primary, #087f5b);
+}
+
+#hi-full-exam .exam-history-card p {
+  font-size: 13px;
+  color: var(--text-secondary, #777);
+}
+
+#hi-full-exam .exam-history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(8,127,91,.13);
+  font-size: 13px;
+  color: var(--text-color, #333);
+}
+
+#hi-full-exam .exam-history-item strong {
+  color: #087f5b;
+}
+
+#hi-full-exam .exam-empty {
+  font-size: 13px;
+  color: var(--text-secondary, #888);
+  padding: 10px 0;
+}
+
+@media(max-width:480px) {
+  #hi-full-exam {
+    padding: 30px 12px;
+  }
+
+  #hi-full-exam .exam-card,
+  #hi-full-exam .exam-history-card {
+    padding: 17px;
+  }
+
+  #hi-full-exam #examQuestionText {
+    font-size: 17px;
+  }
+}
+
   
   
 </style>  
@@ -954,6 +1299,119 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
       প্রতিদিন নতুন প্রশ্নের মাধ্যমে নিজের ইসলামিক জ্ঞান যাচাই করো।
     </p>
   </div>
+</section>
+
+
+  <!-- FULL ISLAMIC EXAM -->
+<section id="hi-full-exam">
+
+  <div class="exam-heading">
+    <span class="exam-tag">নিজেকে যাচাই করো</span>
+    <h2>ইসলামিক জ্ঞান পরীক্ষা</h2>
+    <p>১০টি প্রশ্নের মাধ্যমে যাচাই করো তোমার দ্বীনি জ্ঞান।</p>
+  </div>
+
+  <div class="exam-card">
+
+    <div id="examStartScreen">
+      <div class="exam-icon">✦</div>
+      <h3>তুমি কি পরীক্ষার জন্য প্রস্তুত?</h3>
+      <p>প্রতিটি পরীক্ষায় থাকবে ১০টি প্রশ্ন। প্রতিটি প্রশ্নের জন্য একটি সঠিক উত্তর নির্বাচন করতে হবে।</p>
+
+      <label for="examCategory">পরীক্ষার বিষয় নির্বাচন করো</label>
+      <select id="examCategory">
+        <option value="all">সকল বিষয় থেকে</option>
+        <option value="quran">কুরআন ও সূরা</option>
+        <option value="prophets">নবী-রাসূল</option>
+      </select>
+
+      <button type="button" id="examStartBtn" class="exam-main-btn">
+        পরীক্ষা শুরু করো
+      </button>
+
+      <div class="exam-info">
+        <span>১০টি প্রশ্ন</span>
+        <span>৪টি অপশন</span>
+        <span>তাৎক্ষণিক ফলাফল</span>
+      </div>
+    </div>
+
+    <div id="examQuestionScreen" hidden>
+
+      <div class="exam-status">
+        <span id="examQuestionCount">প্রশ্ন ১/১০</span>
+        <span id="examLiveScore">স্কোর: ০</span>
+      </div>
+
+      <div class="exam-progress">
+        <div id="examProgressBar"></div>
+      </div>
+
+      <h3 id="examQuestionText"></h3>
+
+      <div id="examAnswerOptions" class="exam-options"></div>
+
+      <div id="examExplanation" class="exam-explanation" hidden></div>
+
+      <button type="button" id="examNextBtn"
+              class="exam-main-btn" hidden>
+        পরবর্তী প্রশ্ন
+      </button>
+
+    </div>
+
+    <div id="examResultScreen" hidden>
+
+      <div class="exam-result-icon">✓</div>
+
+      <h3>পরীক্ষা সম্পন্ন!</h3>
+      <p>তোমার পরীক্ষার ফলাফল</p>
+
+      <div class="exam-result-score">
+        <strong id="examFinalScore">০/১০</strong>
+        <span id="examPercentage">০%</span>
+      </div>
+
+      <div class="exam-result-details">
+        <div>
+          <strong id="examCorrect">০</strong>
+          <span>সঠিক</span>
+        </div>
+
+        <div>
+          <strong id="examWrong">০</strong>
+          <span>ভুল</span>
+        </div>
+
+        <div>
+          <strong id="examTotal">১০</strong>
+          <span>মোট প্রশ্ন</span>
+        </div>
+      </div>
+
+      <h4>উত্তরের বিস্তারিত</h4>
+      <div id="examReviewList"></div>
+
+      <button type="button" id="examRestartBtn"
+              class="exam-main-btn">
+        আবার পরীক্ষা দাও
+      </button>
+
+      <button type="button" id="examHomeBtn"
+              class="exam-secondary-btn">
+        মূল মেনুতে ফিরে যাও
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="exam-history-card">
+    <h3>তোমার পরীক্ষার ইতিহাস</h3>
+    <p>এই ব্রাউজারে সংরক্ষিত সর্বশেষ ১০টি পরীক্ষার ফলাফল।</p>
+    <div id="examHistoryList"></div>
+  </div>
+
 </section>
   
   
@@ -2171,7 +2629,505 @@ if("IntersectionObserver"in window){
 })();
 
     
+/* ==========================================
+   HAYATUL ISLAM - FULL ISLAMIC EXAM SYSTEM
+========================================== */
 
+(function () {
+  "use strict";
+
+  const root = document.getElementById("hi-full-exam");
+  if (!root || root.dataset.initialized === "true") return;
+  root.dataset.initialized = "true";
+
+  const questions = [
+
+    // QURAN AND SURAHS
+
+    {
+      category: "quran",
+      q: "পবিত্র কুরআনের প্রথম সূরা কোনটি?",
+      a: ["সূরা আল-বাকারা", "সূরা আল-ফাতিহা", "সূরা আল-ইখলাস", "সূরা আন-নাস"],
+      c: 1,
+      e: "মুসহাফের শুরুতে সূরা আল-ফাতিহা রয়েছে।",
+      s: "সূরা আল-ফাতিহা"
+    },
+    {
+      category: "quran",
+      q: "আয়াতুল কুরসি কোন সূরার কত নম্বর আয়াত?",
+      a: ["সূরা আল-বাকারা ২৫৫", "সূরা আলে ইমরান ১০", "সূরা আন-নিসা ৩৪", "সূরা আল-মায়িদা ৫"],
+      c: 0,
+      e: "আয়াতুল কুরসি হলো সূরা আল-বাকারার ২৫৫ নম্বর আয়াত।",
+      s: "সূরা আল-বাকারা, ২:২৫৫"
+    },
+    {
+      category: "quran",
+      q: "পবিত্র কুরআনে মোট কতটি সূরা রয়েছে?",
+      a: ["১১০টি", "১১২টি", "১১৪টি", "১১৬টি"],
+      c: 2,
+      e: "পবিত্র কুরআনে ১১৪টি সূরা রয়েছে।",
+      s: "কুরআনের সূরাগুলোর প্রচলিত মুসহাফ বিন্যাস"
+    },
+    {
+      category: "quran",
+      q: "কোন সূরাকে উম্মুল কিতাব বলা হয়?",
+      a: ["সূরা ইয়াসিন", "সূরা আল-ফাতিহা", "সূরা আর-রহমান", "সূরা আল-মুলক"],
+      c: 1,
+      e: "সূরা আল-ফাতিহার একটি পরিচিত নাম উম্মুল কিতাব।",
+      s: "সহিহ বুখারি, হাদিস ৪৪৭৪"
+    },
+    {
+      category: "quran",
+      q: "কোন সূরায় বিসমিল্লাহ দুইবার এসেছে?",
+      a: ["সূরা আন-নামল", "সূরা আল-কাহফ", "সূরা মারইয়াম", "সূরা আল-ফিল"],
+      c: 0,
+      e: "সূরা আন-নামলের শুরুতে এবং ৩০ নম্বর আয়াতে বিসমিল্লাহ রয়েছে।",
+      s: "সূরা আন-নামল, ২৭:৩০"
+    },
+    {
+      category: "quran",
+      q: "কুরআনে সাতটি বারবার পঠিত আয়াত বলতে কোনটি বোঝানো হয়েছে?",
+      a: ["সূরা আল-ইখলাস", "সূরা আল-ফাতিহা", "আয়াতুল কুরসি", "সূরা আল-কদর"],
+      c: 1,
+      e: "আল্লাহ সাতটি বারবার পঠিত আয়াত ও মহান কুরআন দানের কথা বলেছেন।",
+      s: "সূরা আল-হিজর, ১৫:৮৭"
+    },
+    {
+      category: "quran",
+      q: "কুরআনের সবচেয়ে দীর্ঘ সূরা কোনটি?",
+      a: ["সূরা আলে ইমরান", "সূরা আন-নিসা", "সূরা আল-বাকারা", "সূরা আল-মায়িদা"],
+      c: 2,
+      e: "সূরা আল-বাকারা কুরআনের সবচেয়ে দীর্ঘ সূরা।",
+      s: "সূরা আল-বাকারা"
+    },
+    {
+      category: "quran",
+      q: "লাইলাতুল কদর কত মাসের চেয়ে উত্তম?",
+      a: ["১০০ মাস", "৫০০ মাস", "১০০০ মাস", "২০০০ মাস"],
+      c: 2,
+      e: "লাইলাতুল কদর এক হাজার মাসের চেয়ে উত্তম।",
+      s: "সূরা আল-কদর, ৯৭:৩"
+    },
+    {
+      category: "quran",
+      q: "আসহাবে কাহফের ঘটনা কোন সূরায় বর্ণিত হয়েছে?",
+      a: ["সূরা ইউসুফ", "সূরা আল-কাহফ", "সূরা নূহ", "সূরা আল-মুলক"],
+      c: 1,
+      e: "সূরা আল-কাহফের ৯ থেকে ২৬ নম্বর আয়াতে এ ঘটনা বর্ণিত হয়েছে।",
+      s: "সূরা আল-কাহফ, ১৮:৯-২৬"
+    },
+    {
+      category: "quran",
+      q: "কোন সূরার নামের অর্থ হলো 'আলো'?",
+      a: ["সূরা আন-নূর", "সূরা আল-ফজর", "সূরা আল-লাইল", "সূরা আশ-শামস"],
+      c: 0,
+      e: "আন-নূর শব্দের অর্থ আলো।",
+      s: "সূরা আন-নূর"
+    },
+
+    // PROPHETS
+
+    {
+      category: "prophets",
+      q: "হযরত আদম (আ.)-কে আল্লাহ কী থেকে সৃষ্টি করেছেন বলে কুরআনে উল্লেখ করেছেন?",
+      a: ["আগুন", "পানি", "মাটি", "বাতাস"],
+      c: 2,
+      e: "কুরআনে আদম (আ.)-এর সৃষ্টির সঙ্গে মাটির উপাদানের কথা উল্লেখ রয়েছে।",
+      s: "সূরা আলে ইমরান, ৩:৫৯"
+    },
+    {
+      category: "prophets",
+      q: "হযরত নূহ (আ.)-কে কী নির্মাণের নির্দেশ দেওয়া হয়েছিল?",
+      a: ["প্রাসাদ", "নৌযান", "মসজিদ", "দুর্গ"],
+      c: 1,
+      e: "আল্লাহর নির্দেশে নূহ (আ.) নৌযান নির্মাণ করেছিলেন।",
+      s: "সূরা হুদ, ১১:৩৭"
+    },
+    {
+      category: "prophets",
+      q: "হযরত ইবরাহিম (আ.) ও ইসমাইল (আ.) কোন ঘরের ভিত্তি উঁচু করেছিলেন?",
+      a: ["মসজিদে নববি", "মসজিদে কুবা", "কাবাঘর", "বায়তুল মুকাদ্দাস"],
+      c: 2,
+      e: "তাঁরা কাবাঘরের ভিত্তি উঁচু করেছিলেন।",
+      s: "সূরা আল-বাকারা, ২:১২৭"
+    },
+    {
+      category: "prophets",
+      q: "হযরত দাউদ (আ.)-এর প্রতি কোন কিতাব দেওয়া হয়েছিল?",
+      a: ["তাওরাত", "ইনজিল", "যাবুর", "কুরআন"],
+      c: 2,
+      e: "আল্লাহ দাউদ (আ.)-কে যাবুর প্রদান করেছিলেন।",
+      s: "সূরা আন-নিসা, ৪:১৬৩"
+    },
+    {
+      category: "prophets",
+      q: "হযরত মূসা (আ.)-এর প্রতি কোন কিতাব নাজিল হয়েছিল?",
+      a: ["যাবুর", "তাওরাত", "ইনজিল", "কুরআন"],
+      c: 1,
+      e: "তাওরাত হযরত মূসা (আ.)-এর প্রতি নাজিল হয়েছিল।",
+      s: "সূরা আল-মায়িদা, ৫:৪৪"
+    },
+    {
+      category: "prophets",
+      q: "হযরত ঈসা (আ.)-এর প্রতি কোন কিতাব দেওয়া হয়েছিল?",
+      a: ["তাওরাত", "যাবুর", "ইনজিল", "কুরআন"],
+      c: 2,
+      e: "আল্লাহ ঈসা (আ.)-কে ইনজিল প্রদান করেছিলেন।",
+      s: "সূরা আল-মায়িদা, ৫:৪৬"
+    },
+    {
+      category: "prophets",
+      q: "কোন নবীকে মাছ গিলে ফেলেছিল?",
+      a: ["হযরত ইউনুস (আ.)", "হযরত ইউসুফ (আ.)", "হযরত ইদরিস (আ.)", "হযরত হুদ (আ.)"],
+      c: 0,
+      e: "ইউনুস (আ.)-কে মাছ গিলে ফেলেছিল; পরে আল্লাহ তাঁকে উদ্ধার করেন।",
+      s: "সূরা আস-সাফফাত, ৩৭:১৪২-১৪৮"
+    },
+    {
+      category: "prophets",
+      q: "হযরত ইউসুফ (আ.) স্বপ্নে কয়টি নক্ষত্র দেখেছিলেন?",
+      a: ["১০টি", "১১টি", "১২টি", "৭টি"],
+      c: 1,
+      e: "তিনি এগারোটি নক্ষত্র, সূর্য ও চন্দ্রকে সিজদা করতে দেখেছিলেন।",
+      s: "সূরা ইউসুফ, ১২:৪"
+    },
+    {
+      category: "prophets",
+      q: "কোন নবীকে আল্লাহ পাখির ভাষা বুঝতে শিখিয়েছিলেন?",
+      a: ["হযরত মূসা (আ.)", "হযরত সুলাইমান (আ.)", "হযরত দাউদ (আ.)", "হযরত ইবরাহিম (আ.)"],
+      c: 1,
+      e: "সুলাইমান (আ.)-কে পাখির ভাষা শেখানো হয়েছিল।",
+      s: "সূরা আন-নামল, ২৭:১৬"
+    },
+    {
+      category: "prophets",
+      q: "কোন জাতির কাছে আল্লাহর নিদর্শন হিসেবে উটনী পাঠানো হয়েছিল?",
+      a: ["আদ জাতি", "সামুদ জাতি", "মাদইয়ানবাসী", "লূত (আ.)-এর জাতি"],
+      c: 1,
+      e: "সামুদ জাতির কাছে সালিহ (আ.)-এর মাধ্যমে উটনীকে নিদর্শন হিসেবে দেওয়া হয়েছিল।",
+      s: "সূরা আল-আ'রাফ, ৭:৭৩"
+    }
+
+  ];
+
+  const $ = id => root.querySelector("#" + id);
+
+  const startScreen = $("examStartScreen");
+  const questionScreen = $("examQuestionScreen");
+  const resultScreen = $("examResultScreen");
+
+  const categorySelect = $("examCategory");
+  const startBtn = $("examStartBtn");
+  const nextBtn = $("examNextBtn");
+  const restartBtn = $("examRestartBtn");
+  const homeBtn = $("examHomeBtn");
+
+  const questionText = $("examQuestionText");
+  const optionsBox = $("examAnswerOptions");
+  const explanationBox = $("examExplanation");
+
+  let examQuestions = [];
+  let currentIndex = 0;
+  let score = 0;
+  let selectedAnswers = [];
+  let answered = false;
+  let finished = false;
+
+  const bn = value =>
+    String(value).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+
+  function shuffle(array) {
+    const result = array.slice();
+
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+  }
+
+  function getHistory() {
+    try {
+      const data = JSON.parse(
+        localStorage.getItem("hiExamHistory") || "[]"
+      );
+
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveHistory() {
+    const history = getHistory();
+
+    history.unshift({
+      date: new Intl.DateTimeFormat("bn-BD", {
+        timeZone: "Asia/Dhaka",
+        dateStyle: "medium"
+      }).format(new Date()),
+      score: score,
+      total: examQuestions.length,
+      category: categorySelect.value
+    });
+
+    try {
+      localStorage.setItem(
+        "hiExamHistory",
+        JSON.stringify(history.slice(0, 10))
+      );
+    } catch (error) {}
+
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const box = $("examHistoryList");
+    const history = getHistory();
+
+    box.innerHTML = "";
+
+    if (!history.length) {
+      const empty = document.createElement("div");
+      empty.className = "exam-empty";
+      empty.textContent = "এখনো কোনো পরীক্ষার ফলাফল সংরক্ষিত হয়নি।";
+      box.appendChild(empty);
+      return;
+    }
+
+    const names = {
+      all: "সকল বিষয়",
+      quran: "কুরআন ও সূরা",
+      prophets: "নবী-রাসূল"
+    };
+
+    history.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "exam-history-item";
+
+      const left = document.createElement("span");
+      left.textContent = item.date + " · " +
+        (names[item.category] || "সকল বিষয়");
+
+      const right = document.createElement("strong");
+      right.textContent =
+        bn(item.score) + "/" + bn(item.total);
+
+      row.append(left, right);
+      box.appendChild(row);
+    });
+  }
+
+  function showScreen(screen) {
+    startScreen.hidden = screen !== "start";
+    questionScreen.hidden = screen !== "question";
+    resultScreen.hidden = screen !== "result";
+  }
+
+  function startExam() {
+    const category = categorySelect.value;
+
+    const pool = questions.filter(q =>
+      category === "all" || q.category === category
+    );
+
+    if (pool.length < 10) {
+      alert("এই বিষয়ে পর্যাপ্ত প্রশ্ন নেই। অন্য বিষয় নির্বাচন করো।");
+      return;
+    }
+
+    examQuestions = shuffle(pool).slice(0, 10);
+
+    currentIndex = 0;
+    score = 0;
+    selectedAnswers = [];
+    answered = false;
+    finished = false;
+
+    showScreen("question");
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = examQuestions[currentIndex];
+
+    answered = false;
+
+    $("examQuestionCount").textContent =
+      "প্রশ্ন " + bn(currentIndex + 1) + "/১০";
+
+    $("examLiveScore").textContent =
+      "স্কোর: " + bn(score);
+
+    $("examProgressBar").style.width =
+      (currentIndex / examQuestions.length * 100) + "%";
+
+    questionText.textContent = q.q;
+    optionsBox.innerHTML = "";
+
+    explanationBox.hidden = true;
+    explanationBox.textContent = "";
+
+    nextBtn.hidden = true;
+
+    q.a.forEach((answer, index) => {
+      const button = document.createElement("button");
+
+      button.type = "button";
+      button.className = "exam-option";
+      button.textContent =
+        bn(index + 1) + ". " + answer;
+
+      button.addEventListener("click", () => {
+        chooseAnswer(index);
+      });
+
+      optionsBox.appendChild(button);
+    });
+  }
+
+  function chooseAnswer(selected) {
+    if (answered || finished) return;
+
+    answered = true;
+
+    const q = examQuestions[currentIndex];
+    const correct = selected === q.c;
+
+    selectedAnswers[currentIndex] = selected;
+
+    if (correct) score++;
+
+    const buttons = optionsBox.querySelectorAll(".exam-option");
+
+    buttons.forEach((button, index) => {
+      button.disabled = true;
+
+      if (index === q.c) {
+        button.classList.add("correct");
+      }
+
+      if (index === selected && !correct) {
+        button.classList.add("wrong");
+      }
+    });
+
+    $("examLiveScore").textContent =
+      "স্কোর: " + bn(score);
+
+    explanationBox.hidden = false;
+
+    const title = document.createElement("strong");
+    title.textContent = correct
+      ? "সঠিক উত্তর!"
+      : "ভুল উত্তর!";
+
+    const details = document.createElement("div");
+    details.textContent =
+      "সঠিক উত্তর: " + q.a[q.c] +
+      "। " + q.e;
+
+    const source = document.createElement("div");
+    source.textContent = "সূত্র: " + q.s;
+
+    explanationBox.append(title, details, source);
+
+    nextBtn.hidden = false;
+    nextBtn.textContent =
+      currentIndex === examQuestions.length - 1
+        ? "ফলাফল দেখো"
+        : "পরবর্তী প্রশ্ন";
+  }
+
+  function nextQuestion() {
+    if (!answered || finished) return;
+
+    currentIndex++;
+
+    if (currentIndex < examQuestions.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    finished = true;
+
+    const total = examQuestions.length;
+    const wrong = total - score;
+    const percentage = Math.round(score / total * 100);
+
+    $("examProgressBar").style.width = "100%";
+
+    $("examFinalScore").textContent =
+      bn(score) + "/" + bn(total);
+
+    $("examPercentage").textContent =
+      bn(percentage) + "%";
+
+    $("examCorrect").textContent = bn(score);
+    $("examWrong").textContent = bn(wrong);
+    $("examTotal").textContent = bn(total);
+
+    const review = $("examReviewList");
+    review.innerHTML = "";
+
+    examQuestions.forEach((q, index) => {
+      const item = document.createElement("div");
+      item.className = "exam-review-item";
+
+      const heading = document.createElement("strong");
+      heading.textContent =
+        bn(index + 1) + ". " + q.q;
+
+      const yourAnswer = document.createElement("div");
+      const userChoice = selectedAnswers[index];
+
+      yourAnswer.textContent =
+        "তোমার উত্তর: " +
+        (userChoice === undefined
+          ? "উত্তর দেওয়া হয়নি"
+          : q.a[userChoice]);
+
+      const correctAnswer = document.createElement("div");
+      correctAnswer.textContent =
+        "সঠিক উত্তর: " + q.a[q.c];
+
+      const explanation = document.createElement("div");
+      explanation.textContent =
+        "ব্যাখ্যা: " + q.e + " সূত্র: " + q.s;
+
+      item.append(
+        heading,
+        yourAnswer,
+        correctAnswer,
+        explanation
+      );
+
+      review.appendChild(item);
+    });
+
+    showScreen("result");
+    saveHistory();
+  }
+
+  startBtn.addEventListener("click", startExam);
+  nextBtn.addEventListener("click", nextQuestion);
+
+  restartBtn.addEventListener("click", () => {
+    showScreen("start");
+    startExam();
+  });
+
+  homeBtn.addEventListener("click", () => {
+    showScreen("start");
+  });
+
+  renderHistory();
+
+})();
   
 </script>  </body>  
 </html>
