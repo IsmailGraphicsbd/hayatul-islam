@@ -259,7 +259,6 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 <div class="hero-content"><div class="hero-layout">
 <div class="hero-copy">
 <span class="hero-kicker">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
-
 <h1>হায়াতুল ইসলাম</h1><div class="hero-line"></div>
 <p>প্রতিদিনের দ্বীনি জীবন, এক ঠিকানায়।</p>
 <div class="hero-actions">
@@ -268,10 +267,8 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 </div>
 <div class="hero-meta"><span>নামাজের সময়</span><i></i><span>কুরআন ও দোয়া</span><i></i><span>দৈনিক আমল</span></div>
 </div>
-
-
 </div>
-</div></div>
+</div>
 </section>
 
 <section class="section"><div class="container">
@@ -428,19 +425,85 @@ $("themeBtn").addEventListener("click",()=>{
  updateThemeIcon();
 });
 
-function updateDates(){
+// হিজরি তারিখ: AlAdhan API থেকে নেওয়া হবে
+async function updateDates(){
  const n=new Date();
- $("todayDate").textContent=new Intl.DateTimeFormat("bn-BD",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"Asia/Dhaka"}).format(n);
- $("englishDate").textContent=new Intl.DateTimeFormat("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"Asia/Dhaka"}).format(n);
+
+ $("todayDate").textContent=new Intl.DateTimeFormat("bn-BD",{
+  weekday:"long",
+  day:"numeric",
+  month:"long",
+  year:"numeric",
+  timeZone:"Asia/Dhaka"
+ }).format(n);
+
+ $("englishDate").textContent=new Intl.DateTimeFormat("en-GB",{
+  weekday:"long",
+  day:"numeric",
+  month:"long",
+  year:"numeric",
+  timeZone:"Asia/Dhaka"
+ }).format(n);
+
+ $("year").textContent=n.getFullYear();
+
  try{
-  
-$("hijriDate").textContent=new Intl.DateTimeFormat("bn-BD-u-ca-islamic",{day:"numeric",month:"long",year:"numeric",timeZone:"Asia/Dhaka"}).format(n)+" হিজরি";
-}catch(e){
-$("hijriDate").textContent="হিজরি তারিখ প্রদর্শন করা যাচ্ছে না";
+  const parts=new Intl.DateTimeFormat("en-GB",{
+   timeZone:"Asia/Dhaka",
+   day:"2-digit",
+   month:"2-digit",
+   year:"numeric"
+  }).formatToParts(n);
+
+  const day=parts.find(p=>p.type==="day").value;
+  const month=parts.find(p=>p.type==="month").value;
+  const year=parts.find(p=>p.type==="year").value;
+  const date=`${day}-${month}-${year}`;
+
+  const response=await fetch(
+   `https://api.aladhan.com/v1/gToH/${date}`
+  );
+
+  if(!response.ok)throw new Error("Hijri API error");
+
+  const result=await response.json();
+
+  if(result.code!==200 || !result.data?.hijri){
+   throw new Error("Hijri date unavailable");
+  }
+
+  const h=result.data.hijri;
+
+  const hijriMonths=[
+   "মুহাররম",
+   "সফর",
+   "রবিউল আউয়াল",
+   "রবিউস সানি",
+   "জমাদিউল আউয়াল",
+   "জমাদিউস সানি",
+   "রজব",
+   "শাবান",
+   "রমজান",
+   "শাওয়াল",
+   "জিলকদ",
+   "জিলহজ"
+  ];
+
+  const monthBn=hijriMonths[Number(h.month.number)-1];
+
+  if(!monthBn)throw new Error("Invalid Hijri month");
+
+  $("hijriDate").textContent=
+   `${banglaDigits(h.day)} ${monthBn}, ${banglaDigits(h.year)} হিজরি`;
+
+ }catch(e){
+  $("hijriDate").textContent="হিজরি তারিখ প্রদর্শন করা যাচ্ছে না";
+  console.error("Hijri date error:",e);
+ }
 }
-$("year").textContent=n.getFullYear();
-}
+
 updateDates();
+setInterval(updateDates,60*60*1000);
 
 let prayerData=null,prayerTimezone="Asia/Dhaka",currentCoords=null,locationLabel="ঢাকা (ডিফল্ট অবস্থান)";
 const prayerNames={Fajr:"ফজর",Dhuhr:"যোহর",Asr:"আসর",Maghrib:"মাগরিব",Isha:"ইশা"};
