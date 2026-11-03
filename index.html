@@ -209,6 +209,44 @@ select{background:var(--surface);color:var(--text);border:1px solid var(--border
 @media(prefers-reduced-motion:reduce){
 *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+
+/* বাংলা ও হিজরি তারিখসহ ক্যালেন্ডার */
+#calendarGrid > div:not(.weekday):not(.empty) {
+  min-height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px 2px;
+  text-align: center;
+}
+
+.calendar-en {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.calendar-bn {
+  font-size: 11px;
+  color: #087f5b;
+  line-height: 1.3;
+}
+
+.calendar-hijri {
+  font-size: 11px;
+  color: #b18a36;
+  line-height: 1.3;
+  direction: rtl;
+}
+
+#calendarGrid .today .calendar-bn,
+#calendarGrid .today .calendar-hijri {
+  color: inherit;
+}
+
+ 
 </style>
 </head>
 
@@ -900,75 +938,136 @@ setInterval(()=>{
 },3600000);
 
 
-// মাসিক ক্যালেন্ডার
-let calendarDate=new Date();
 
-const monthNames=[
+// মাসিক ক্যালেন্ডার: বাংলা + ইংরেজি + হিজরি
+
+let calendarDate = new Date();
+
+const monthNames = [
  "জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল",
  "মে","জুন","জুলাই","আগস্ট",
  "সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"
 ];
 
-const weekdays=["রবি","সোম","মঙ্গল","বুধ","বৃহস্পতি","শুক্র","শনি"];
+const weekdays = [
+ "রবি","সোম","মঙ্গল","বুধ",
+ "বৃহস্পতি","শুক্র","শনি"
+];
 
-function renderCalendar(){
-  const nowParts=new Intl.DateTimeFormat("en-GB",{
-    timeZone:"Asia/Dhaka",
-    day:"numeric",
-    month:"numeric",
-    year:"numeric"
-  }).formatToParts(new Date());
+// বাংলা তারিখ
+const banglaCalendar = new Intl.DateTimeFormat(
+ "bn-BD-u-ca-bengali",
+ {
+   day: "numeric",
+   month: "short"
+ }
+);
 
-  const get=t=>Number(nowParts.find(p=>p.type===t).value);
+// আরবি হিজরি তারিখ
+const hijriCalendar = new Intl.DateTimeFormat(
+ "ar-SA-u-ca-islamic-umalqura",
+ {
+   day: "numeric",
+   month: "short"
+ }
+);
 
-  const todayDay=get("day");
-  const todayMonth=get("month")-1;
-  const todayYear=get("year");
-
-  const y=calendarDate.getFullYear();
-  const m=calendarDate.getMonth();
-
-  const first=new Date(y,m,1).getDay();
-  const total=new Date(y,m+1,0).getDate();
-
-  $("monthTitle").textContent=
-    monthNames[m]+" "+banglaDigits(y);
-
-  let html=weekdays.map(d=>
-    `<div class="weekday">${d}</div>`
-  ).join("");
-
-  for(let i=0;i<first;i++){
-    html+='<div class="empty"></div>';
-  }
-
-  for(let d=1;d<=total;d++){
-    const isToday=
-      d===todayDay&&
-      m===todayMonth&&
-      y===todayYear;
-
-    html+=`
-      <div class="${isToday?"today":""}">
-        ${banglaDigits(d)}
-      </div>
-    `;
-  }
-
-  $("calendarGrid").innerHTML=html;
+// তারিখকে নিরাপদভাবে তৈরি
+function calendarSafeDate(y, m, d) {
+ return new Date(y, m, d, 12, 0, 0);
 }
 
-$("prevMonth").addEventListener("click",()=>{
- calendarDate.setMonth(calendarDate.getMonth()-1);
+function renderCalendar() {
+
+ const nowParts = new Intl.DateTimeFormat("en-GB", {
+   timeZone: "Asia/Dhaka",
+   day: "numeric",
+   month: "numeric",
+   year: "numeric"
+ }).formatToParts(new Date());
+
+ const get = t =>
+   Number(nowParts.find(p => p.type === t).value);
+
+ const todayDay = get("day");
+ const todayMonth = get("month") - 1;
+ const todayYear = get("year");
+
+ const y = calendarDate.getFullYear();
+ const m = calendarDate.getMonth();
+
+ const first = new Date(y, m, 1).getDay();
+ const total = new Date(y, m + 1, 0).getDate();
+
+ $("monthTitle").textContent =
+   monthNames[m] + " " + banglaDigits(y);
+
+ let html = weekdays.map(d =>
+   `<div class="weekday">${d}</div>`
+ ).join("");
+
+ for (let i = 0; i < first; i++) {
+   html += '<div class="empty"></div>';
+ }
+
+ for (let d = 1; d <= total; d++) {
+
+   const date = calendarSafeDate(y, m, d);
+
+   const isToday =
+     d === todayDay &&
+     m === todayMonth &&
+     y === todayYear;
+
+   let banglaDate = "--";
+   let hijriDate = "--";
+
+   try {
+     banglaDate = banglaCalendar.format(date);
+   } catch (e) {
+     console.warn("বাংলা তারিখ পাওয়া যায়নি:", e);
+   }
+
+   try {
+     hijriDate = hijriCalendar.format(date);
+   } catch (e) {
+     console.warn("হিজরি তারিখ পাওয়া যায়নি:", e);
+   }
+
+   html += `
+     <div class="${isToday ? "today" : ""}">
+       <span class="calendar-en">
+         ${banglaDigits(d)}
+       </span>
+
+       <span class="calendar-bn">
+         ${banglaDate}
+       </span>
+
+       <span class="calendar-hijri">
+         ${hijriDate}
+       </span>
+     </div>
+   `;
+ }
+
+ $("calendarGrid").innerHTML = html;
+}
+
+$("prevMonth").addEventListener("click", () => {
+ calendarDate.setMonth(calendarDate.getMonth() - 1);
  renderCalendar();
 });
 
-$("nextMonth").addEventListener("click",()=>{
- calendarDate.setMonth(calendarDate.getMonth()+1);
+$("nextMonth").addEventListener("click", () => {
+ calendarDate.setMonth(calendarDate.getMonth() + 1);
  renderCalendar();
 });
 
 renderCalendar();
+
+
+  
 
 // ডিজিটাল তাসবিহ
 let count=0;
